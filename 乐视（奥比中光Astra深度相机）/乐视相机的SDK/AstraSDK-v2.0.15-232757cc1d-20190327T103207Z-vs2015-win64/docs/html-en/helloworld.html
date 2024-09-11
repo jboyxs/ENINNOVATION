@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2 Hello World &mdash; The Astra SDK Book ... documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="The Astra SDK Book ... documentation" href="index.html"/>
+        <link rel="up" title="2 Getting Started" href="gettingstarted.html"/>
+        <link rel="next" title="3 Concepts" href="concepts.html"/>
+        <link rel="prev" title="2.1 Installation" href="installation.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> The Astra SDK Book
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              ...
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="gettingstarted.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Hello World Tutorial</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrievingstreamdata.html">Retrieving Stream Data</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">The Astra SDK Book</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="gettingstarted.html">2 Getting Started</a> &raquo;</li>
+      
+    <li>2.2 Hello World</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/helloworld.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hello-world">
+<h1>2.2 Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h1>
+<p><em>Time Required: ~10 minutes</em></p>
+<p>Want to get a taste of our SDK before diving deeper? Then let&#8217;s get our hands dirty and write some code!</p>
+<p>By the end of this tutorial you should be familiar with:</p>
+<ul class="simple">
+<li>Proper initialization and termination of the SDK</li>
+<li>Reading data from the sensor</li>
+<li>Examining the depth information provided by the Astra&#8217;s depth camera</li>
+</ul>
+<div class="section" id="before-we-begin">
+<h2>Before We Begin<a class="headerlink" href="#before-we-begin" title="Permalink to this headline">¶</a></h2>
+<p>If you skipped over the section where we install the SDK and build the sample applications provided by the SDK, make sure you&#8217;ve at least downloaded and extracted Astra to a folder you can easily access.</p>
+</div>
+<div class="section" id="getting-down-to-business">
+<h2>Getting Down to Business!<a class="headerlink" href="#getting-down-to-business" title="Permalink to this headline">¶</a></h2>
+<p>Our first step will be to set up a basic application as a starting point for progressively adding new functionality.</p>
+<ol class="arabic simple">
+<li>Using your favorite IDE, set up a new console application project and create a new source file called &#8220;main.cpp&#8221;.</li>
+<li>Copy the following into your main.cpp file:</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;astra/astra.hpp&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>Line 1 - astra.hpp must be included in all applications. It is the core of Astra and is required for all C++ based Astra applications.</li>
+<li>Lines 9-10 - We&#8217;ll use <a class="reference external" href="http://en.cppreference.com/w/cpp/io/basic_istream/get">std::cin.get()</a> to make sure we have an opportunity to see our handiwork before our application closes its window.</li>
+</ul>
+</div>
+<div class="section" id="initializing-and-terminating-sdkname">
+<h2>Initializing and Terminating Astra<a class="headerlink" href="#initializing-and-terminating-sdkname" title="Permalink to this headline">¶</a></h2>
+<p>To prepare Astra to do our bidding, we must first initialize Astra, which is unsurprisingly done via the <code class="docutils literal"><span class="pre">initialize</span></code> function. When we&#8217;re ready to end our session with the SDK, we then need to give Astra an opportunity to cleanly shutdown. This is accomplished by calling the <code class="docutils literal"><span class="pre">terminate</span></code> function, which will, among other things, properly turn off attached devices.</p>
+<p>Add the two new lines below:</p>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+</span>
+   <span class="c1">// what will go here? you&#39;ll find out soon!</span>
+
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="trust-but-verify">
+<h2>Trust But Verify<a class="headerlink" href="#trust-but-verify" title="Permalink to this headline">¶</a></h2>
+<p>Before we get ahead of ourselves, let&#8217;s take a moment to make sure that everything is as we expect it. Compile and run the application. The application should start up, print out a series of diagnostic messages to the console, and then patiently wait for you to press the &#8220;Enter&#8221; key. Once pressed, the application should gracefully exit.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Astra by default logs a fair amount of diagnostic information to the console. If you do run into an issue, this can be a great place to start looking for answers.</p>
+</div>
+<p>Next up: Talking to Astra.</p>
+</div>
+<div class="section" id="connecting-to-the-astra">
+<h2>Connecting to the Astra<a class="headerlink" href="#connecting-to-the-astra" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know how to properly initialize and terminate Astra, it&#8217;s time to actually communicate with the Astra sensor. For this, we use the <code class="docutils literal"><span class="pre">StreamSet</span></code> class, which broadly encapsulates the idea of a group of related data sources (think: video and audio from a 2D video camera). For now, however, it&#8217;s sufficient to think of a streamSet as a physical device like the Astra, and the <code class="docutils literal"><span class="pre">StreamSet</span></code> class, your portal to its functionality.</p>
+<p>Between our initialization and termination bookends, let&#8217;s declare a <code class="docutils literal"><span class="pre">StreamSet</span></code> variable.</p>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now, sure, this seems like a small addition from our previous step, but this line is more significant than it appears. Just by declaring and constructing a <code class="docutils literal"><span class="pre">StreamSet</span></code> object, you are instructing Astra to start the process of connecting to the first available Astra sensor it can locate. Cool, right?</p>
+<p>Now that we&#8217;re connected, we&#8217;re ready to do what we came here to do - see through the eyes of the Astra!</p>
+</div>
+<div class="section" id="retrieving-sensor-data">
+<h2>Retrieving Sensor Data<a class="headerlink" href="#retrieving-sensor-data" title="Permalink to this headline">¶</a></h2>
+<p>Time to put our <code class="docutils literal"><span class="pre">StreamSet</span></code> object to good use and get some data. To do this, we&#8217;ll need to read one of the streams that the Astra is providing. Streams contain the data coming from our camera packaged in packets of data called &#8220;frames&#8221;. Astra currently supports a number of types of streams, including depth, color, hand, and point streams.</p>
+<p>In order to access streams from the Astra and get to the frames, we&#8217;ll need a <code class="docutils literal"><span class="pre">StreamReader</span></code> to tap into one of the streams. For the purposes of our application,we&#8217;re going to focus on the depth stream. This stream gives us the distances of anything that our camera sees in pixels, and those pixels are packaged in a frame.</p>
+<ol class="arabic simple">
+<li>First, let&#8217;s create a <code class="docutils literal"><span class="pre">StreamReader</span></code> using our <code class="docutils literal"><span class="pre">StreamSet</span></code>.</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>Line 11 - Creates a <code class="docutils literal"><span class="pre">StreamReader</span></code></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Next we start the depth stream using the <code class="docutils literal"><span class="pre">StreamReader</span></code> that we created in the previous step. Starting the depth stream tells Astra that we&#8217;re interested in getting depth data from our <code class="docutils literal"><span class="pre">StreamSet</span></code>.</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+<span class="hll">   <span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>Line 13 - Starts the depth stream</li>
+</ul>
+<ol class="arabic simple" start="3">
+<li>With our depth stream stared, let&#8217;s pull the latest depth frame from our depth stream. To do this, we&#8217;ll need to first retrieve the latest <code class="docutils literal"><span class="pre">Frame</span></code> through our <code class="docutils literal"><span class="pre">StreamReader</span></code>, then call <code class="docutils literal"><span class="pre">get&lt;T&gt;</span></code> to get the depth frame data from our frame.</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+   <span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">get_latest_frame</span><span class="p">();</span>
+</span><span class="hll">   <span class="k">const</span> <span class="k">auto</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>Line 15 - Retrieves the latest frame</li>
+<li>Line 16 - Gets the depth frame from the latest frame</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li>The only remaining task is to print some data from the depth frame that we just retrieved.</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+   <span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">get_latest_frame</span><span class="p">();</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="hll">   <span class="k">const</span> <span class="kt">int</span> <span class="n">frameIndex</span> <span class="o">=</span> <span class="n">depthFrame</span><span class="p">.</span><span class="n">frame_index</span><span class="p">();</span>
+</span><span class="hll">   <span class="k">const</span> <span class="kt">short</span> <span class="n">pixelValue</span> <span class="o">=</span> <span class="n">depthFrame</span><span class="p">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+</span>
+<span class="hll">   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+</span><span class="hll">             <span class="o">&lt;&lt;</span> <span class="s">&quot;Depth frameIndex: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">frameIndex</span>
+</span><span class="hll">             <span class="o">&lt;&lt;</span> <span class="s">&quot; pixelValue: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pixelValue</span>
+</span><span class="hll">             <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+</span><span class="hll">             <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>Line 18 - Gets a copy of the frame index from our depth frame</li>
+<li>Line 19 - Gets a copy of the value within the first pixel of our depth frame&#8217;s data</li>
+<li>Line 21-25 - Prints the two aforementioned values to the console</li>
+<li>Line 27-28 - Pauses execution so we can soak in our success</li>
+</ul>
+<p>You can go ahead and run your application now to test that everything works. Just like before, a console window should pop up and display diagnostic information. Then, you should see a line with the frame data that we retrieved. Press enter when you&#8217;re done.</p>
+<p>You just retrieved your first frame from Astra! There&#8217;s one more task before you graduate from our Astra crash course, and that&#8217;s working with a sequence of frames.</p>
+</div>
+<div class="section" id="consuming-a-streamset-stream">
+<h2>Consuming a StreamSet stream<a class="headerlink" href="#consuming-a-streamset-stream" title="Permalink to this headline">¶</a></h2>
+<p>Now that you know how to create a <code class="docutils literal"><span class="pre">StreamReader</span></code> and get a frame from it, you&#8217;re ready to work with a stream of frames. To do this, we only need to make a small change and loop over our call to the <code class="docutils literal"><span class="pre">StreamReader</span></code>&#8216;s <code class="docutils literal"><span class="pre">get_latest_frame</span></code> function. In this particular case, we&#8217;re going to get the first 100 frames from our depth stream and print the value of each frame&#8217;s first pixel to the console.</p>
+<p>The following code is highly similar to the code from our last example, except we&#8217;ve added a <code class="docutils literal"><span class="pre">do</span> <span class="pre">while</span></code> loop around our frame processing code, in addition to some variables that store the number of times we&#8217;ve looped and the maximum number of frames we want to process.</p>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+   <span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="hll">   <span class="k">const</span> <span class="kt">int</span> <span class="n">maxFramesToProcess</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span><span class="hll">   <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span>
+   <span class="k">do</span> <span class="p">{</span>
+      <span class="n">astra</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">get_latest_frame</span><span class="p">();</span>
+      <span class="k">const</span> <span class="k">auto</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+
+      <span class="k">const</span> <span class="kt">int</span> <span class="n">frameIndex</span> <span class="o">=</span> <span class="n">depthFrame</span><span class="p">.</span><span class="n">frame_index</span><span class="p">();</span>
+      <span class="k">const</span> <span class="kt">short</span> <span class="n">pixelValue</span> <span class="o">=</span> <span class="n">depthFrame</span><span class="p">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot;Depth frameIndex: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">frameIndex</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot; pixelValue: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pixelValue</span>
+                <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+                <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+      <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+   <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="n">maxFramesToProcess</span><span class="p">);</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Press any key to continue...&quot;</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>Line 15 - Stores the maximum number of frames we&#8217;re going to process in the loop</li>
+<li>Line 16 - Sentinel to count the number of frames that we&#8217;ve processed</li>
+<li>Line 18-32 - The frame processing loop</li>
+</ul>
+<p>Compile and run. While the program is running and the Astra is focused on you, move around a bit and watch the data values on the frames change.</p>
+<p>Achievement get! You&#8217;ve just made your first Astra application! If you haven&#8217;t had your fill of fun with Astra yet, continue on to our Simple Depth Viewer Tutorial.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="concepts.html" class="btn btn-neutral float-right" title="3 Concepts" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="2.1 Installation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &copy; 2015 Orbbec.
+
+    </p>
+  </div>
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'...',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

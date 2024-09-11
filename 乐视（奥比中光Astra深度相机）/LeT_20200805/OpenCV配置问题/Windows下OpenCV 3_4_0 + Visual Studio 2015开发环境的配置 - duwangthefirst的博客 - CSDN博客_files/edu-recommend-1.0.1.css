@@ -1,0 +1,27 @@
+.edu-ad-list .recommend-item-box {
+	background: rgb(255, 255, 255); padding: 0px !important;
+}
+.edu-ad-list .recommend-item-box h4 {
+	color: rgb(61, 61, 61); line-height: 24px; font-size: 18px; margin-bottom: 6px; display: inline-block;
+}
+.edu-ad-list .type_blog .content .desc {
+	width: 76%; overflow: hidden; vertical-align: bottom; display: inline-block; white-space: nowrap !important; -ms-text-overflow: ellipsis;
+}
+.edu-ad-list * {
+	font-family: "Microsoft YaHei","SF Pro Display",Roboto,Noto,Arial,"PingFang SC",sans-serif; -ms-word-wrap: break-word;
+}
+.edu-ad-list .recommend-item-box p.content a {
+	color: rgb(153, 153, 153); font-size: 14px; text-decoration: none;
+}
+.edu-ad-list .type_blog .content .blog_title_box {
+	width: 23%; text-align: right; color: rgb(153, 153, 153); font-size: 14px; float: right; display: flex;
+}
+.edu-ad-list .type-show-edu {
+	color: rgb(247, 115, 122);
+}
+.edu-ad-list .type-show-after::after {
+	width: 1px; height: 12px; margin-right: 5px; margin-left: 8px; vertical-align: middle; display: inline-block; content: " "; background-color: rgb(224, 224, 224);
+}
+.edu-ad-list .type_blog .content .blog_title_box .blog_title {
+	padding-left: 4px; vertical-align: bottom;
+}

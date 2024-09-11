@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4 获取流数据 &mdash; The Astra SDK Book ... 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="The Astra SDK Book ... 文档" href="index.html"/>
+        <link rel="next" title="4.2 Simple Depth Reader" href="simpledepthreader.html"/>
+        <link rel="prev" title="3 概念" href="concepts.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> The Astra SDK Book
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              ...
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Retrieving Stream Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simpledepthreader.html">Simple Depth Reader</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">The Astra SDK Book</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>4 获取流数据</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/retrievingstreamdata.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="retrieving-stream-data">
+<h1>4 获取流数据<a class="headerlink" href="#retrieving-stream-data" title="永久链接至标题">¶</a></h1>
+<div class="section" id="stream-types">
+<h2>流的类型<a class="headerlink" href="#stream-types" title="永久链接至标题">¶</a></h2>
+<p>Astra SDK 支持各种类型的流类型。底层的流类型由摄像头生成并且通过SDK传输给应用程序。上层的流类型则是通过SDK的插件从底层的流类型高效地运算得到的。一般来说，我们应该首选可用的上层流。</p>
+<div class="section" id="low-level">
+<h3>底层<a class="headerlink" href="#low-level" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first last">流类型</p>
+</th>
+<th class="head"><p class="first last">描述</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ColorStream</td>
+<td><p class="first last">来自摄像头的RGB像素数据。每个 <code class="docutils literal"><span class="pre">ColorFrame</span></code> 中的数组 <code class="docutils literal"><span class="pre">data</span></code> 包含 0-255之间的数值，这些数值代表每个像素每个色彩通道的值</p>
+</td>
+</tr>
+<tr class="row-odd"><td>DepthStream</td>
+<td><p class="first last">来自摄像头的深度数据。每个 <code class="docutils literal"><span class="pre">DepthFrame</span></code> 中的数组 <code class="docutils literal"><span class="pre">data</span></code> 包含了摄像头 视场范围内每个像素的值，单位是毫米</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="higher-level">
+<h3>上层<a class="headerlink" href="#higher-level" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first last">流类型</p>
+</th>
+<th class="head"><p class="first last">描述</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>PointStream</td>
+<td><p class="first last">从深度数据计算的世界坐标点云(XYZ)。 每个 <code class="docutils literal"><span class="pre">PointFrame</span></code> 的 <code class="docutils literal"><span class="pre">data</span></code> 数组元素是 <code class="docutils literal"><span class="pre">astra:Vector3f</span></code> 类型的， 通过访问其 <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code> 和 <code class="docutils literal"><span class="pre">z</span></code> 值可以方便地访问每个像素</p>
+</td>
+</tr>
+<tr class="row-odd"><td>HandStream</td>
+<td><p class="first last">从深度数据计算出来的手点。 对每一个 <code class="docutils literal"><span class="pre">HandFrame</span></code>， 在任一给定时间点从 <code class="docutils literal"><span class="pre">HandFrame::handpoint_count</span></code> 函数可以得到点的数量， 通过 <code class="docutils literal"><span class="pre">HandFrame::handpoints</span></code> 函数还可以得到 <code class="docutils literal"><span class="pre">astra::HandFrame::HandPointList</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="getting-the-data">
+<h2>获取数据<a class="headerlink" href="#getting-the-data" title="永久链接至标题">¶</a></h2>
+<p>Astra SDK 提供了两个方法来获取流数据。根据您应用的特定需求和其复杂度， 两个方法中总有一个更为适用的方法。</p>
+<div class="section" id="polling">
+<h3>轮询<a class="headerlink" href="#polling" title="永久链接至标题">¶</a></h3>
+<p>通过轮询的方法来获取流数据是一种比较直接的方法。在Hello World教程里我们采用的就是这种方法。使用这种方法很简单，你只需要调用  <code class="docutils literal"><span class="pre">StreamReader</span></code> 的 <code class="docutils literal"><span class="pre">get_latest_frame</span></code> 函数，然后用模板函数 <code class="docutils literal"><span class="pre">get&lt;T&gt;</span></code> 来返回得到特定类型的帧。在这里 &#8220;<code class="docutils literal"><span class="pre">T</span></code>&#8221; 必须是一个有效的帧类型。函数 <code class="docutils literal"><span class="pre">get_latest_frame</span></code> 是阻塞式的，在下一帧数据到来之前，程序将被挂起。如果你想限制阻塞时间，可以给 <code class="docutils literal"><span class="pre">get_latest_frame</span></code> 函数传递一个 <code class="docutils literal"><span class="pre">timeout</span></code> 变量。</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+<span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+<span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="hll"><span class="n">astra</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">get_latest_frame</span><span class="p">();</span>
+</span><span class="hll"><span class="k">const</span> <span class="k">auto</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+</span>
+<span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="first">通过轮询的方法读取一帧深度帧</p>
+</li>
+</ul>
+</div>
+<div class="section" id="listening">
+<h3>侦听<a class="headerlink" href="#listening" title="永久链接至标题">¶</a></h3>
+<p>通过侦听的方法来获取数据需要事先做一些设置，这种方法允许开发者将帧的处理委托给一个或多个不同的类。 Astra SDK 提供了一个叫  <code class="docutils literal"><span class="pre">FrameListener</span></code> 的抽象类，该类只实现了一个叫 <code class="docutils literal"><span class="pre">FrameListener::on_frame_ready</span></code> 的函数。当数据帧到来的时候， 该类会立即调用 <code class="docutils literal"><span class="pre">FrameListener::on_frame_ready</span></code> 并且将帧的引用作为参数传入。</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DepthFrameListener</span> <span class="o">:</span> <span class="k">public</span> <span class="n">astra</span><span class="o">::</span><span class="n">FrameListener</span>
+<span class="p">{</span>
+   <span class="k">virtual</span> <span class="kt">void</span> <span class="n">on_frame_ready</span><span class="p">(</span><span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span><span class="o">&amp;</span> <span class="n">reader</span><span class="p">,</span>
+                               <span class="n">astra</span><span class="o">::</span><span class="n">Frame</span><span class="o">&amp;</span> <span class="n">frame</span><span class="p">)</span> <span class="k">override</span>
+   <span class="p">{</span>
+      <span class="k">const</span> <span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">depthFrame</span><span class="p">.</span><span class="n">is_valid</span><span class="p">())</span>
+      <span class="p">{</span>
+         <span class="c1">// do all the things</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="first">从 <code class="docutils literal"><span class="pre">frame_listener</span></code> 继承的listener类示例</p>
+</li>
+</ul>
+<p>定义了 listener 类，您还必须在您的应用程序里将这个listener实例化并且用 <code class="docutils literal"><span class="pre">StreamReader::add_listener</span></code> 函数将其添加到 <code class="docutils literal"><span class="pre">StreamReader</span></code> 之后才能使用它。</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+<span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+<span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="hll"><span class="n">DepthFrameListener</span> <span class="n">listener</span><span class="p">;</span>
+</span><span class="hll"><span class="n">reader</span><span class="p">.</span><span class="n">add_listener</span><span class="p">(</span><span class="n">listener</span><span class="p">);</span>
+</span>
+<span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra_update</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="first">listener使用示例。实际使用的时候，对 <code class="docutils literal"><span class="pre">astra_update</span></code> 的循环调用必须持续到程序要关闭的时候，或者别的特定事件发生的时候。</p>
+</li>
+</ul>
+<p>添加了listener之后，我们需要通过循环调用 <code class="docutils literal"><span class="pre">astra_update</span></code> 函数来触发事件。通过这种调用，SDK可以检查是否有新的一帧数据到来，如果是，比如在本例子里，将调用 <code class="docutils literal"><span class="pre">DepthFrameListener::on_frame_ready</span></code> 函数，并且传入当前帧的引用。</p>
+<p>如果想要了解更实际的listener使用，可以查看 <a class="reference internal" href="simpledepthreader.html"><em>Simple Depth Reader Tutorial</em></a>.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="simpledepthreader.html" class="btn btn-neutral float-right" title="4.2 Simple Depth Reader" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="concepts.html" class="btn btn-neutral" title="3 概念" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &copy; 2015 Orbbec.
+
+    </p>
+  </div>
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'...',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

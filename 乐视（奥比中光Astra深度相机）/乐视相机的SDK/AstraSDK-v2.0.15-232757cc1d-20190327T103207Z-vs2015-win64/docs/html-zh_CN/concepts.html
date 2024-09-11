@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3 概念 &mdash; The Astra SDK Book ... 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="The Astra SDK Book ... 文档" href="index.html"/>
+        <link rel="next" title="4 获取流数据" href="retrievingstreamdata.html"/>
+        <link rel="prev" title="2.2 Hello World" href="helloworld.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> The Astra SDK Book
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              ...
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Concepts</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="retrievingstreamdata.html">Retrieving Stream Data</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">The Astra SDK Book</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>3 概念</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/concepts.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="concepts">
+<h1>3 概念<a class="headerlink" href="#concepts" title="永久链接至标题">¶</a></h1>
+<p>我们已经完成了 Astra SDK 的安装过程，并熟悉了一些基本的操作，现在让我们将视线转移到SDK的三个核心概念 - streams，streamsets and readers。了解这些概念对于我们后期的开发和应用有着至关重要的意义。此外，深入理解这三个概念对于后期深入研发以及快速上手未来可能发布的SDK新功能都会有极大的帮助。</p>
+<div class="section" id="streams">
+<h2>3.1 Streams（流）<a class="headerlink" href="#streams" title="永久链接至标题">¶</a></h2>
+<p>Streams是从特定数据源发出的连续帧形成的流。可以简单理解为老电影的拍摄播放模式，由录制的一张张的图像连续输出而形成的视频。每一张图像可看作一帧，Streams可以理解为一部连续的视频。Streams与视频的不同点是，stream并不需要有结束点。</p>
+<div class="figure align-center" id="id1" style="width: 600px">
+<a class="reference internal image-reference" href="_images/USN16mmSoundtrack.jpg"><img alt="_images/USN16mmSoundtrack.jpg" src="_images/USN16mmSoundtrack.jpg" style="width: 193.2px; height: 342.0px;" /></a>
+<p class="caption"><span class="caption-text">图片出处 美国海军Cmacd123，出自en.wikipedia [Public domain], Wikimedia Commons</span></p>
+</div>
+<p>Streams有很多不同的形式。例如，彩色帧组成彩色视频流，深度帧组成深度视频流。以上两种视频一般都来源于实体相机（Astra等），然而一些视频流也可以利用SDK中的‘plugins’来生成（更多关于‘plugins’的内容，会在后面介绍）。以SDK中的手势追踪（hand tracker）来举例，此手部视频流是利用深度流的数据来生成的。</p>
+</div>
+<div class="section" id="streamsets">
+<h2>3.2 StreamSets（流集）<a class="headerlink" href="#streamsets" title="永久链接至标题">¶</a></h2>
+<p>StreamSets是一组相互有联系的streams。接着上面关于老电影的比喻，现代的电影不止有连续的视频，同时也会有音频。视频和音频相结合即为电影，两者缺一不可。这种声音和图像组成的结合体即可理解为一种streamsets。</p>
+<p>streamset可以包含从实体相机中输出的数据，也可以包含其他从SDK 插件中生成的数据。比如Astra相机就可以看成是由彩色和深度视频流，以及中间件生成的流（比如手势追踪数据）组成的streamset。</p>
+<p>每个Streamsets都用一个唯一的URI字符串来做标识，这使得开发者在开发过程中可以同时调用多个不同的streamsets。这个方法对于需要同时调用多个streamsets的情况提供了极大的帮助，此方法同样可应用于访问网络服务器产生的上层stream。</p>
+</div>
+<div class="section" id="streamreaders">
+<h2>3.3 StreamReaders（流读取器）<a class="headerlink" href="#streamreaders" title="永久链接至标题">¶</a></h2>
+<p>StreamReader是我们查看stream里面每一帧的窗口。在读取来自streamsets中的任意一帧数据时，我们需要使用streamset去创建一个读取工具来访问stream里的每一帧。我们再次以老电影为例来解释Reader的作用。当一部电影包含了所用需要的音频和视频信息后，电影本身并不具备播放功能。此时需要另一台设备，卷筒式放映机。放映机不仅可以读取电影信息并投射到屏幕上，同时也可以将视频和音频同步，从而达到最佳播放效果。</p>
+<div class="figure align-center" id="id2" style="width: 600px">
+<a class="reference internal image-reference" href="_images/Projector_running.jpg"><img alt="_images/Projector_running.jpg" src="_images/Projector_running.jpg" style="width: 230.4px; height: 307.2px;" /></a>
+<p class="caption"><span class="caption-text">图片出处 christian razukas from Honolulu, Hawaii (Hawaii Theatre Projection Booth) [CC BY-SA 2.0 (<a class="reference external" href="http://creativecommons.org/licenses/by-sa/2.0">http://creativecommons.org/licenses/by-sa/2.0</a>)], Wikimedia Commons</span></p>
+</div>
+<p>StreamReader的作用与卷筒式放映机大致相同。它可以接受来自streamset（比如电影）的特定流信息同时输出每一帧的信息到目标软件中（即放映机）。每个reader可以同时读取许多不同规格类型的streams。一个streamset可以同时在目标程序中拥有多个可以读取其中数据的reader。如果一个reader同时读取了多个不同的streams，通常在传递到目标前，reader都会将数据进行同步后再输出。</p>
+</div>
+<div class="section" id="a-flexible-scalable-pattern">
+<h2>3.4 灵活，可扩展的模式<a class="headerlink" href="#a-flexible-scalable-pattern" title="永久链接至标题">¶</a></h2>
+<p>现在，您应该已经对于 Astra SDK如何获取和传递从相机中取得的数据有了一些初步的了解。总结来说，每一种从相机中获取的数据均会以帧（frame）的形式存储，连续的帧即为流（stream），streamsets是由不同又相互联系的流组成，可以使用StreamReader来进行数据读取和传递。</p>
+<p>那么为什么要使用这种模式呢？因为灵活，可扩展。由于streams可以包含任何类型的数据，即使未来出现一些目前Astra还不支持的新数据，这样的架构也可以通过插件（plugin）的形式轻松加入新的streams类型。更有利的一点是，在加入新的streams类型时，这些新streams都会遵循现有的模式，所以在有新内容加入时，并不需要重新学习新的工作模式。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="retrievingstreamdata.html" class="btn btn-neutral float-right" title="4 获取流数据" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="helloworld.html" class="btn btn-neutral" title="2.2 Hello World" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &copy; 2015 Orbbec.
+
+    </p>
+  </div>
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'...',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

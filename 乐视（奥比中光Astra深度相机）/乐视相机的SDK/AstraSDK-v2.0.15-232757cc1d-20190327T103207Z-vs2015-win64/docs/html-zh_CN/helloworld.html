@@ -1,0 +1,634 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2 Hello World &mdash; The Astra SDK Book ... 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="The Astra SDK Book ... 文档" href="index.html"/>
+        <link rel="up" title="2 入门" href="gettingstarted.html"/>
+        <link rel="next" title="3 概念" href="concepts.html"/>
+        <link rel="prev" title="2.1 安装" href="installation.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> The Astra SDK Book
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              ...
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="gettingstarted.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Hello World Tutorial</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrievingstreamdata.html">Retrieving Stream Data</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">The Astra SDK Book</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="gettingstarted.html">2 入门</a> &raquo;</li>
+      
+    <li>2.2 Hello World</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/helloworld.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hello-world">
+<h1>2.2 Hello World<a class="headerlink" href="#hello-world" title="永久链接至标题">¶</a></h1>
+<p><em>Time Required: ~10 minutes</em></p>
+<p>想在深入细节之前简要了解下我们的SDK？那我们现在就动手写些代码吧！</p>
+<p>看完这个指引，您将熟悉这些方面：</p>
+<ul class="simple">
+<li><p class="first">正确的初始化和结束SDK</p>
+</li>
+<li><p class="first">从摄像头读取数据</p>
+</li>
+<li><p class="first">检查ASTRA的深度相机提供的深度信息</p>
+</li>
+</ul>
+<div class="section" id="before-we-begin">
+<h2>准备工作<a class="headerlink" href="#before-we-begin" title="永久链接至标题">¶</a></h2>
+<p>如果您跳过了SDK的安装和例程编译环节，请确保至少将 Astra 下载并解压到一个方便访问的目录下。</p>
+</div>
+<div class="section" id="getting-down-to-business">
+<h2>现在开始吧！<a class="headerlink" href="#getting-down-to-business" title="永久链接至标题">¶</a></h2>
+<p>我们的第一步是配置基本的应用程序，作为后面添加新功能的一个起点。</p>
+<ol class="arabic simple">
+<li><p class="first">使用你喜欢的IDE，新建一个命令行程序工程并且新建一个叫&#8221;main.cpp&#8221;的源文件。</p>
+</li>
+<li><p class="first">拷贝下面的代码到你的main.cpp文件：</p>
+</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;astra/astra.hpp&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p class="first">Line 1 - astra.hpp 是所有基于本SDK的应用程序都必须包含的文件。这是 Astra 的核心，是所有基于 Astra 的C++程序都需要的。</p>
+</li>
+<li><p class="first">Lines 9-10 - 我们将用 <a class="reference external" href="http://en.cppreference.com/w/cpp/io/basic_istream/get">std::cin.get()</a>  来确保程序关闭窗口之前看到打印信息。</p>
+</li>
+</ul>
+</div>
+<div class="section" id="initializing-and-terminating-sdkname">
+<h2>初始化和结束 Astra<a class="headerlink" href="#initializing-and-terminating-sdkname" title="永久链接至标题">¶</a></h2>
+<p>让 Astra 工作，我们首先要初始化 Astra , 毫无疑问，这通过调用 <code class="docutils literal"><span class="pre">initialize</span></code> 来实现。当我们不需要用SDK的时候，我们需要彻底关闭它，关闭的方法就是调用 <code class="docutils literal"><span class="pre">terminate</span></code> 函数，该函数会关闭设备和释放其它资源。</p>
+<p>下面再添加两行代码：</p>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+</span>
+   <span class="c1">// what will go here? you&#39;ll find out soon!</span>
+
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="trust-but-verify">
+<h2>确认效果<a class="headerlink" href="#trust-but-verify" title="永久链接至标题">¶</a></h2>
+<p>继续下一步之前，我们先花点时间来确认到目前为止一切正常。编译并运行程序。程序应该会被启动，并且打印一些诊断信息到命令行，然后开始等待用户按Enter键。按完Enter，程序就会退出。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Astra 默认情况下会输出诊断信息到命令行窗口。如果使用过程中碰到问题，可以查看这些log来寻找答案。</p>
+</div>
+<p>下一步: 和Astra对话。</p>
+</div>
+<div class="section" id="connecting-to-the-astra">
+<h2>连接Astra<a class="headerlink" href="#connecting-to-the-astra" title="永久链接至标题">¶</a></h2>
+<p>我们已经知道怎样初始化和关闭 Astra，现在开始做一些实际的操作。为此我们会用到 <code class="docutils literal"><span class="pre">StreamSet</span></code> 类，该类封装了各种数据源（比如：2D摄像头的视频和音频）。我们暂且可以把streamSet当成一个类似Astra的物理设备，而 <code class="docutils literal"><span class="pre">StreamSet</span></code> 类，则是访问这个设备的功能接口。</p>
+<p>现在我们在初始化和关闭之间定义一个 <code class="docutils literal"><span class="pre">StreamSet</span></code> 变量。</p>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>这里看起来只是简单添加了一行代码，但这行代码实际做的事情比表面上看到的多很多。只是简单声明和构造一个 <code class="docutils literal"><span class="pre">StreamSet</span></code> 对象， Astra 就会自动去查找并连接Astra设备。是不是很酷？</p>
+<p>既然设备已经连接，我们就可以做些其它事情了 - 让我们通过Astra的眼睛来观察这个3D世界！</p>
+</div>
+<div class="section" id="retrieving-sensor-data">
+<h2>读取摄像头数据<a class="headerlink" href="#retrieving-sensor-data" title="永久链接至标题">¶</a></h2>
+<p>现在是时候利用我们的 <code class="docutils literal"><span class="pre">StreamSet</span></code> 对象来获取一些数据了。我们来试试读取Astra提供的其中一个数据流。数据流包含的是摄像头输出的多帧(frames)数据的集合。 Astra 目前支持几种类型的数据流，包括深度，彩色，手点和点云。</p>
+<p>为了从Astra的数据流里拿到一帧帧的数据，我们需要 <code class="docutils literal"><span class="pre">StreamReader</span></code> 去访问这些数据。在本例程里，我们只读取深度数流。深度流给我们提供的是摄像头每一帧每一个像素看到的场景距离信息。</p>
+<ol class="arabic simple">
+<li><p class="first">首先，我们用 <code class="docutils literal"><span class="pre">StreamSet</span></code> 来创建一个 <code class="docutils literal"><span class="pre">StreamReader</span></code> 。</p>
+</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p class="first">Line 11 - 创建一个 <code class="docutils literal"><span class="pre">StreamReader</span></code></p>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p class="first">然后我们用 <code class="docutils literal"><span class="pre">StreamReader</span></code> 来启动深度流。 启动深度流实际上是告诉 Astra ，我们想从 <code class="docutils literal"><span class="pre">StreamSet</span></code> 里读数据。</p>
+</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+<span class="hll">   <span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p class="first">Line 13 - 启动深度数据流</p>
+</li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p class="first">深度数据流启动之后，我们就可以从这个流获取到当前最新的一帧深度数据。首先，用 <code class="docutils literal"><span class="pre">StreamReader</span></code> 来获取最新的 <code class="docutils literal"><span class="pre">Frame</span></code> ，然后调用 <code class="docutils literal"><span class="pre">get&lt;T&gt;</span></code> 来读取该深度帧的数据。</p>
+</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+   <span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="hll">   <span class="n">astra</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">get_latest_frame</span><span class="p">();</span>
+</span><span class="hll">   <span class="k">const</span> <span class="k">auto</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p class="first">Line 15 - 读取最新的一帧</p>
+</li>
+<li><p class="first">Line 16 - 从最新的一帧中获取深度信息</p>
+</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p class="first">剩下的唯一工作就是将之前获取的一些深度信息打印出来了。</p>
+</li>
+</ol>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+   <span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">get_latest_frame</span><span class="p">();</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="hll">   <span class="k">const</span> <span class="kt">int</span> <span class="n">frameIndex</span> <span class="o">=</span> <span class="n">depthFrame</span><span class="p">.</span><span class="n">frame_index</span><span class="p">();</span>
+</span><span class="hll">   <span class="k">const</span> <span class="kt">short</span> <span class="n">pixelValue</span> <span class="o">=</span> <span class="n">depthFrame</span><span class="p">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+</span>
+<span class="hll">   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+</span><span class="hll">             <span class="o">&lt;&lt;</span> <span class="s">&quot;Depth frameIndex: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">frameIndex</span>
+</span><span class="hll">             <span class="o">&lt;&lt;</span> <span class="s">&quot; pixelValue: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pixelValue</span>
+</span><span class="hll">             <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+</span><span class="hll">             <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p class="first">Line 18 - 从深度帧中得到帧索引的一个拷贝</p>
+</li>
+<li><p class="first">Line 19 - 得到该深度帧数据的第一个像素的值拷贝</p>
+</li>
+<li><p class="first">Line 21-25 - 将上面读取的两个值打印到命令行窗口</p>
+</li>
+<li><p class="first">Line 27-28 - 暂停程序以便查看打印结果</p>
+</li>
+</ul>
+<p>现在您可以运行下程序看看是否一切都正常了。跟之前一样，运行的时候一个命令行窗口会弹出并且显示一些打印信息。然后您会看到一行帧数据被打印出来，这个时候按Enter键就可以结束了。</p>
+<p>您刚刚从 Astra 拿到了第一帧数据！接下来还有一些 Astra 任务需要完成，就是如何处理多帧数据。</p>
+</div>
+<div class="section" id="consuming-a-streamset-stream">
+<h2>读取 StreamSet 流<a class="headerlink" href="#consuming-a-streamset-stream" title="永久链接至标题">¶</a></h2>
+<p>你已经知道怎么创建一个 <code class="docutils literal"><span class="pre">StreamReader</span></code> 并且从中读取一帧数据，接下来就可以开始读取多帧数据了。为此我们只需要做点小小的改动，我们在 <code class="docutils literal"><span class="pre">StreamReader</span></code> 的 <code class="docutils literal"><span class="pre">get_latest_frame</span></code> 函数外面添加一个循环即可。在这个例程里，我们将读取深度流的前面100帧并将每一帧的第一个像素值打印到命令行窗口。</p>
+<p>下面的代码跟上面的例子非常相像，差别在于多了一个 <code class="docutils literal"><span class="pre">do</span> <span class="pre">while</span></code> 循环，一个保存循环次数的变量，以及待处理的最大帧数。</p>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span>
+   <span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+   <span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="hll">   <span class="k">const</span> <span class="kt">int</span> <span class="n">maxFramesToProcess</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span><span class="hll">   <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span>
+   <span class="k">do</span> <span class="p">{</span>
+      <span class="n">astra</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">get_latest_frame</span><span class="p">();</span>
+      <span class="k">const</span> <span class="k">auto</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+
+      <span class="k">const</span> <span class="kt">int</span> <span class="n">frameIndex</span> <span class="o">=</span> <span class="n">depthFrame</span><span class="p">.</span><span class="n">frame_index</span><span class="p">();</span>
+      <span class="k">const</span> <span class="kt">short</span> <span class="n">pixelValue</span> <span class="o">=</span> <span class="n">depthFrame</span><span class="p">.</span><span class="n">data</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot;Depth frameIndex: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">frameIndex</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot; pixelValue: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pixelValue</span>
+                <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+                <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+      <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+   <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="n">maxFramesToProcess</span><span class="p">);</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Press any key to continue...&quot;</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hit enter to exit program&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p class="first">Line 15 - 保存待处理的最大帧数</p>
+</li>
+<li><p class="first">Line 16 - 记录已经处理的帧数</p>
+</li>
+<li><p class="first">Line 18-32 - 帧处理循环</p>
+</li>
+</ul>
+<p>编译并运行。当程序运行的时候，将Astra的摄像头对准自己，稍微动一下，即可看到打印的数字变化。</p>
+<p>任务完成！ 你刚刚做了一个 Astra 的应用程序！ 如果还想学习更多 Astra 相关应用，请继续阅读我们的Simple Depth Viewer指引。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="concepts.html" class="btn btn-neutral float-right" title="3 概念" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="2.1 安装" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &copy; 2015 Orbbec.
+
+    </p>
+  </div>
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'...',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

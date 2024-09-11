@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Astra SDK &mdash; The Astra SDK Book ... 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="The Astra SDK Book ... 文档" href="#"/>
+        <link rel="next" title="2 入门" href="gettingstarted.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="#" class="icon icon-home"> The Astra SDK Book
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              ...
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrievingstreamdata.html">Retrieving Stream Data</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">The Astra SDK Book</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>The Astra SDK</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-sdkname-sdk">
+<h1>The Astra SDK<a class="headerlink" href="#the-sdkname-sdk" title="永久链接至标题">¶</a></h1>
+<p>欢迎阅读 Astra SDK的使用教程！ Astra SDK提供了详尽的教程来帮您通过我们简单但有力的API去了解Astra相机的所有功能。</p>
+<p>此教程对于有以下需求的开发者来说会有很大的帮助：</p>
+<ul class="simple">
+<li><p class="first">快速使用 Astra SDK 进行开发</p>
+</li>
+<li><p class="first">深层理解SDK中的一些上层概念</p>
+</li>
+<li><p class="first">查找SDK提供的特定函数或功能的细节信息</p>
+</li>
+</ul>
+<p>&#8220;Astra SDK&#8221; 从下面的简单介绍开始，分为以下几个章节:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrievingstreamdata.html">Retrieving Stream Data</a></li>
+</ul>
+</div>
+<p>当您完成以下简单介绍后，可以跳转至 <a class="reference internal" href="gettingstarted.html"><em>Getting Started</em></a> 章节来学习我们提供的例程。</p>
+</div>
+<div class="section" id="introduction">
+<h1>介绍<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h1>
+<p>此SDK的设计目标是提供世界上最好的3D相机开发体验。为实现此目标，奥比中光开发团队汲取了百家之长以及前人的经验教训来帮助开发者进行创新，去除无用的复杂和容易影响适配的结构，令开发者享受使用 Astra SDK 的开发过程。</p>
+</div>
+<div class="section" id="low-ceremony-design">
+<h1>低仪式感设计<a class="headerlink" href="#low-ceremony-design" title="永久链接至标题">¶</a></h1>
+<p>此SDK的设计者本身也是有着多年经验的3D相机开发者，他们非常清楚3D相机应用开发中最常用的功能有哪些。 Astra SDK通过前后一致和易懂的API而不是一些样板代码来获取相机数据，这些API将stream分成了上层类型和底层类型。具体请参考以下代码：</p>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+<span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span> <span class="c1">//By default, a StreamSet will address the Astra</span>
+<span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+<span class="c1">// Low-Level Streams</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">ColorStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="c1">//High-Level Streams</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">HandStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">PointStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="n">astra</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">get_latest_frame</span><span class="p">();</span>
+
+<span class="c1">//Low-Level Streams</span>
+<span class="k">const</span> <span class="k">auto</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">const</span> <span class="k">auto</span> <span class="n">colorFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">ColorFrame</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="c1">//High-Level Streams</span>
+<span class="k">const</span> <span class="k">auto</span> <span class="n">handFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">HandFrame</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">const</span> <span class="k">auto</span> <span class="n">pointFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">PointFrame</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>首先，我们在第一行创建了 <code class="docutils literal"><span class="pre">StreamSet</span></code> 对象。不需要额外的参数调整，它会默认找到Astra相机。在之后的几行代码中，您都可以看到，不管stream的类型是什么，用来交互的API都是同一个。</p>
+<p>如果您是拥有多年经验的3d相机开发者，担心此SDK是不是只是为一些简单的应用设计的，完全不必担心， Astra SDK还可以处理一些平时并不常见的情况，通常只需将不同的参数传递给对象构造函数即可。 简单来说，无论您的程序有多复杂， Astra SDK 都能胜任。</p>
+</div>
+<div class="section" id="cross-everything">
+<h1>全平台支持<a class="headerlink" href="#cross-everything" title="永久链接至标题">¶</a></h1>
+<p>Astra SDK通过C语言API来实现核心功能，同时也提供了C++11 API。以此为基础，我们的SDK可以实现对不同语言和平台的支持:</p>
+<div class="section" id="currently-supported">
+<h2>目前已支持<a class="headerlink" href="#currently-supported" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>Languages: C, C++11, Java, C#</li>
+<li><p class="first">平台： Windows, OSX, Linux, Android</p>
+</li>
+<li><p class="first">框架： Unity3D</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mobile">
+<h1>移动端<a class="headerlink" href="#mobile" title="永久链接至标题">¶</a></h1>
+<p>近几年，移动设备的发展十分迅速，处理性能越来越强大。但是相对于桌面平台来说，还是具有一定的局限性。正因如此，我们开发 Astra SDK的过程中，时刻以低CPU和内存占用为主要目标，从而最大限度地提升SDK在移动设备上的能效和用户体验</p>
+</div>
+<div class="section" id="extensibility">
+<h1>可扩展性<a class="headerlink" href="#extensibility" title="永久链接至标题">¶</a></h1>
+<p>也许 Astra SDK中最强大的功能就是插件（plugins）了。它为高级开发者提供了扩展SDK功能的方法，同时又保证了这些扩展功能跟现有功能的一致性。实际上，所有SDK‘内置’的streams类型，均是通过插件（plugins）来实现的。</p>
+<p>插件（Plugins）不仅仅局限于可以加入不同的streams类型。想象下您想利用访问单一摄像头那样的API来访问多个联网的摄像头的情况。‘Plugins’提供了无限的可能性。随着SDK的成熟，后续一定会有更多的第三方插件对此提供支持。</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gettingstarted.html" class="btn btn-neutral float-right" title="2 入门" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &copy; 2015 Orbbec.
+
+    </p>
+  </div>
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'...',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿  DepthDemo.cpp
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_initialize，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_terminate，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_streamset_open，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_streamset_close，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_reader_create，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_reader_destroy，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_stream_start，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_reader_register_frame_ready_callback，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_reader_unregister_frame_ready_callback，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_update，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_reader_get_depthstream，该符号在函数 _main 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_frame_get_depthframe，该符号在函数 "void __cdecl frame_ready(void *,struct _astra_reader *,struct _astra_reader_frame *)" (?frame_ready@@YAXPAXPAU_astra_reader@@PAU_astra_reader_frame@@@Z) 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_depthframe_get_data_ptr，该符号在函数 "void __cdecl print_depth(struct _astra_imageframe *)" (?print_depth@@YAXPAU_astra_imageframe@@@Z) 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_depthframe_get_metadata，该符号在函数 "void __cdecl print_depth(struct _astra_imageframe *)" (?print_depth@@YAXPAU_astra_imageframe@@@Z) 中被引用
+DepthDemo.obj : error LNK2019: 无法解析的外部符号 __imp__astra_depthframe_get_frameindex，该符号在函数 "void __cdecl print_depth(struct _astra_imageframe *)" (?print_depth@@YAXPAU_astra_imageframe@@@Z) 中被引用
+D:\器件资料\传感器\乐视三合一摄像头SDK\WindowsSDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\lib\astra.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“X86”冲突
+D:\器件资料\传感器\乐视三合一摄像头SDK\WindowsSDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\lib\astra_core.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“X86”冲突
+D:\器件资料\传感器\乐视三合一摄像头SDK\WindowsSDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\lib\astra_core_api.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“X86”冲突
+D:\LeT_20200409\DepthDemo\Debug\DepthDemo.exe : fatal error LNK1120: 15 个无法解析的外部命令

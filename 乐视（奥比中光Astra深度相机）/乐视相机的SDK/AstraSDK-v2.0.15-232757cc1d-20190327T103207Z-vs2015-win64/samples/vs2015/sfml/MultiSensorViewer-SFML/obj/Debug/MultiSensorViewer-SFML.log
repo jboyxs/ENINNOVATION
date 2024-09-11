@@ -1,0 +1,14 @@
+﻿  main.cpp
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(83): warning C4244: “初始化”: 从“__int64”转换到“float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(83): warning C4244: “初始化”: 从“__int64”转换到“const float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(265): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(265): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(268): warning C4244: “参数”: 从“const int”转换到“float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(275): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(275): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(281): warning C4244: “参数”: 从“const int”转换到“float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(286): warning C4244: “参数”: 从“const int”转换到“float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(554): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/MultiSensorViewer-SFML/main.cpp(555): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+  MultiSensorViewer-SFML.vcxproj -> D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\bin/Debug/MultiSensorViewer-SFML.exe
+  MultiSensorViewer-SFML.vcxproj -> D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\bin/Debug/MultiSensorViewer-SFML.pdb (Full PDB)

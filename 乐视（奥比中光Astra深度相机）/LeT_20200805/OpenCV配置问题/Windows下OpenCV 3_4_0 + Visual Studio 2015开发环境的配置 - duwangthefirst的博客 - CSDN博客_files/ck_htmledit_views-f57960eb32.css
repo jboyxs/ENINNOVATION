@@ -1,0 +1,369 @@
+.htmledit_views address {
+	font-style: italic;
+}
+.htmledit_views cite {
+	font-style: italic;
+}
+.htmledit_views dfn {
+	font-style: italic;
+}
+.htmledit_views em {
+	font-style: italic;
+}
+.htmledit_views i {
+	font-style: italic;
+}
+.htmledit_views span[lang] {
+	font-style: italic;
+}
+.htmledit_views var {
+	font-style: italic;
+}
+.htmledit_views {
+	font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif,SimHei,SimSun;
+}
+.cke_editable {
+	margin: 24px; -ms-word-wrap: break-word;
+}
+.htmledit_views img.right {
+	padding: 5px; border: 1px solid rgb(204, 204, 204); border-image: none; margin-left: 15px; float: right;
+}
+.htmledit_views img.left {
+	padding: 5px; border: 1px solid rgb(204, 204, 204); border-image: none; margin-right: 15px; float: left;
+}
+.htmledit_views .marker {
+	background-color: rgb(255, 255, 0);
+}
+.htmledit_views figure {
+	margin: 0px 24px; text-align: center; display: inline-block;
+}
+.htmledit_views figure > figcaption {
+	margin: 8px; text-align: center; color: rgb(153, 153, 153); font-size: 14px; display: block;
+}
+.htmledit_views a > img {
+	margin: 1px; padding: 1px; outline: rgb(7, 130, 193) solid 1px; border: currentColor; border-image: none;
+}
+.htmledit_views .code-featured {
+	border: 5px solid red; border-image: none;
+}
+.htmledit_views .math-featured {
+	margin: 10px; padding: 20px; box-shadow: 0px 0px 2px rgba(200,0,0,1); background-color: rgba(255, 0, 0, 0.05);
+}
+.htmledit_views .image-clean {
+	background: 0px 0px; padding: 0px; border: 0px currentColor; border-image: none;
+}
+.htmledit_views .image-clean > figcaption {
+	text-align: right; font-size: 0.9em;
+}
+.htmledit_views .image-grayscale {
+	color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);
+}
+.htmledit_views .image-grayscale img {
+	
+}
+.htmledit_views img.image-grayscale {
+	
+}
+.htmledit_views .embed-240p {
+	margin: 0px auto; max-height: 240px; max-width: 426px;
+}
+.htmledit_views .embed-360p {
+	margin: 0px auto; max-height: 360px; max-width: 640px;
+}
+.htmledit_views .embed-480p {
+	margin: 0px auto; max-height: 480px; max-width: 854px;
+}
+.htmledit_views .embed-720p {
+	margin: 0px auto; max-height: 720px; max-width: 1280px;
+}
+.htmledit_views .embed-1080p {
+	margin: 0px auto; max-height: 1080px; max-width: 1920px;
+}
+.htmledit_views p {
+	margin: 0px 0px 16px; color: rgb(79, 79, 79); line-height: 26px; font-size: 16px; font-weight: 400; -ms-overflow-x: auto;
+}
+p[align=center] {
+	text-align: center;
+}
+.htmledit_views img {
+	max-width: 100%;
+}
+.htmledit_views strong {
+	font-weight: 700;
+}
+.htmledit_views strong span {
+	font-weight: 700;
+}
+.htmledit_views * {
+	box-sizing: border-box;
+}
+.htmledit_views h1 {
+	margin: 8px 0px 16px; color: rgb(79, 79, 79); font-weight: 700;
+}
+.htmledit_views h2 {
+	margin: 8px 0px 16px; color: rgb(79, 79, 79); font-weight: 700;
+}
+.htmledit_views h3 {
+	margin: 8px 0px 16px; color: rgb(79, 79, 79); font-weight: 700;
+}
+.htmledit_views h4 {
+	margin: 8px 0px 16px; color: rgb(79, 79, 79); font-weight: 700;
+}
+.htmledit_views h5 {
+	margin: 8px 0px 16px; color: rgb(79, 79, 79); font-weight: 700;
+}
+.htmledit_views h6 {
+	margin: 8px 0px 16px; color: rgb(79, 79, 79); font-weight: 700;
+}
+.htmledit_views ol {
+	margin: 0px 0px 24px; padding: 0px; font-size: 16px;
+}
+.htmledit_views ul {
+	margin: 0px 0px 24px; padding: 0px; font-size: 16px;
+}
+.htmledit_views ul ol {
+	margin: 0px 0px 24px 32px;
+}
+.htmledit_views ul li {
+	margin: 8px 0px 0px 32px; list-style-type: disc;
+}
+.htmledit_views ol li {
+	margin-top: 8px; margin-left: 40px; list-style-type: decimal;
+}
+.htmledit_views h1 {
+	line-height: 36px; font-size: 28px;
+}
+.htmledit_views h2 {
+	line-height: 32px; font-size: 24px;
+}
+.htmledit_views h3 {
+	line-height: 30px; font-size: 22px;
+}
+.htmledit_views h4 {
+	line-height: 28px; font-size: 20px;
+}
+.htmledit_views h5 {
+	line-height: 26px; font-size: 18px;
+}
+.htmledit_views h6 {
+	line-height: 24px; font-size: 16px;
+}
+.htmledit_views blockquote {
+	background: rgb(238, 240, 244); margin: 0px 0px 24px; padding: 16px 16px 0px; overflow: auto; border-left-color: rgb(221, 223, 228); border-left-width: 8px; border-left-style: solid; display: block; -ms-word-break: normal; -ms-word-wrap: normal; overflow-scrolling: touch;
+}
+.htmledit_views blockquote ol {
+	padding: 0px; line-height: 24px; font-size: 16px; margin-bottom: 16px;
+}
+.htmledit_views blockquote ul {
+	padding: 0px; line-height: 24px; font-size: 16px; margin-bottom: 16px;
+}
+.htmledit_views blockquote ol li {
+	margin-bottom: 0px;
+}
+.htmledit_views blockquote ul li {
+	margin-bottom: 0px;
+}
+.htmledit_views blockquote p {
+	color: rgb(79, 79, 79); line-height: 26px; font-size: 16px; font-weight: 400; margin-bottom: 16px;
+}
+.htmledit_views hr {
+	border-width: medium medium 1px; border-style: none none solid; border-color: currentColor currentColor rgb(204, 204, 204); margin: 24px 0px; border-image: none;
+}
+.htmledit_views table tr {
+	border-width: 1px 0px 0px; border-style: solid none none; border-color: rgb(221, 221, 221) currentColor currentColor; border-image: none; background-color: rgb(255, 255, 255);
+}
+.htmledit_views table {
+	width: 100%; text-align: left; margin-right: auto; margin-bottom: 24px; margin-left: auto; display: table; border-collapse: collapse;
+}
+.htmledit_views tbody {
+	border: 0px currentColor; border-image: none;
+}
+.htmledit_views table tr:nth-child(2n) {
+	background-color: rgb(247, 247, 247);
+}
+.htmledit_views table tr td {
+	padding: 8px; border: 1px solid rgb(221, 221, 221); border-image: none; text-align: left; color: rgb(79, 79, 79); line-height: 22px; font-size: 14px;
+}
+.htmledit_views table tr th {
+	padding: 8px; border: 1px solid rgb(221, 221, 221); border-image: none; text-align: left; color: rgb(79, 79, 79); line-height: 22px; font-size: 14px;
+}
+.htmledit_views table tr td p {
+	margin: 0px; padding: 0px; text-align: left; color: rgb(79, 79, 79); line-height: 22px; font-size: 14px;
+}
+.htmledit_views table tr th p {
+	margin: 0px; padding: 0px; text-align: left; color: rgb(79, 79, 79); line-height: 22px; font-size: 14px;
+}
+.htmledit_views table tr th p {
+	font-weight: 700;
+}
+.htmledit_views table tr td code {
+	white-space: normal;
+}
+.htmledit_views table tr th code {
+	white-space: normal;
+}
+.htmledit_views table tr th {
+	font-weight: 700; background-color: rgb(239, 243, 245);
+}
+.htmledit_views dl {
+	margin: 24px;
+}
+.htmledit_views dl dt {
+	margin: 8px; font-weight: 700;
+}
+.htmledit_views dl dt dd {
+	margin: 8px;
+}
+.htmledit_views abbr[data-original-title] {
+	border-bottom-color: rgb(153, 153, 153); border-bottom-width: 1px; border-bottom-style: dotted; cursor: help;
+}
+.htmledit_views abbr[title] {
+	border-bottom-color: rgb(153, 153, 153); border-bottom-width: 1px; border-bottom-style: dotted; cursor: help;
+}
+.htmledit_views .initialism {
+	text-transform: uppercase; font-size: 90%;
+}
+.htmledit_views pre {
+	margin: 0px 0px 24px; padding: 8px; white-space: pre-wrap; -ms-overflow-x: auto; -ms-word-wrap: break-word;
+}
+.marker {
+	background-color: rgb(255, 255, 0);
+}
+htmledit_views img.mathcode {
+	margin: 0px 8px;
+}
+.htmledit_views kbd {
+	color: rgb(0, 0, 0); line-height: 22px; font-family: Consolas,Inconsolata,Courier,monospace; font-size: 14px;
+}
+.htmledit_views pre {
+	color: rgb(0, 0, 0); line-height: 22px; font-family: Consolas,Inconsolata,Courier,monospace; font-size: 14px;
+}
+.htmledit_views samp {
+	color: rgb(0, 0, 0); line-height: 22px; font-family: Consolas,Inconsolata,Courier,monospace; font-size: 14px;
+}
+.htmledit_views code ol li div.hljs-ln-code {
+	font-family: "Source Code Pro","DejaVu Sans Mono","Ubuntu Mono","Anonymous Pro","Droid Sans Mono",Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.htmledit_views code ol li div.hljs-ln-numbers {
+	font-family: "Source Code Pro","DejaVu Sans Mono","Ubuntu Mono","Anonymous Pro","Droid Sans Mono",Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.htmledit_views pre code {
+	font-family: "Source Code Pro","DejaVu Sans Mono","Ubuntu Mono","Anonymous Pro","Droid Sans Mono",Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.htmledit_views pre code div {
+	font-family: "Source Code Pro","DejaVu Sans Mono","Ubuntu Mono","Anonymous Pro","Droid Sans Mono",Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.htmledit_views pre code span {
+	font-family: "Source Code Pro","DejaVu Sans Mono","Ubuntu Mono","Anonymous Pro","Droid Sans Mono",Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.htmledit_views code {
+	border-radius: 4px;
+}
+.htmledit_views a {
+	color: rgb(78, 161, 219); text-decoration: none;
+}
+.htmledit_views a:focus {
+	color: rgb(202, 12, 22);
+}
+.htmledit_views a:hover {
+	color: rgb(202, 12, 22);
+}
+.htmledit_views a:visited {
+	color: rgb(103, 149, 181);
+}
+.htmledit_views .footnote {
+	top: -4px; font-size: 12px; vertical-align: top; position: relative;
+}
+.htmledit_views .flow-chart {
+	text-align: center; font-size: 14px !important; margin-bottom: 24px;
+}
+.htmledit_views .sequence-diagram {
+	text-align: center; font-size: 14px !important; margin-bottom: 24px;
+}
+.htmledit_views .flow-chart [fill='#000'] {
+	fill: #4f4f4f;
+}
+.htmledit_views .flow-chart [fill='#000000'] {
+	fill: #4f4f4f;
+}
+.htmledit_views .flow-chart [fill=black] {
+	fill: #4f4f4f;
+}
+.htmledit_views .sequence-diagram [fill='#000'] {
+	fill: #4f4f4f;
+}
+.htmledit_views .sequence-diagram [fill='#000000'] {
+	fill: #4f4f4f;
+}
+.htmledit_views .sequence-diagram [fill=black] {
+	fill: #4f4f4f;
+}
+.htmledit_views .flow-chart [stroke='#000000'] {
+	stroke: #4f4f4f;
+}
+.htmledit_views .sequence-diagram [stroke='#000000'] {
+	stroke: #4f4f4f;
+}
+.htmledit_views .MathJax_SVG_Display {
+	margin: 24px 0px; width: 100%; text-align: center; color: rgb(79, 79, 79); text-indent: 0px; font-size: 18px; font-weight: 400; position: relative; min-height: 0px; max-height: none; min-width: 0px; max-width: none;
+}
+.htmledit_views pre code {
+	padding: 8px; border-radius: 4px; line-height: 22px; display: block; white-space: pre; -ms-overflow-x: auto; -ms-word-wrap: normal;
+}
+.htmledit_views pre code {
+	font-size: 14px;
+}
+.htmledit_views pre code div {
+	font-size: 14px;
+}
+.htmledit_views pre code span {
+	font-size: 14px;
+}
+.htmledit_views .prettyprint {
+	margin: 0px 0px 24px; padding: 8px 16px 4px 56px; border: currentColor; border-image: none; background-color: rgb(246, 248, 250);
+}
+.htmledit_views pre.prettyprint {
+	margin: 0px 0px 24px; padding: 8px 16px 4px 56px; border: currentColor; border-image: none; background-color: rgb(246, 248, 250);
+}
+.htmledit_views .prettyprint .pre-numbering {
+	list-style: none; margin: 0px; padding: 8px 0px; left: 0px; top: 0px; width: 48px; text-align: right; position: absolute; background-color: rgb(238, 240, 244);
+}
+.htmledit_views .pre-numbering li {
+	list-style: none; margin: 0px; padding: 0px 8px;
+}
+.htmledit_views dl dd {
+	margin: 0px 0px 8px 40px;
+}
+.htmledit_views kbd {
+	margin: 0px 2px; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(63, 63, 63, 0.25); border-image: none; color: rgb(51, 51, 51); display: inline-block; white-space: nowrap; box-shadow: 0px 1px 0px rgba(63,63,63,0.25); background-color: rgb(255, 255, 255);
+}
+.htmledit_views .dp-highlighter {
+	margin: 0px 0px 24px; text-align: left; font-size: 12px;
+}
+.htmledit_views code ol {
+	margin: 0px; overflow: hidden;
+}
+.htmledit_views code ol li {
+	height: 22px; margin-top: 0px; margin-left: 0px; list-style-type: none;
+}
+.htmledit_views code ol li div.hljs-ln-code {
+	margin-left: 8px;
+}
+.htmledit_views code ol li div.hljs-ln-code {
+	height: 22px; float: left;
+}
+.htmledit_views code ol li div.hljs-ln-numbers {
+	height: 22px; float: left;
+}
+.htmledit_views code ol li div.hljs-ln-numbers {
+	width: 24px; border-right-color: rgb(197, 197, 197); border-right-width: 1px; border-right-style: solid;
+}
+.htmledit_views code ol li div.hljs-ln-numbers .hljs-ln-line {
+	-ms-word-wrap: normal;
+}
+.htmledit_views code ol.hundred li div.hljs-ln-numbers {
+	width: 30px;
+}
+.htmledit_views code ol.thousand li div.hljs-ln-numbers {
+	width: 36px;
+}

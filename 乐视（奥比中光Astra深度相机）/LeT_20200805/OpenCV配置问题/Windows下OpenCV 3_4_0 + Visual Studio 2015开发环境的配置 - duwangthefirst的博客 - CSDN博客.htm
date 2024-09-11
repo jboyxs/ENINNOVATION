@@ -1,0 +1,1829 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0061)https://blog.csdn.net/duwangthefirst/article/details/79452314 -->
+<!DOCTYPE html PUBLIC "" ""><HTML lang="zh-CN"><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+     
+<META charset="UTF-8">     <LINK href="https://blog.csdn.net/duwangthefirst/article/details/79452314" 
+rel="canonical">          
+<META name="renderer" content="webkit">     
+<META name="force-rendering" content="webkit">     
+<META http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">     
+<META name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+    
+<META name="apple-mobile-web-app-status-bar-style" content="black">     
+<META name="referrer" content="always">     
+<META http-equiv="Cache-Control" content="no-siteapp"><LINK href="#" rel="alternate" 
+media="handheld">     
+<META name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848"> 
+        
+<META name="csdn-baidu-search" content='{"autorun":true,"install":true,"keyword":"Windows下OpenCV 3.4.0 + Visual Studio 2015开发环境的配置 - duwangthefirst的博客"}'> 
+        <LINK href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">  
+   <TITLE>Windows下OpenCV 3.4.0 + Visual Studio 2015开发环境的配置 - duwangthefirst的博客 - 
+CSDN博客</TITLE>                             <LINK href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/detail-6dbab8d2dd.min.css" 
+rel="stylesheet">                         
+<SCRIPT type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/duwangthefirst\/article\/details\/79452314","appid":"1563894916825412","title":"Windows\u4e0bOpenCV 3.4.0 + Visual Studio 2015\u5f00\u53d1\u73af\u5883\u7684\u914d\u7f6e - duwangthefirst\u7684\u535a\u5ba2","images":["https:\/\/img-blog.csdn.net\/20180305233401663?watermark\/2\/text\/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZHV3YW5ndGhlZmlyc3Q=\/font\/5a6L5L2T\/fontsize\/400\/fill\/I0JBQkFCMA==\/dissolve\/70","https:\/\/img-blog.csdn.net\/20180226210124240?watermark\/2\/text\/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZHV3YW5ndGhlZmlyc3Q=\/font\/5a6L5L2T\/fontsize\/400\/fill\/I0JBQkFCMA==\/dissolve\/70","https:\/\/img-blog.csdn.net\/20180305222819172?watermark\/2\/text\/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZHV3YW5ndGhlZmlyc3Q=\/font\/5a6L5L2T\/fontsize\/400\/fill\/I0JBQkFCMA==\/dissolve\/70"],"pubDate":"2019-05-19T21:21:05"}</SCRIPT>
+                     <LINK href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/skin3-template-9b39979775.min.css" 
+rel="stylesheet">         
+<SCRIPT type="text/javascript">
+        var username = "duwangthefirst";
+        var blog_address = "https://blog.csdn.net/duwangthefirst";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/duwangthefirst/article/details/79452314"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 第四范式所需数据
+        var articleTitles = "Windows下OpenCV 3.4.0 + Visual Studio 2015开发环境的配置 - duwangthefirst的博客";
+        
+        var nickName = "duwangthefirst";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/duwangthefirst/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/duwangthefirst/article/details/79452314";
+    </SCRIPT>
+     
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
+     
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/main-1.0.6.js"></SCRIPT>
+     
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/7SLZNI2V.js" type="text/javascript"></SCRIPT>
+     <LINK href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/sandalstrap.min.css" 
+rel="stylesheet">     
+<STYLE>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </STYLE>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY class="nodata "><LINK href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/content_toolbar.css" 
+rel="stylesheet">     
+<SCRIPT id="toolbar-tpl-scriptId" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></SCRIPT>
+ 
+<DIV id="kp_box_476" data-track-click='{"mod":"kp_popu_476-891","con":",,"}' 
+data-track-view='{"mod":"kp_popu_476-891","con":",,"}' data-pid="476">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/indexSuperise.js"></SCRIPT>
+ 
+<SCRIPT>
+window.csdn.indexSuperise({
+zIndex:11000,
+    smallMoveImg: "//ubmcmm.baidustatic.com/media/v1/0f000ntnp0VTgAexmTK7v0.png", 
+    smallMove: "notMove", 
+    link: "//h5.youzan.com/v2/ump/promocard/fetch?alias=1eme18l51", 
+    trackSuperId: "476", 
+    trackSId: "891",
+    show360id: "t5unDb",
+    title360: "码书商店代金券" ,
+    show360QrlinkQrCode: 'http://img-ads.csdn.net/2019/201905151059539116.png',
+});
+</SCRIPT>
+</DIV><LINK href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/blog_code-c3a0c33d5c.css" 
+rel="stylesheet"> <LINK href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/paging.css" 
+rel="stylesheet"> 
+<SCRIPT type="text/javascript">
+	var NEWS_FEED = function(){}
+</SCRIPT>
+ <LINK href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/chart-3456820cac.css" 
+rel="stylesheet"> 
+<DIV class="container clearfix" id="mainBox">
+<DIV class="recommend-right">
+<UL class="recommend-fixed-box"></UL></DIV><main>
+<DIV class="blog-content-box">
+<DIV class="article-header-box">
+<DIV class="article-header">
+<DIV class="article-title-box"><SPAN 
+class="article-type type-1 float-left">原</SPAN>        
+<H1 class="title-article">Windows下OpenCV 3.4.0 + Visual Studio 
+2015开发环境的配置</H1></DIV>
+<DIV class="article-info-box">
+<DIV class="article-bar-top"><SPAN class="c-gray">置顶</SPAN>                      
+                             <SPAN class="time">2018年03月05日 23:10:59</SPAN>      
+     <A class="follow-nickName" href="https://me.csdn.net/duwangthefirst" 
+target="_blank">duwangthefirst</A>           <SPAN 
+class="read-count">阅读数：19670</SPAN>                                              
+                   </DIV>
+<DIV class="operating"></DIV></DIV></DIV></DIV><ARTICLE class="baidu_pl">
+<DIV class="article_content clearfix csdn-tracking-statistics" id="article_content" 
+data-pid="blog" data-dsm="post" data-mod="popu_307">
+<DIV class="article-copyright"><svg xmlns="http://www.w3.org/2000/svg" title="CSDN认证原创" 
+class="icon" aria-hidden="true" style="width: 53px; height: 18px; vertical-align: -4px;"><use 
+xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#CSDN_Cert" />            
+ </svg>                     版权声明：本文为博主原创文章，未经博主允许不得转载。          
+https://blog.csdn.net/duwangthefirst/article/details/79452314        </DIV><LINK 
+href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/ck_htmledit_views-f57960eb32.css" 
+rel="stylesheet">                               
+<DIV class="markdown_views prism-atom-one-dark" id="content_views"><!-- flowchart 箭头图标 勿删 --> 
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><path 
+id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" 
+stroke-linecap="round" d="M 5 0 L 0 2.5 L 5 5 Z" />             </svg>           
+  
+<H2 id="操作环境">操作环境</H2>
+<UL>
+  <LI>windows 10 64位 教育版</LI>
+  <LI>opencv 3.4.0：<A href="https://opencv.org/releases.html" 
+  rel="nofollow">下载地址</A></LI>
+  <LI>visual studio 2015</LI></UL>
+<P>本开发环境配置的一些说明：</P>
+<UL>
+  <LI>不需要编译opencv</LI>
+  <LI>在visual studio 2015上只需在首次建立opencv项目时进行配置，之后导入之前保存的项目属性表即可。</LI>
+  <LI>鉴于网上对于opencv环境配置的教程水平参差不齐，特详细记录本次安装流程，以令后续同学少走弯路，本文完全原创，发表时间为2018年3月5日，若有失误或不足欢迎留言指正。</LI></UL>
+<H2 id="解压opencv并配置环境变量">解压OpenCV并配置环境变量</H2>
+<P>打开自解压程序，设置解压路径为C盘根目录。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305233401663.png"> 
+<BR>解压得到的文件夹结构如下图所示。 <BR><IMG title="" alt="文件夹结构" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180226210124240.png"> 
+<BR>需要添加到Path环境变量的路径：</P>
+<PRE class="prettyprint"><CODE class=" hljs tex">对于vs2015：（适用于本次开发环境的配置）
+    C:<SPAN class="hljs-command">\opencv</SPAN><SPAN class="hljs-command">\build</SPAN><SPAN class="hljs-command">\x</SPAN>64<SPAN class="hljs-command">\vc</SPAN>14<SPAN class="hljs-command">\bin</SPAN>
+对于vs2017：
+    C:<SPAN class="hljs-command">\opencv</SPAN><SPAN class="hljs-command">\build</SPAN><SPAN class="hljs-command">\x</SPAN>64<SPAN class="hljs-command">\vc</SPAN>15<SPAN class="hljs-command">\bin</SPAN></CODE></PRE>
+<H2 id="安装visual-studio-2015">安装visual studio 2015</H2>
+<P>一路默认安装即可。 <BR>注意要选择windows下c++开发的相关支持选项，否则在新建项目的时候可能找不到“win32控制台应用程序”的选项。</P>
+<H2 id="项目配置与测试">项目配置与测试</H2>
+<P>0.准备工作：一些重要路径。</P>
+<PRE class="prettyprint"><CODE class=" hljs tex">opencv的解压路径：（后续路径以此为基准）
+    C:<SPAN class="hljs-command">\opencv</SPAN>
+
+需要添加到Path环境变量中的路径：
+    对于vs2015：（适用于本次开发环境的配置）
+        C:<SPAN class="hljs-command">\opencv</SPAN><SPAN class="hljs-command">\build</SPAN><SPAN class="hljs-command">\x</SPAN>64<SPAN class="hljs-command">\vc</SPAN>14<SPAN class="hljs-command">\bin</SPAN>
+    对于vs2017：
+        C:<SPAN class="hljs-command">\opencv</SPAN><SPAN class="hljs-command">\build</SPAN><SPAN class="hljs-command">\x</SPAN>64<SPAN class="hljs-command">\vc</SPAN>15<SPAN class="hljs-command">\bin</SPAN>
+
+需要包含的文件所在的路径：
+    C:<SPAN class="hljs-command">\opencv</SPAN><SPAN class="hljs-command">\build</SPAN><SPAN class="hljs-command">\include</SPAN>
+
+库文件所在的路径：
+    对于vs2015：（适用于本次开发环境的配置）
+        C:<SPAN class="hljs-command">\opencv</SPAN><SPAN class="hljs-command">\build</SPAN><SPAN class="hljs-command">\x</SPAN>64<SPAN class="hljs-command">\vc</SPAN>14<SPAN class="hljs-command">\lib</SPAN>
+    对于vs2017：
+        C:<SPAN class="hljs-command">\opencv</SPAN><SPAN class="hljs-command">\build</SPAN><SPAN class="hljs-command">\x</SPAN>64<SPAN class="hljs-command">\vc</SPAN>15<SPAN class="hljs-command">\lib</SPAN>
+
+附加依赖项名称（所在的路径为库文件所在路径）：
+    对于debug模式：（适用于本次开发环境的配置）
+        opencv_world340d.lib
+    对于release模式：
+        opencv_world340.lib</CODE></PRE>
+<P>1.新建项目。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305222819172.png"> 
+<BR>2.选择win32控制台应用程序，设置项目名称和项目路径。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305222843491.png"> 
+<BR>3.点击下一步。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305222938107.png"> 
+<BR>4.勾选空项目，点击下一步。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305223008357.png"> 
+<BR>5.依次点击视图&gt;其他窗口&gt;属性管理器。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/2018030522304683.png"> 
+<BR>6.在Debug | 64上右键单击，选择添加新项目属性表。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305223147207.png"> 
+<BR>7.设置项目属性表的名称为opencvEnvPropertySheet，点击添加。（此处新建的项目属性表请另外单独保存下来，以后再在vs下建立opencv项目时直接添加该表即可，不需重复配置） 
+<BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305223325131.png"> 
+<BR>8.双击新建立的opencvEnvPropertySheet项目属性表进行编辑。 <BR><IMG title="" alt="这里写图片描述" 
+src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305223557794.png"> 
+<BR>9.依次点击VC++目录&gt;包含目录，进行编辑。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305223637493.png"> 
+<BR>10.将解压得到的opencv的build/include目录（C:\opencv\build\include）添加进去。 <BR><IMG 
+title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305223931670.png"> 
+<BR>11.依次点击VC++目录&gt;库目录，进行编辑。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305223943488.png"> 
+<BR>12.将解压得到的opencv的build\x64\vc14\lib目录（C:\opencv\build\x64\vc14\lib）添加进去。 
+<BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305223951812.png"> 
+<BR>13.依次点击链接器&gt;输入&gt;附加依赖项，进行编辑。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305223959981.png"> 
+<BR>14.将opencv_world340d.lib添加进去。 <BR>对于不同版本的opencv，该文件名的数字编号有可能不同。 <BR>
+该文件位于opencv的<CODE>build\x64\vc14\lib</CODE>目录（<CODE>C:\opencv\build\x64\vc14\lib</CODE>）下，该目录下存在一个<CODE>opencv_world340.lib</CODE>文件和一个<CODE>opencv_world340d.lib</CODE>文件，其中带d的为debug版本。</P>
+<PRE class="prettyprint"><CODE class=" hljs vbnet">    对于debug模式：（适用于本次开发环境的配置）
+        opencv_world340d.<SPAN class="hljs-keyword">lib</SPAN>
+    对于release模式：
+        opencv_world340.<SPAN class="hljs-keyword">lib</SPAN></CODE></PRE>
+<P><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/2018030522401067.png"> 
+<BR>15.依次点击视图&gt;解决方案资源管理器。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305224020391.png"> 
+<BR>16.右键单击源文件，再依次点击添加&gt;新建项。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305224030102.png"> 
+<BR>17.选择C++文件，设置文件名为main.cpp，点击添加。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/2018030522404218.png"> 
+<BR>18.粘贴测试代码，并设置解决方案配置为debug模式，解决方案平台为x64平台。 <BR><IMG title="" alt="这里写图片描述" 
+src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305224051560.png"> 
+<BR>测试代码如下：（注意修改代码中测试图像的路径）</P>
+<PRE class="prettyprint"><CODE class=" hljs cpp"><SPAN class="hljs-preprocessor">#include &lt;opencv2/opencv.hpp&gt;</SPAN>
+<SPAN class="hljs-keyword">using</SPAN> <SPAN class="hljs-keyword">namespace</SPAN> cv;
+<SPAN class="hljs-keyword">using</SPAN> <SPAN class="hljs-keyword">namespace</SPAN> <SPAN class="hljs-built_in">std</SPAN>;
+
+<SPAN class="hljs-keyword">int</SPAN> main(<SPAN class="hljs-keyword">void</SPAN>)
+{
+    Mat originalImage = imread(<SPAN class="hljs-string">"C:\\code\\c_plus_plus\\opencv\\test_image\\lena.jpg"</SPAN>);
+    <SPAN class="hljs-keyword">if</SPAN> (originalImage.empty())
+    {
+        <SPAN class="hljs-built_in">cout</SPAN> &lt;&lt; <SPAN class="hljs-string">"fail to load image !"</SPAN> &lt;&lt; endl;
+        <SPAN class="hljs-keyword">return</SPAN> -<SPAN class="hljs-number">1</SPAN>;
+    }
+    namedWindow(<SPAN class="hljs-string">"opencv test"</SPAN>, CV_WINDOW_AUTOSIZE);
+    imshow(<SPAN class="hljs-string">"opencv test"</SPAN>, originalImage);
+    waitKey(<SPAN class="hljs-number">0</SPAN>);
+    <SPAN class="hljs-keyword">return</SPAN> <SPAN class="hljs-number">0</SPAN>;
+}</CODE></PRE>
+<P>19.点击本地windows调试器。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305224102455.png"> 
+<BR>20.程序输出结果如图所示。 <BR><IMG title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305224112221.png"> 
+<BR>21.对于今后建立的项目，直接导入之前保存的项目属性表即可，不需要每次建项目以后再配置一次。（即以上第5~14步只需要配置一次） <BR><IMG 
+title="" alt="这里写图片描述" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/20180305224121965.png"></P></DIV><LINK 
+href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/markdown_views-258a4616f7.css" 
+rel="stylesheet">                   </DIV></ARTICLE></DIV>
+<DIV class="hide-article-box hide-article-pos text-center">
+<DIV class="border"></DIV><A class="btn article-footer-btn" id="btn-readmore" 
+data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/duwangthefirst/article/details/79452314,"}' 
+data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/duwangthefirst/article/details/79452314,"}'>阅读更多</A> 
+    <A class="btn article-footer-btn article-footer-bookmark-btn"><svg xmlns="http://www.w3.org/2000/svg" 
+class="icon no-active hover-hide" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+xlink:href="#csdnc-bookmark" />     </svg>     <SPAN>收藏</SPAN>   </A>   
+<DIV title="分享" class="btn article-footer-btn  bds_weixin article-footer-share-btn" 
+data-cmd="weixin"><svg xmlns="http://www.w3.org/2000/svg" class="icon no-active hover-hide" 
+aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#csdnc-share" 
+/>     </svg>     <SPAN>分享</SPAN>     
+<DIV class="bdsharebuttonbox"><A title="分享" class="bds_weixin clear-share-style-article-footer" 
+href="https://blog.csdn.net/duwangthefirst/article/details/79452314#" data-cmd="weixin"></A> 
+    </DIV></DIV></DIV>
+<SCRIPT>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</SCRIPT>
+        
+<DIV id="dmp_ad_58">
+<DIV id="kp_box_58" data-track-click='{"mod":"kp_popu_58-402","con":",,"}' 
+data-track-view='{"mod":"kp_popu_58-402","con":",,"}' data-pid="58">
+<DIV style="background: rgb(255, 255, 255); border: 3px solid rgb(255, 255, 255); border-image: none; width: 100%;">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/mvf_news_feed.js" type="text/javascript"></SCRIPT>
+ 
+<DIV class="mediav_ad" id="three_ad1"></DIV>
+<SCRIPT>
+                                               NEWS_FEED({
+                w: 900,
+                h : 100,
+                showid : 'ztvJV8',
+                placeholderId: "three_ad1",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 0,
+                    imageWidth: 90,
+                    imageHeight: 68,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft YaHei',
+                    paddingTop : 20,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 20,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </SCRIPT>
+ </DIV></DIV></DIV><A id="commentBox"></A> 
+<DIV class="comment-box">
+<DIV class="comment-edit-box d-flex"><A id="commentsedit"></A>		 
+<DIV class="user-img"><A href="javascript:void(0);" target="_blank"><IMG class="show_loginbox" 
+src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/anonymous-User-img.png"></A>
+		 </DIV>
+<FORM id="commentform"><INPUT id="comment_replyId" type="hidden">
+			 <TEXTAREA name="comment_content" class="comment-content" id="comment_content" placeholder="想对作者说点什么">想对作者说点什么</TEXTAREA>
+<DIV class="opt-box"><!-- d-flex -->				 
+<DIV class="add_code" id="ubbtools"><A href="https://blog.csdn.net/duwangthefirst/article/details/79452314#insertcode" 
+target="_self" code="code"><I class="icon iconfont icon-daima"></I></A>
+				 </DIV><INPUT name="comment_replyId" id="comment_replyId" type="hidden">
+				 <INPUT name="article_id" id="article_id" type="hidden" value="79452314">
+				 <INPUT name="comment_userId" id="comment_userId" type="hidden">
+				 <INPUT name="commentId" id="commentId" type="hidden">				 
+<DIV class="csdn-tracking-statistics tracking-click" style="display: none;" 
+data-mod="popu_384"><A class="comment_area_btn" href="https://blog.csdn.net/duwangthefirst/article/details/79452314#" 
+target="_blank">发表评论</A></DIV>
+<DIV class="dropdown" id="myDrap"><A class="dropdown-face d-flex align-items-center" 
+role="button" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown">
+<DIV class="txt-selected text-truncate">添加代码片</DIV><svg xmlns="http://www.w3.org/2000/svg" 
+class="icon d-block" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+xlink:href="#csdnc-triangledown" />					 </svg></A>					 
+<UL class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+  <LI><A data-code="html">HTML/XML</A></LI>
+  <LI><A data-code="objc">objective-c</A></LI>
+  <LI><A data-code="ruby">Ruby</A></LI>
+  <LI><A data-code="php">PHP</A></LI>
+  <LI><A data-code="csharp">C</A></LI>
+  <LI><A data-code="cpp">C++</A></LI>
+  <LI><A data-code="javascript">JavaScript</A></LI>
+  <LI><A data-code="python">Python</A></LI>
+  <LI><A data-code="java">Java</A></LI>
+  <LI><A data-code="css">CSS</A></LI>
+  <LI><A data-code="sql">SQL</A></LI>
+  <LI><A data-code="plain">其它</A></LI></UL></DIV>
+<DIV class="right-box"><SPAN class="tip" 
+id="tip_comment">还能输入<EM>1000</EM>个字符</SPAN>					 <INPUT class="btn btn-sm btn-red btn-comment" type="submit" value="发表评论">
+				 </DIV></DIV></FORM></DIV>
+<DIV class="comment-list-container"><A id="comments"></A>		 
+<DIV class="comment-list-box"></DIV>
+<DIV class="pagination-box d-none" id="commentPage"></DIV>
+<DIV class="opt-box text-center">
+<DIV class="btn btn-sm btn-link-blue" 
+id="btnMoreComment"></DIV></DIV></DIV></DIV>
+<DIV class="recommend-box">
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ranlinjun/article/details/53216134,BlogCommendFromThirdServiceAll_0"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/ranlinjun/article/details/53216134,BlogCommendFromThirdServiceAll_0"}'>
+<DIV class="content"><A title="VS2015下的OpenCV配置使用" href="https://blog.csdn.net/ranlinjun/article/details/53216134" 
+target="_blank">
+<H4 class="text-truncate oneline">
+				VS<EM>2015</EM>下的<EM>OpenCV</EM><EM>配置</EM>使用		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">11-18</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="VS2015下的OpenCV配置使用" href="https://blog.csdn.net/ranlinjun/article/details/53216134" 
+target="_blank"><SPAN 
+class="desc oneline">由于最近开始学习计算机图像方面的东西，准备使用OpenCV进行实验，花了几个小时弄了一下OpenCV在VS2015下安装配置。过程中遇到了几个问题，查了不少资料并一一解决。下面进行讲解。有不全面的地方...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/ranlinjun" target="_blank">来自：	<SPAN 
+class="blog_title">BinaryArray</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u014626607/article/details/79096814,BlogCommendFromThirdServiceAll_1"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u014626607/article/details/79096814,BlogCommendFromThirdServiceAll_1"}'>
+<DIV class="content"><A title="OpenCV和VS2015的配置（完整详细步骤）" href="https://blog.csdn.net/u014626607/article/details/79096814" 
+target="_blank">
+<H4 
+class="text-truncate oneline"><EM>OpenCV</EM>和VS<EM>2015</EM>的<EM>配置</EM>（完整详细步骤）		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">01-18</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 2万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="OpenCV和VS2015的配置（完整详细步骤）" href="https://blog.csdn.net/u014626607/article/details/79096814" 
+target="_blank"><SPAN 
+class="desc oneline">OpenCV作為一個函數庫，在配置方面，因為不同數位的系統和不同版本的開發環境也是不一樣的。在這幾天的琢磨之後，總結了自己OpenCV的配製方法，并結合電子書中的例子，詳細敘述一下從OpenCV的配置...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/u014626607" target="_blank">来自：	<SPAN 
+class="blog_title">u014626607的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/jacke121/article/details/79330874,BlogCommendFromThirdServiceAll_2"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/jacke121/article/details/79330874,BlogCommendFromThirdServiceAll_2"}'>
+<DIV class="content"><A title="window7 64 VS2015下openCV3.4.0安装" href="https://blog.csdn.net/jacke121/article/details/79330874" 
+target="_blank">
+<H4 class="text-truncate oneline">window7 64 
+VS<EM>2015</EM>下<EM>openCV</EM><EM>3.4.0</EM>安装		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">02-16</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 3726</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="window7 64 VS2015下openCV3.4.0安装" href="https://blog.csdn.net/jacke121/article/details/79330874" 
+target="_blank"><SPAN 
+class="desc oneline">[本地环境]操作系统：windows764bitsVS版本：VS2015openCV版本：openCV3.4.01.openCV下载下载地址：http://opencv.org/releases.ht...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/jacke121" target="_blank">来自：	<SPAN 
+class="blog_title">jacke121的专栏</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Poetry_And_Distance/article/details/79714869,BlogCommendFromThirdServiceAll_3"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Poetry_And_Distance/article/details/79714869,BlogCommendFromThirdServiceAll_3"}'>
+<DIV class="content"><A title="Visual Studio 2015 产品下载地址以及激活码" href="https://blog.csdn.net/Poetry_And_Distance/article/details/79714869" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>Visual</EM> <EM>Studio</EM> <EM>2015</EM> 
+产品下载地址以及激活码		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">03-27</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="Visual Studio 2015 产品下载地址以及激活码" href="https://blog.csdn.net/Poetry_And_Distance/article/details/79714869" 
+target="_blank"><SPAN 
+class="desc oneline">VisualStudioCommunity2015简体中文免费版镜像SHA1：1044F9F4E0EA1304AFECF6780BF599F1DA248DF8http://download.micro...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/Poetry_And_Distance" 
+target="_blank">来自：	<SPAN 
+class="blog_title">Poetry_And_Distance的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_59" data-track-click='{"mod":"kp_popu_59-852","con":",,opencv"}' 
+data-track-view='{"mod":"kp_popu_59-852","con":",,opencv"}' 
+data-pid="59"><IFRAME width="100%" height="75" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/o.htm" 
+frameborder="0" scrolling="no"></IFRAME></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/baidu88vip/article/details/82286012,BlogCommendFromThirdServiceAll_4"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/baidu88vip/article/details/82286012,BlogCommendFromThirdServiceAll_4"}'>
+<DIV class="content"><A title="Win10下OpenCV 3.4.0 + VS2015开发环境配置" href="https://blog.csdn.net/baidu88vip/article/details/82286012" 
+target="_blank">
+<H4 class="text-truncate oneline">				Win10下<EM>OpenCV</EM> <EM>3.4.0</EM> + 
+VS<EM>2015</EM><EM>开发环境</EM><EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">09-01</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 742</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="Win10下OpenCV 3.4.0 + VS2015开发环境配置" href="https://blog.csdn.net/baidu88vip/article/details/82286012" 
+target="_blank"><SPAN 
+class="desc oneline">OpenCV3.4.0+VS2015开发环境配置前言OpenCV——OpenSourceComputerVisionLibrary,即开源计算机视觉库，它是基于C语言和部分C++语言来开发，可用于计算...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/baidu88vip" target="_blank">来自：	<SPAN 
+class="blog_title">baidu88vip的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sm16111/article/details/81238324,BlogCommendFromBaidu_5"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/sm16111/article/details/81238324,BlogCommendFromBaidu_5"}'>
+<DIV class="content"><A title="Opencv安装与环境配置" href="https://blog.csdn.net/sm16111/article/details/81238324" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>Opencv</EM>安装与环境<EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">07-27</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1108</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="Opencv安装与环境配置" href="https://blog.csdn.net/sm16111/article/details/81238324" 
+target="_blank"><SPAN 
+class="desc oneline">1、下载opencv:官网下载地址https://opencv.org/&nbsp;(一般下载最新版)　　首先到opencv官网下载win平台的opencv，解压后你可以看到下面两个文件夹——build和sou...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/sm16111" target="_blank">来自：	<SPAN 
+class="blog_title">sm16111的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Honfe/article/details/78166833,BlogCommendFromBaidu_6"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Honfe/article/details/78166833,BlogCommendFromBaidu_6"}'>
+<DIV class="content"><A title="OpenCV和VS2015开发环境配置" href="https://blog.csdn.net/Honfe/article/details/78166833" 
+target="_blank">
+<H4 
+class="text-truncate oneline"><EM>OpenCV</EM>和VS<EM>2015</EM><EM>开发环境</EM><EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">10-06</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1833</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="OpenCV和VS2015开发环境配置" href="https://blog.csdn.net/Honfe/article/details/78166833" 
+target="_blank"><SPAN 
+class="desc oneline">首先先安装好VS2015（废话），再下载并安装好OpenCV（要记住安装的路径），之后打开VS2015，新建一个工程和main.cpp文档，如图：之后点击项目-&gt;xxx属性（这里是OpenCVCrea...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/Honfe" target="_blank">来自：	<SPAN 
+class="blog_title"> 致·清</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-box-ident recommend-other-item-box" 
+data-track-click='{"mod":"popu_387","con":",https://edu.csdn.net/course/detail/2570,EDUNEW_7"}' 
+data-track-view='{"mod":"popu_387","con":",https://edu.csdn.net/course/detail/2570,EDUNEW_7"}'><A 
+href="https://edu.csdn.net/course/detail/2570" target="_blank">
+<H4 class="text-truncate oneline"><EM>Visual</EM> <EM>Studio</EM> 
+<EM>2015</EM>开发C++程序的基本使用		</H4>
+<DIV class="info-box d-flex align-content-center"><SPAN 
+class="date">06-22</SPAN>		 </DIV>
+<P class="content oneline"><SPAN class="desc oneline">-</SPAN>					 </P></A> 
+</DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_40647819/article/details/79938325,BlogCommendFromBaidu_8"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_40647819/article/details/79938325,BlogCommendFromBaidu_8"}'>
+<DIV class="content"><A title="OPenCV 的安装，环境配置（Windows平台）" href="https://blog.csdn.net/weixin_40647819/article/details/79938325" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>OPenCV</EM> 
+的安装，环境<EM>配置</EM>（<EM>Windows</EM>平台）		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">04-14</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1059</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="OPenCV 的安装，环境配置（Windows平台）" href="https://blog.csdn.net/weixin_40647819/article/details/79938325" 
+target="_blank"><SPAN 
+class="desc oneline">1、在官网下载opencv,链接：http://opencv.org/,下载至某盘（推荐D），下载后点击，如下：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随后弹出一个提示框，可不用管它，等一段时间，会解压出一个Ope...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/weixin_40647819" 
+target="_blank">来自：	<SPAN class="blog_title"> 小武的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_60" data-track-click='{"mod":"kp_popu_60-894","con":"5312399128201364233,https://edu.csdn.net/course/detail/2570,"}' 
+data-track-view='{"mod":"kp_popu_60-894","con":"5312399128201364233,https://edu.csdn.net/course/detail/2570,"}' 
+data-pid="60"><LINK href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/edu-recommend-1.0.1.css" 
+rel="stylesheet">   
+<DIV class="edu-ad-list">
+<DIV class="recommend-item-box type_blog clearfix">
+<DIV class="content"><A title="<em>Visual</em> <em>Studio</em> <em>2015</em>开发C++程序的基本使用" 
+href="https://edu.csdn.net/course/detail/2570?utm_source=baidutj" target="_blank">
+<H4 class="text-truncate oneline"><EM>Visual</EM> <EM>Studio</EM> 
+<EM>2015</EM>开发C++程序的基本使用</H4></A>         
+<P class="content"><A title="<em>Visual</em> <em>Studio</em> <em>2015</em>开发C++程序的基本使用" 
+href="https://edu.csdn.net/course/detail/2570?utm_source=baidutj" target="_blank"><SPAN 
+class="desc oneline">本课程主要介绍使用Visual Studio 
+2015开发C++程序，介绍怎么样创建C++的控制台程序、MFC程序、动态库程序以及程序调试。</SPAN>           </A>           
+<SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-edu type-show-after">学院</SPAN> 
+           讲师： <SPAN class="blog_title"> 蔡军生</SPAN>           </SPAN>         
+</P></DIV></DIV></DIV></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xuluohongshang/article/details/78870357,BlogCommendFromBaidu_9"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/xuluohongshang/article/details/78870357,BlogCommendFromBaidu_9"}'>
+<DIV class="content"><A title="OpenCV环境配置 吐血整理！" href="https://blog.csdn.net/xuluohongshang/article/details/78870357" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>OpenCV</EM>环境<EM>配置</EM> 吐血整理！		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">12-22</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 950</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="OpenCV环境配置 吐血整理！" href="https://blog.csdn.net/xuluohongshang/article/details/78870357" 
+target="_blank"><SPAN 
+class="desc oneline">//**************************************关于使vs可混合2.与3.的使用配置******************************************...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/xuluohongshang" 
+target="_blank">来自：	<SPAN class="blog_title">xuluohongshang的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_41175905/article/details/80560429,BlogCommendFromBaidu_10"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_41175905/article/details/80560429,BlogCommendFromBaidu_10"}'>
+<DIV class="content"><A title="VS2017配置opencv教程（超详细！！！）" href="https://blog.csdn.net/qq_41175905/article/details/80560429" 
+target="_blank">
+<H4 
+class="text-truncate oneline">VS2017<EM>配置</EM><EM>opencv</EM>教程（超详细！！！）		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">06-03</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 6万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="VS2017配置opencv教程（超详细！！！）" href="https://blog.csdn.net/qq_41175905/article/details/80560429" 
+target="_blank"><SPAN 
+class="desc oneline">前言：刚开始是不打算写这篇博客的，但是我最近为了完成对老师布置的区域生长算法，强行要配置一波opencv，因为换了电脑，所以选择了有黑黑主题酷酷的VS2017，但无奈网上的博客关于vs2017配置Op...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/qq_41175905" 
+target="_blank">来自：	<SPAN class="blog_title">Chosen One</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box blog-expert-recommend-box">
+<DIV class="d-flex">
+<DIV class="blog-expert-recommend">
+<DIV class="blog-expert">
+<DIV class="blog-expert-flexbox"></DIV></DIV></DIV></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinat_34707539/article/details/82804545,BlogCommendClickRateRank_11"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/sinat_34707539/article/details/82804545,BlogCommendClickRateRank_11"}'>
+<DIV class="content"><A title="OpenCV4.0_Alpha+Visual Studio 2015+Win10配置" href="https://blog.csdn.net/sinat_34707539/article/details/82804545" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>OpenCV</EM>4.0_Alpha+<EM>Visual</EM> 
+<EM>Studio</EM> <EM>2015</EM>+Win10<EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">09-21</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 5786</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="OpenCV4.0_Alpha+Visual Studio 2015+Win10配置" href="https://blog.csdn.net/sinat_34707539/article/details/82804545" 
+target="_blank"><SPAN 
+class="desc oneline">昨天看到OpenCV官网推出了OpenCV4.0-alpha版本，就顺手下载试了一试，初步运行成功，配置过程和3.0版本大同小异。——2018年9月21日&nbsp;目录0、软件下载1、安装配置1.1VS201...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/sinat_34707539" 
+target="_blank">来自：	<SPAN class="blog_title"> 西红是番茄</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zhhp1001/article/details/79004559,BlogCommendClickRateRank_12"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/zhhp1001/article/details/79004559,BlogCommendClickRateRank_12"}'>
+<DIV class="content"><A title="VS2015+Qt5+OpenCV3开发环境配置" href="https://blog.csdn.net/zhhp1001/article/details/79004559" 
+target="_blank">
+<H4 
+class="text-truncate oneline">VS<EM>2015</EM>+Qt5+<EM>OpenCV</EM>3<EM>开发环境</EM><EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">01-08</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="VS2015+Qt5+OpenCV3开发环境配置" href="https://blog.csdn.net/zhhp1001/article/details/79004559" 
+target="_blank"><SPAN 
+class="desc oneline">本文介绍如何使用VS2015作为编译开发环境，调用OpenCV3.31和Qt5.9.1写图像处理的GUI。1.目录结构假设我们要创建一个名为VideoZoom的工程，那么首先按下图构建目录结构，在bi...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/zhhp1001" target="_blank">来自：	<SPAN 
+class="blog_title">zhhp1001的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36088602/article/details/85633906,BlogCommendClickRateRank_13"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36088602/article/details/85633906,BlogCommendClickRateRank_13"}'>
+<DIV class="content"><A title="OpenCV   vs2017一次配置好 不用每次都要配置目录" href="https://blog.csdn.net/qq_36088602/article/details/85633906" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>OpenCV</EM>   vs2017一次<EM>配置</EM>好 
+不用每次都要<EM>配置</EM>目录		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">01-02</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 507</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="OpenCV   vs2017一次配置好 不用每次都要配置目录" href="https://blog.csdn.net/qq_36088602/article/details/85633906" 
+target="_blank"><SPAN class="desc oneline">在环境变量path里配置OpenCV的bin目录</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/qq_36088602" 
+target="_blank">来自：	<SPAN class="blog_title">°Destiny</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_61" data-track-click='{"mod":"kp_popu_61-809","con":",,"}' 
+data-track-view='{"mod":"kp_popu_61-809","con":",,"}' data-pid="61">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/stream.js" charset="utf-8" async="async" data-img-style="float:left;margin-right:15px;width:90px;height:60px;" data-des-style="font-size: 13px; line-height: 22px; white-space: normal; color: #999;" data-tit-style="margin-bottom: 6px; font-size: 18px; line-height: 24px; color: #3d3d3d;display: inline-block;font-weight:bold;" data-div-style="width:100%;" data-id="6cb24153a03289ff3597c7aab4b69fe9"></SCRIPT>
+</DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_39703045/article/details/85100107,BlogCommendClickRateRank_14"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_39703045/article/details/85100107,BlogCommendClickRateRank_14"}'>
+<DIV class="content"><A title="opencv3.1安装后环境变量配置及demo测试" href="https://blog.csdn.net/qq_39703045/article/details/85100107" 
+target="_blank">
+<H4 
+class="text-truncate oneline"><EM>opencv</EM>3.1安装后环境变量<EM>配置</EM>及demo测试		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">12-19</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 43</SPAN>				 </P></DIV></A>		 
+<P class="content"><A title="opencv3.1安装后环境变量配置及demo测试" href="https://blog.csdn.net/qq_39703045/article/details/85100107" 
+target="_blank"><SPAN 
+class="desc oneline">1、环境变量配置&nbsp;sudogedit/etc/ld.so.conf.d/opencv.conf写入：/usr/local/libsudoldconfig2、sudogedit/etc/profileg...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/qq_39703045" 
+target="_blank">来自：	<SPAN class="blog_title">qq_39703045的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/chenyusiyuan/article/details/5967291,BlogCommendESEnWordWeight_15"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/chenyusiyuan/article/details/5967291,BlogCommendESEnWordWeight_15"}'>
+<DIV class="content"><A title=" OpenCV学习笔记（18）双目测距与三维重建的OpenCV实现问题集锦（三）立体匹配与视差计算" 
+href="https://blog.csdn.net/chenyusiyuan/article/details/5967291" target="_blank">
+<H4 
+class="text-truncate oneline"><EM>OpenCV</EM>学习笔记（18）双目测距与三维重建的<EM>OpenCV</EM>实现问题集锦（三）立体匹配与视差计算		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">10-26</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 9万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title=" OpenCV学习笔记（18）双目测距与三维重建的OpenCV实现问题集锦（三）立体匹配与视差计算" 
+href="https://blog.csdn.net/chenyusiyuan/article/details/5967291" target="_blank"><SPAN 
+class="desc oneline">四、双目匹配与视差计算立体匹配主要是通过找出每对图像间的对应关系，根据三角测量原理，得到视差图；在获得了视差信息后，根据投影模型很容易地可以得到原始图像的深度信息和三维信息。立体匹配技术被普遍认为是立...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/chenyusiyuan" 
+target="_blank">来自：	<SPAN class="blog_title"> 晨宇思远</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/HEYIAMCOMING/article/details/76584531,BlogCommendESEnWordWeight_16"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/HEYIAMCOMING/article/details/76584531,BlogCommendESEnWordWeight_16"}'>
+<DIV class="content"><A title="C语言实现图的最短路径Floyd算法" href="https://blog.csdn.net/HEYIAMCOMING/article/details/76584531" 
+target="_blank">
+<H4 class="text-truncate oneline">C语言实现图的最短路径Floyd算法		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">08-02</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 4837</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="C语言实现图的最短路径Floyd算法" href="https://blog.csdn.net/HEYIAMCOMING/article/details/76584531" 
+target="_blank"><SPAN 
+class="desc oneline">Floyd算法直接使用二维数组求出所有顶点到所有顶点的最短路径。D代表顶点到顶点的最短路径权值和的矩阵。P代表对应顶点的最小路径的前驱矩阵。以下程序在DEVC++中调试运行通过。#include#de...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/HEYIAMCOMING" 
+target="_blank">来自：	<SPAN class="blog_title">KittyGirl</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/caiguolin517/article/details/82960909,BlogCommendESEnWordWeight_17"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/caiguolin517/article/details/82960909,BlogCommendESEnWordWeight_17"}'>
+<DIV class="content"><A title="Win10(64位)+ Visual Studio 2017+OpenCV3.4.3开发环境配置" 
+href="https://blog.csdn.net/caiguolin517/article/details/82960909" target="_blank">
+<H4 class="text-truncate oneline">				Win10(64位)+ <EM>Visual</EM> 
+<EM>Studio</EM> 2017+<EM>OpenCV</EM>3.4.3<EM>开发环境</EM><EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">10-07</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 203</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="Win10(64位)+ Visual Studio 2017+OpenCV3.4.3开发环境配置" 
+href="https://blog.csdn.net/caiguolin517/article/details/82960909" target="_blank"><SPAN 
+class="desc oneline">Win10(64位)+VisualStudio2017+OpenCV3.4.3开发环境配置环境：Win10(64位)、VisualStudio2017、OpenCV3.4.3一、OpenCV3.4.3...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/caiguolin517" 
+target="_blank">来自：	<SPAN class="blog_title">caiguolin517的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ravi_jay/article/details/78496510,BlogCommendFromBaidu_18"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/ravi_jay/article/details/78496510,BlogCommendFromBaidu_18"}'>
+<DIV class="content"><A title="论文写作中的一些小问题" href="https://blog.csdn.net/ravi_jay/article/details/78496510" 
+target="_blank">
+<H4 class="text-truncate oneline">				论文写作中的一些小问题		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">11-10</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 3641</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="论文写作中的一些小问题" href="https://blog.csdn.net/ravi_jay/article/details/78496510" 
+target="_blank"><SPAN 
+class="desc oneline">Opencv+visualstudio2017配置1.配置系统环境变量设置环境变量（控制面板-系统与安全-系统-高级系统设置-环境变量），添加系统变量。OPENCV3_DIR；…opencv\buil...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/ravi_jay" target="_blank">来自：	<SPAN 
+class="blog_title">ravi_jay的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_62" data-track-click='{"mod":"kp_popu_62-809","con":",,"}' 
+data-track-view='{"mod":"kp_popu_62-809","con":",,"}' data-pid="62">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/stream.js" charset="utf-8" async="async" data-img-style="float:left;margin-right:15px;width:90px;height:60px;" data-des-style="font-size: 13px; line-height: 22px; white-space: normal; color: #999;" data-tit-style="margin-bottom: 6px; font-size: 18px; line-height: 24px; color: #3d3d3d;display: inline-block;font-weight:bold;" data-div-style="width:100%;" data-id="6cb24153a03289ff3597c7aab4b69fe9"></SCRIPT>
+</DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mango_haoming/article/details/79982658,BlogCommendFromBaidu_19"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/mango_haoming/article/details/79982658,BlogCommendFromBaidu_19"}'>
+<DIV class="content"><A title="vs2017+OpenCV3.4.1配置" href="https://blog.csdn.net/mango_haoming/article/details/79982658" 
+target="_blank">
+<H4 class="text-truncate oneline">
+				vs2017+<EM>OpenCV</EM>3.4.1<EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">04-17</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 4957</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="vs2017+OpenCV3.4.1配置" href="https://blog.csdn.net/mango_haoming/article/details/79982658" 
+target="_blank"><SPAN 
+class="desc oneline">文章同步于芒果浩明配置OpenCV系统环境变量配置环境变量就是把D:\opencv\build\x86\vc15\bin//根据自己的目录填写目录添加到系统的path里面，这样程序运行的时候系统就可以...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/mango_haoming" 
+target="_blank">来自：	<SPAN class="blog_title"> 芒果浩明</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ling3ye/article/details/61210111,BlogCommendFromBaidu_20"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/ling3ye/article/details/61210111,BlogCommendFromBaidu_20"}'>
+<DIV class="content"><A title="机器视觉入门  Visual Studio 2015 配置 Opencv3.2" href="https://blog.csdn.net/ling3ye/article/details/61210111" 
+target="_blank">
+<H4 class="text-truncate oneline">				机器视觉入门  <EM>Visual</EM> <EM>Studio</EM> 
+<EM>2015</EM> <EM>配置</EM> <EM>Opencv</EM>3.2		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">03-20</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 6953</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="机器视觉入门  Visual Studio 2015 配置 Opencv3.2" href="https://blog.csdn.net/ling3ye/article/details/61210111" 
+target="_blank"><SPAN 
+class="desc oneline">本文只要讲述如何在VisualStudio2015中配置Opencv3.2版本本例子使用的是WIN10系统+&nbsp;VisualStudio2015+OpenCV3.2一，下载OpenCV3.2OpenCV...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/ling3ye" target="_blank">来自：	<SPAN 
+class="blog_title"> 凌顺实验室</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-box-ident recommend-download-box clearfix" 
+data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_38327497/10190029,BlogCommendFromBaidu_21"}' 
+data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_38327497/10190029,BlogCommendFromBaidu_21"}'><A 
+href="https://download.csdn.net/download/qq_38327497/10190029" target="_blank">
+<DIV class="content clearfix">
+<DIV>
+<H4 
+class="text-truncate oneline clearfix"><EM>opencv</EM>-<EM>3.4.0</EM>					</H4><SPAN 
+class="data float-right">01-05</SPAN>				 </DIV>
+<DIV class="desc oneline">
+						OpenCV是一个基于BSD许可（开源）发行的跨平台计算机视觉库，可以运行在Linux、Windows、Android和Mac 
+OS操作系统上。它轻量级而且高效——由一系列 C 函数和少量 C++ 类				</DIV><SPAN class="type-show type-show-download">下载</SPAN>
+			 </DIV></A></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/jessican_uestc/article/details/79614879,BlogCommendFromBaidu_22"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/jessican_uestc/article/details/79614879,BlogCommendFromBaidu_22"}'>
+<DIV class="content"><A title="环境： Ubuntu 16.04 64bit ，openCV 3.4.0" href="https://blog.csdn.net/jessican_uestc/article/details/79614879" 
+target="_blank">
+<H4 class="text-truncate oneline">				环境： Ubuntu 16.04 64bit ，<EM>openCV</EM> 
+<EM>3.4.0</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">03-19</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1855</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="环境： Ubuntu 16.04 64bit ，openCV 3.4.0" href="https://blog.csdn.net/jessican_uestc/article/details/79614879" 
+target="_blank"><SPAN 
+class="desc oneline">官网手册中的说明基本上是比较全的，这里主要记录下安装过程，以及编译选项多看官方手册，少走弯路官网安装说明：https://docs.opencv.org/3.4.0/d7/d9f/tutorial_l...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/jessican_uestc" 
+target="_blank">来自：	<SPAN class="blog_title">jessican_uestc的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/W614171629/article/details/81332414,searchFromBaidu_23"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/W614171629/article/details/81332414,searchFromBaidu_23"}'>
+<DIV class="content"><A title="VS2015+Opencv环境配置" href="https://blog.csdn.net/W614171629/article/details/81332414" 
+target="_blank">
+<H4 
+class="text-truncate oneline">VS<EM>2015</EM>+<EM>Opencv</EM>环境<EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">08-01</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 204</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="VS2015+Opencv环境配置" href="https://blog.csdn.net/W614171629/article/details/81332414" 
+target="_blank"><SPAN 
+class="desc oneline">在日常基于opencv库的C++开发中，灵活的运用Opencv+VS2015+Cmake，能起到事半功倍的效果，可是当项目工程繁杂庞大，还是避免不了opencv的环境配置，经过一次次艰苦摸索，总结如下...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/W614171629" target="_blank">来自：	<SPAN 
+class="blog_title"> 风棂</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_63" data-track-click='{"mod":"kp_popu_63-809","con":",,"}' 
+data-track-view='{"mod":"kp_popu_63-809","con":",,"}' data-pid="63">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/stream.js" charset="utf-8" async="async" data-img-style="float:left;margin-right:15px;width:90px;height:60px;" data-des-style="font-size: 13px; line-height: 22px; white-space: normal; color: #999;" data-tit-style="margin-bottom: 6px; font-size: 18px; line-height: 24px; color: #3d3d3d;display: inline-block;font-weight:bold;" data-div-style="width:100%;" data-id="6cb24153a03289ff3597c7aab4b69fe9"></SCRIPT>
+</DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010498986/article/details/79319261,searchFromBaidu_24"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010498986/article/details/79319261,searchFromBaidu_24"}'>
+<DIV class="content"><A title="一次性配置opencv环境" href="https://blog.csdn.net/u010498986/article/details/79319261" 
+target="_blank">
+<H4 class="text-truncate oneline">一次性<EM>配置</EM><EM>opencv</EM>环境		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">02-12</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 527</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="一次性配置opencv环境" href="https://blog.csdn.net/u010498986/article/details/79319261" 
+target="_blank"><SPAN 
+class="desc oneline">1.添加系统环境变量将opencv/bin目录添加到系统变量PATH中，由于我编译了Debug和Release两个版本所以添加了两个路径。2.保存opencv项目属性新建一个VC空项目-视图-&amp;amp...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/u010498986" target="_blank">来自：	<SPAN 
+class="blog_title">u010498986的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_42836481/article/details/81358695,searchFromBaidu_25"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_42836481/article/details/81358695,searchFromBaidu_25"}'>
+<DIV class="content"><A title="Opencv3.4.1 +VS2017环境配置详细过程与心得（被坑无数次的总结，只需一次配置即可一劳永逸）" 
+href="https://blog.csdn.net/weixin_42836481/article/details/81358695" target="_blank">
+<H4 class="text-truncate oneline"><EM>Opencv</EM>3.4.1 
++VS2017环境<EM>配置</EM>详细过程与心得（被坑无数次的总结，只需一次<EM>配置</EM>即可一劳永逸）		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">08-02</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 2116</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="Opencv3.4.1 +VS2017环境配置详细过程与心得（被坑无数次的总结，只需一次配置即可一劳永逸）" 
+href="https://blog.csdn.net/weixin_42836481/article/details/81358695" target="_blank"><SPAN 
+class="desc oneline">1下载与安装opencv官网https://opencv.org/我个人下载的是opencv3.4.1版本，大家也可以根据自己的需要下载相应的版本。点击相应的版本名称进入下载链接，然后等待几秒进入下载...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/weixin_42836481" 
+target="_blank">来自：	<SPAN 
+class="blog_title">weixin_42836481的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Edwardjaychou/article/details/52463322,BlogCommendFromQuerySearch_26"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Edwardjaychou/article/details/52463322,BlogCommendFromQuerySearch_26"}'>
+<DIV class="content"><A title="在Visual Studio2015中搭建OpenGL开发环境（win10）" href="https://blog.csdn.net/Edwardjaychou/article/details/52463322" 
+target="_blank">
+<H4 class="text-truncate oneline">				在<EM>Visual</EM> 
+<EM>Studio</EM><EM>2015</EM>中搭建OpenGL<EM>开发环境</EM>（win10）		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">09-07</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 4743</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="在Visual Studio2015中搭建OpenGL开发环境（win10）" href="https://blog.csdn.net/Edwardjaychou/article/details/52463322" 
+target="_blank"><SPAN 
+class="desc oneline">一、下载OpenGL的GLUT库Windows环境下的GLUT官方下载地址：（苹果机不需要安装，自带）&nbsp;&nbsp;http://www.opengl.org/resources/libraries/glut/...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/Edwardjaychou" 
+target="_blank">来自：	<SPAN class="blog_title">Edwardjaychou的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/dreamtheworld1/article/details/56494803,BlogCommendFromQuerySearch_27"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/dreamtheworld1/article/details/56494803,BlogCommendFromQuerySearch_27"}'>
+<DIV class="content"><A title="详细介绍opencv3.0+visio studio2015+win10环境配置至出成果" 
+href="https://blog.csdn.net/dreamtheworld1/article/details/56494803" target="_blank">
+<H4 class="text-truncate oneline">				详细介绍<EM>opencv</EM>3.0+visio 
+<EM>studio</EM><EM>2015</EM>+win10环境<EM>配置</EM>至出成果		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">02-22</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1396</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="详细介绍opencv3.0+visio studio2015+win10环境配置至出成果" href="https://blog.csdn.net/dreamtheworld1/article/details/56494803" 
+target="_blank"><SPAN 
+class="desc oneline">opencv是一套图像处理应用十分广泛的计算机图像处理分析“开源计算机视觉库”&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本篇介绍的是opencv3.0和vs2015的环境配置1.下载opencv3.0和vs2...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/dreamtheworld1" 
+target="_blank">来自：	<SPAN class="blog_title">dreamtheworld1的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/guanzhen3657/article/details/81119200,BlogCommendFromQuerySearch_28"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/guanzhen3657/article/details/81119200,BlogCommendFromQuerySearch_28"}'>
+<DIV class="content"><A title="visual studio 2015中使用opencv时遇到的一些问题" href="https://blog.csdn.net/guanzhen3657/article/details/81119200" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>visual</EM> <EM>studio</EM> 
+<EM>2015</EM>中使用<EM>opencv</EM>时遇到的一些问题		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">07-20</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 591</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="visual studio 2015中使用opencv时遇到的一些问题" href="https://blog.csdn.net/guanzhen3657/article/details/81119200" 
+target="_blank"><SPAN 
+class="desc oneline">&nbsp;&nbsp;&nbsp;&nbsp;前记：在使用VS做视觉库的使用时，经常会遇到各种各样的问题，很多问题都可能会重复遇到，有些问题花好大力气搞定了，下次遇到了忘了又得重新弄。所以还是写个博客记录一下，保持好习惯。也包含一些Qt配...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/guanzhen3657" 
+target="_blank">来自：	<SPAN class="blog_title"> 学霸家有事的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_64" data-track-click='{"mod":"kp_popu_64-809","con":",,"}' 
+data-track-view='{"mod":"kp_popu_64-809","con":",,"}' data-pid="64">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/stream.js" charset="utf-8" async="async" data-img-style="float:left;margin-right:15px;width:90px;height:60px;" data-des-style="font-size: 13px; line-height: 22px; white-space: normal; color: #999;" data-tit-style="margin-bottom: 6px; font-size: 18px; line-height: 24px; color: #3d3d3d;display: inline-block;font-weight:bold;" data-div-style="width:100%;" data-id="6cb24153a03289ff3597c7aab4b69fe9"></SCRIPT>
+</DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wei_shadow/article/details/71170781,BlogCommendFromQuerySearch_29"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wei_shadow/article/details/71170781,BlogCommendFromQuerySearch_29"}'>
+<DIV class="content"><A title="在windows10 下搭建 visual studio 2015 驱动程序开发环境" href="https://blog.csdn.net/wei_shadow/article/details/71170781" 
+target="_blank">
+<H4 class="text-truncate oneline">在<EM>windows</EM>10 下搭建 <EM>visual</EM> 
+<EM>studio</EM> <EM>2015</EM> 驱动程序<EM>开发环境</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">05-04</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 3052</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="在windows10 下搭建 visual studio 2015 驱动程序开发环境" href="https://blog.csdn.net/wei_shadow/article/details/71170781" 
+target="_blank"><SPAN 
+class="desc oneline">windwos10VirtualBoxvisualstudio2015windowsSDKwindowsWDK</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/wei_shadow" target="_blank">来自：	<SPAN 
+class="blog_title">wei_shadow的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qqagsd155451/article/details/53371841,BlogCommendFromQuerySearch_30"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qqagsd155451/article/details/53371841,BlogCommendFromQuerySearch_30"}'>
+<DIV class="content"><A title="VS2015搭建Lua开发环境" href="https://blog.csdn.net/qqagsd155451/article/details/53371841" 
+target="_blank">
+<H4 class="text-truncate oneline">VS<EM>2015</EM>搭建Lua<EM>开发环境</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">11-28</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 3945</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="VS2015搭建Lua开发环境" href="https://blog.csdn.net/qqagsd155451/article/details/53371841" 
+target="_blank"><SPAN 
+class="desc oneline">VS2015搭建lua开发环境经验第三大步的附加IncludeDirectories和LibraryDirectories可以进入PropertyManager中&nbsp;选中Debug|Win32下的Mic...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/qqagsd155451" 
+target="_blank">来自：	<SPAN class="blog_title">Sunny Blog</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_37768634/article/details/79616978,BlogCommendFromThirdServiceAll_31"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_37768634/article/details/79616978,BlogCommendFromThirdServiceAll_31"}'>
+<DIV class="content"><A title="配置Win10+OpenCV3.4.1+vs2017" href="https://blog.csdn.net/qq_37768634/article/details/79616978" 
+target="_blank">
+<H4 
+class="text-truncate oneline"><EM>配置</EM>Win10+<EM>OpenCV</EM>3.4.1+vs2017		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">03-19</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 3547</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="配置Win10+OpenCV3.4.1+vs2017" href="https://blog.csdn.net/qq_37768634/article/details/79616978" 
+target="_blank"><SPAN 
+class="desc oneline">&nbsp;&nbsp;&nbsp;&nbsp;最近各类比赛都掺杂了人工智能的要求，花了几天配置好了win10+Caffe，又因为环境原因配置了Linux+caffe+OpenCV，发现Linux真的非常不友好。还是回到win10和强大的V...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/qq_37768634" 
+target="_blank">来自：	<SPAN class="blog_title">LlveSzy‘s Future</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_41943402/article/details/79992802,BlogCommendFromThirdServiceAll_32"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_41943402/article/details/79992802,BlogCommendFromThirdServiceAll_32"}'>
+<DIV class="content"><A title="OpenCV 3.1.0+VS2017开发环境配置" href="https://blog.csdn.net/qq_41943402/article/details/79992802" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>OpenCV</EM> 
+3.1.0+VS2017<EM>开发环境</EM><EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">04-18</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1264</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="OpenCV 3.1.0+VS2017开发环境配置" href="https://blog.csdn.net/qq_41943402/article/details/79992802" 
+target="_blank"><SPAN 
+class="desc oneline">电脑系统：win1064位&nbsp;OpenCV3.1.0VisualStudio2017&nbsp;&nbsp;&nbsp;1.下载opencv-3.1.02.解压&nbsp;3.配置OpenCV3.1【打开控制面板】→【系统】→【高级系统设置】...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/qq_41943402" 
+target="_blank">来自：	<SPAN class="blog_title">qq_41943402的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/NickCry/article/details/79148772,BlogCommendFromThirdServiceAll_33"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/NickCry/article/details/79148772,BlogCommendFromThirdServiceAll_33"}'>
+<DIV class="content"><A title="VS2013+OpenCV3.4.0安装配置" href="https://blog.csdn.net/NickCry/article/details/79148772" 
+target="_blank">
+<H4 
+class="text-truncate oneline">VS2013+<EM>OpenCV</EM><EM>3.4.0</EM>安装<EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">01-24</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="VS2013+OpenCV3.4.0安装配置" href="https://blog.csdn.net/NickCry/article/details/79148772" 
+target="_blank"><SPAN 
+class="desc oneline">VS2013+OpenCV3.4.0安装配置一所需工具OpenCV3.4.0VisualStudio2013CMake资源地址：链接:https://pan.baidu.com/s/1kXlAKQz密...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/NickCry" target="_blank">来自：	<SPAN 
+class="blog_title">NickCry的专栏</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_65" data-track-click='{"mod":"kp_popu_65-809","con":",,"}' 
+data-track-view='{"mod":"kp_popu_65-809","con":",,"}' data-pid="65">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/stream.js" charset="utf-8" async="async" data-img-style="float:left;margin-right:15px;width:90px;height:60px;" data-des-style="font-size: 13px; line-height: 22px; white-space: normal; color: #999;" data-tit-style="margin-bottom: 6px; font-size: 18px; line-height: 24px; color: #3d3d3d;display: inline-block;font-weight:bold;" data-div-style="width:100%;" data-id="6cb24153a03289ff3597c7aab4b69fe9"></SCRIPT>
+</DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/bamboocan/article/details/70229611,BlogCommendFromThirdServiceAll_34"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/bamboocan/article/details/70229611,BlogCommendFromThirdServiceAll_34"}'>
+<DIV class="content"><A title="VS2010上的OpenCV的版本选择与配置" href="https://blog.csdn.net/bamboocan/article/details/70229611" 
+target="_blank">
+<H4 class="text-truncate oneline">
+				VS2010上的<EM>OpenCV</EM>的版本选择与<EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">04-18</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="VS2010上的OpenCV的版本选择与配置" href="https://blog.csdn.net/bamboocan/article/details/70229611" 
+target="_blank"><SPAN 
+class="desc oneline">首先是OpenCV的版本选择。不是所有版本的OpenCV都支持你的VisualStudio版本，同样的，不是所有版本的VisualStudio都与OpenCV的特定版本相兼容。失误的经历：在我下载Op...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/bamboocan" target="_blank">来自：	<SPAN 
+class="blog_title"> 快刀斩乱竹</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Quincuntial/article/details/49641437,BlogCommendFromThirdServiceAll_35"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Quincuntial/article/details/49641437,BlogCommendFromThirdServiceAll_35"}'>
+<DIV class="content"><A title="64位Win7下配置VS2010和Opencv3.0" href="https://blog.csdn.net/Quincuntial/article/details/49641437" 
+target="_blank">
+<H4 
+class="text-truncate oneline">64位Win7下<EM>配置</EM>VS2010和<EM>Opencv</EM>3.0		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">11-04</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 3804</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="64位Win7下配置VS2010和Opencv3.0" href="https://blog.csdn.net/Quincuntial/article/details/49641437" 
+target="_blank"><SPAN 
+class="desc oneline">64位Win7下配置VS2010和Opencv3.01、下载VS2010并安装，地址：http://pan.baidu.com/s/1gdAWLTD2、下载Opencv3.0并安装，地址：http:/...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/Quincuntial" 
+target="_blank">来自：	<SPAN class="blog_title">SnailTyan</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Monster_Girl/article/details/78925141,BlogCommendFromBaidu_36"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Monster_Girl/article/details/78925141,BlogCommendFromBaidu_36"}'>
+<DIV class="content"><A title="opencv的安装及vs2017环境的配置" href="https://blog.csdn.net/Monster_Girl/article/details/78925141" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>opencv</EM>的安装及vs2017环境的<EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">12-28</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 6217</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="opencv的安装及vs2017环境的配置" href="https://blog.csdn.net/Monster_Girl/article/details/78925141" 
+target="_blank"><SPAN 
+class="desc oneline">最近毕设开始了，我做的方面主要是图像处理方向，于是单独来记关于opencv的学习笔记。...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/Monster_Girl" 
+target="_blank">来自：	<SPAN class="blog_title">Monster_Girl</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinat_36264666/article/details/73135823,BlogCommendFromBaidu_37"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/sinat_36264666/article/details/73135823,BlogCommendFromBaidu_37"}'>
+<DIV class="content"><A title="拜小白教你OpenCV3.2.0+VS2017开发环境配置" href="https://blog.csdn.net/sinat_36264666/article/details/73135823" 
+target="_blank">
+<H4 
+class="text-truncate oneline">拜小白教你<EM>OpenCV</EM>3.2.0+VS2017<EM>开发环境</EM><EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">06-12</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 9万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="拜小白教你OpenCV3.2.0+VS2017开发环境配置" href="https://blog.csdn.net/sinat_36264666/article/details/73135823" 
+target="_blank"><SPAN 
+class="desc oneline">拜小白教你OpenCV3.2.0+VS2017开发环境配置本机环境：win1064位OpenCV3.2.0VisualStudio2017最后结果，亲测可用...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/sinat_36264666" 
+target="_blank">来自：	<SPAN class="blog_title"> 拜小白的成长之路，告别小白</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sufu1065/article/details/80111878,BlogCommendFromBaidu_38"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/sufu1065/article/details/80111878,BlogCommendFromBaidu_38"}'>
+<DIV class="content"><A title="OpenCV环境搭建（一）" href="https://blog.csdn.net/sufu1065/article/details/80111878" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>OpenCV</EM>环境搭建（一）		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">04-28</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 377</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="OpenCV环境搭建（一）" href="https://blog.csdn.net/sufu1065/article/details/80111878" 
+target="_blank"><SPAN 
+class="desc oneline">OpenCV环境搭建环境搭建为OpenCV的python（一下简称py）开发环境搭建，建立在py3的环境和语法上实现的。windows系统搭建系统环境：windows10+python3.6+Open...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/sufu1065" target="_blank">来自：	<SPAN 
+class="blog_title"> 王磊的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_66" data-track-click='{"mod":"kp_popu_66-881","con":",,"}' 
+data-track-view='{"mod":"kp_popu_66-881","con":",,"}' data-pid="66">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/sdk-csdn-render.js"></SCRIPT>
+ 
+<DIV class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix" 
+id="_4paradigm_T38_render"></DIV>
+<SCRIPT>
+  //  渲染T38  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T38_render", "T38");
+</SCRIPT>
+</DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010921682/article/details/89532136,BlogCommendFromBaidu_39"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010921682/article/details/89532136,BlogCommendFromBaidu_39"}'>
+<DIV class="content"><A title="OpenCV4.1配置vs2017无法运行的问题" href="https://blog.csdn.net/u010921682/article/details/89532136" 
+target="_blank">
+<H4 
+class="text-truncate oneline"><EM>OpenCV</EM>4.1<EM>配置</EM>vs2017无法运行的问题		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">04-26</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 107</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="OpenCV4.1配置vs2017无法运行的问题" href="https://blog.csdn.net/u010921682/article/details/89532136" 
+target="_blank"><SPAN 
+class="desc oneline">最近在装OpenCV4.1，环境变量和库都按网上给的教程一步步设置无误，但是在运行DEMO时还是出现无法加载的情况，排除了图像的问题以及相关opencv库配置的问题网上很多回答只是基于1）图片资源路径...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/u010921682" target="_blank">来自：	<SPAN 
+class="blog_title"> 你还不够优秀！</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/csdn_zhishui/article/details/79459782,BlogCommendFromBaidu_40"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/csdn_zhishui/article/details/79459782,BlogCommendFromBaidu_40"}'>
+<DIV class="content"><A title="VS2012+OpenCV3.0环境配置" href="https://blog.csdn.net/csdn_zhishui/article/details/79459782" 
+target="_blank">
+<H4 class="text-truncate oneline">VS2012+<EM>OpenCV</EM>3.0环境<EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">04-03</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 741</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="VS2012+OpenCV3.0环境配置" href="https://blog.csdn.net/csdn_zhishui/article/details/79459782" 
+target="_blank"><SPAN 
+class="desc oneline">一准备VS2012安装包：链接：https://pan.baidu.com/s/1xIK7QX23MuraZdR-22tUGQ密码：01i7OpenCV3.0文件包：链接：https://pan.ba...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/csdn_zhishui" 
+target="_blank">来自：	<SPAN class="blog_title">csdn_zhishui的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/silencewly/article/details/54744012,BlogCommendClickRateRank_41"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/silencewly/article/details/54744012,BlogCommendClickRateRank_41"}'>
+<DIV class="content"><A title="opencv 配置环境变量" href="https://blog.csdn.net/silencewly/article/details/54744012" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>opencv</EM> <EM>配置</EM>环境变量		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">01-26</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 737</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="opencv 配置环境变量" href="https://blog.csdn.net/silencewly/article/details/54744012" 
+target="_blank"><SPAN class="desc oneline">opencv配置环境变量，解决每次使用时需在VS重新配置</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/silencewly" target="_blank">来自：	<SPAN 
+class="blog_title">silencewly的专栏</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_38470688/article/details/74097119,BlogCommendClickRateRank_42"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_38470688/article/details/74097119,BlogCommendClickRateRank_42"}'>
+<DIV class="content"><A title="opencv3.20+vs2017环境变量配置" href="https://blog.csdn.net/weixin_38470688/article/details/74097119" 
+target="_blank">
+<H4 
+class="text-truncate oneline"><EM>opencv</EM>3.20+vs2017环境变量<EM>配置</EM>		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">07-02</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 390</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="opencv3.20+vs2017环境变量配置" href="https://blog.csdn.net/weixin_38470688/article/details/74097119" 
+target="_blank"><SPAN class="desc oneline">opencv3.20+vs2017环境变量配置</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/weixin_38470688" 
+target="_blank">来自：	<SPAN 
+class="blog_title">weixin_38470688的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_38087069/article/details/80760901,BlogCommendClickRateRank_43"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_38087069/article/details/80760901,BlogCommendClickRateRank_43"}'>
+<DIV class="content"><A title="opencv环境变量配置 \opencv\build\x64中的vc10\vc12" href="https://blog.csdn.net/qq_38087069/article/details/80760901" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>opencv</EM>环境变量<EM>配置</EM> 
+\<EM>opencv</EM>\build\x64中的vc10\vc12		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">06-21</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 400</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="opencv环境变量配置 \opencv\build\x64中的vc10\vc12" href="https://blog.csdn.net/qq_38087069/article/details/80760901" 
+target="_blank"><SPAN 
+class="desc oneline">在配置opencv与vs2010过程中，发现了配置x86/x64,和vc10、vc12的问题。由于第一次弄，在网上搜索了一篇博客就模仿配置，配完后结果运行不了。。1.&nbsp;x86是供电脑为32位的用户选择...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/qq_38087069" 
+target="_blank">来自：	<SPAN class="blog_title">da吉的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_67" data-track-click='{"mod":"kp_popu_67-882","con":",,"}' 
+data-track-view='{"mod":"kp_popu_67-882","con":",,"}' data-pid="67">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/sdk-csdn-render.js"></SCRIPT>
+ 
+<DIV class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix" 
+id="_4paradigm_T43_render"></DIV>
+<SCRIPT>
+  //  渲染T43  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T43_render", "T43");
+</SCRIPT>
+</DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wanty_chen/article/details/79883163,BlogCommendClickRateRank_44"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wanty_chen/article/details/79883163,BlogCommendClickRateRank_44"}'>
+<DIV class="content"><A title="opencv 学习笔记——环境变量设置" href="https://blog.csdn.net/wanty_chen/article/details/79883163" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>opencv</EM> 学习笔记——环境变量设置		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">04-10</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 114</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="opencv 学习笔记——环境变量设置" href="https://blog.csdn.net/wanty_chen/article/details/79883163" 
+target="_blank"><SPAN 
+class="desc oneline">在VS2013环境下，配置opencv2.4.111、配置系统环境变量计算机——&amp;amp;gt;右键——&amp;amp;gt;属性——&amp;amp;gt;高级系统设置——&amp;amp;gt;高级——&amp;amp;gt;...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/wanty_chen" target="_blank">来自：	<SPAN 
+class="blog_title">wanty_chen的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010381648/article/details/52493649,BlogCommendClickRateRank_45"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010381648/article/details/52493649,BlogCommendClickRateRank_45"}'>
+<DIV class="content"><A title="Visual Studio 2015 OpenCV配置教程" href="https://blog.csdn.net/u010381648/article/details/52493649" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>Visual</EM> <EM>Studio</EM> <EM>2015</EM> 
+<EM>OpenCV</EM><EM>配置</EM>教程		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">09-10</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 4334</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="Visual Studio 2015 OpenCV配置教程" href="https://blog.csdn.net/u010381648/article/details/52493649" 
+target="_blank"><SPAN 
+class="desc oneline">本教程参考OpenCV官方教程Installation下载OpenCV这里下载的是最新版的opencv-2.4.13下载地址设置OpenCV环境变量并添加到系统路径设置环境变量，以管理员的身份打开Wi...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/u010381648" target="_blank">来自：	<SPAN 
+class="blog_title">DqWong的专栏</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/haiyiheng/article/details/79367348,BlogCommendFromBaidu_46"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/haiyiheng/article/details/79367348,BlogCommendFromBaidu_46"}'>
+<DIV class="content"><A title="配置opencv3.4.0+vs2017" href="https://blog.csdn.net/haiyiheng/article/details/79367348" 
+target="_blank">
+<H4 
+class="text-truncate oneline"><EM>配置</EM><EM>opencv</EM><EM>3.4.0</EM>+vs2017		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">02-25</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1083</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="配置opencv3.4.0+vs2017" href="https://blog.csdn.net/haiyiheng/article/details/79367348" 
+target="_blank"><SPAN 
+class="desc oneline">1.建立属性页，并配置:通用属性，VC++目录（1）包含库目录C:\opencv\build\includeC:\opencv\build\include\opencvC:\opencv\build\...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/haiyiheng" target="_blank">来自：	<SPAN 
+class="blog_title">Liu Wj的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_40540973/article/details/80301806,BlogCommendFromBaidu_47"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_40540973/article/details/80301806,BlogCommendFromBaidu_47"}'>
+<DIV class="content"><A title="Opencv3.4.1与VS2015安装" href="https://blog.csdn.net/qq_40540973/article/details/80301806" 
+target="_blank">
+<H4 class="text-truncate oneline"><EM>Opencv</EM>3.4.1与VS<EM>2015</EM>安装		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">05-13</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 2327</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="Opencv3.4.1与VS2015安装" href="https://blog.csdn.net/qq_40540973/article/details/80301806" 
+target="_blank"><SPAN 
+class="desc oneline">https://jingyan.baidu.com/article/dca1fa6f13bd55f1a44052b9.html教程按照这个来的，有的地方需要改动，不然会报错第五步：Debug与Rele...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/qq_40540973" 
+target="_blank">来自：	<SPAN class="blog_title">Dai</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/muyouhang/article/details/79198216,BlogCommendFromBaidu_48"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/muyouhang/article/details/79198216,BlogCommendFromBaidu_48"}'>
+<DIV class="content"><A title="【OpenCV】OpenCV3.4+OpenCV-Contrib 编译在windows10_x64+vs2015环境下" 
+href="https://blog.csdn.net/muyouhang/article/details/79198216" target="_blank">
+<H4 
+class="text-truncate oneline">【<EM>OpenCV</EM>】<EM>OpenCV</EM>3.4+<EM>OpenCV</EM>-Contrib 
+编译在<EM>windows</EM>10_x64+vs<EM>2015</EM>环境下		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">01-29</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 5126</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="【OpenCV】OpenCV3.4+OpenCV-Contrib 编译在windows10_x64+vs2015环境下" 
+href="https://blog.csdn.net/muyouhang/article/details/79198216" 
+target="_blank"><SPAN 
+class="desc oneline">Step1.下载源码下载链接OpenCV3.4OpenCV-contrib解压缩Step2.使用CMake开始编译如图，选择源码和编译目录，选择Configure开始。【中间会下载东西，我有放梯子的~...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/muyouhang" target="_blank">来自：	<SPAN 
+class="blog_title"> 穆友航的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box recommend-ad-box">
+<DIV id="kp_box_68" data-track-click='{"mod":"kp_popu_68-883","con":",,"}' 
+data-track-view='{"mod":"kp_popu_68-883","con":",,"}' data-pid="68"><!-- T48 位置 --> 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/sdk-csdn-render.js"></SCRIPT>
+ 
+<DIV class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix" 
+id="_4paradigm_T48_render"></DIV>
+<SCRIPT>
+  //  渲染T48  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T48_render", "T48");
+</SCRIPT>
+</DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/niuyuanye/article/details/79607770,BlogCommendFromBaidu_49"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/niuyuanye/article/details/79607770,BlogCommendFromBaidu_49"}'>
+<DIV class="content"><A title="vs2015下Cmake3.10编译Opencv3.4及opencv_contrib3.4在Windows10" 
+href="https://blog.csdn.net/niuyuanye/article/details/79607770" target="_blank">
+<H4 class="text-truncate oneline">
+				vs<EM>2015</EM>下Cmake3.10编译<EM>Opencv</EM>3.4及<EM>opencv</EM>_contrib3.4在<EM>Windows</EM>10		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">03-19</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 5024</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="vs2015下Cmake3.10编译Opencv3.4及opencv_contrib3.4在Windows10" 
+href="https://blog.csdn.net/niuyuanye/article/details/79607770" 
+target="_blank"><SPAN 
+class="desc oneline">0、为何需要自行编译opencv3.4与opencv_contrib3.4因为在3.0之后版本的Opencv对Sift、Sufer等新算法没有提供直接编译好的动态库来加载使用，因此必须自己编译。这是因...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/niuyuanye" target="_blank">来自：	<SPAN 
+class="blog_title">niuyuanye的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/libing13810124573/article/details/51090189,BlogCommendHotData_0"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/libing13810124573/article/details/51090189,BlogCommendHotData_0"}'>
+<DIV class="content"><A title="当当分库分表中间件-sharding-jdbc" href="https://blog.csdn.net/libing13810124573/article/details/51090189" 
+target="_blank">
+<H4 class="text-truncate oneline">				当当分库分表中间件-sharding-jdbc		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">04-07</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="当当分库分表中间件-sharding-jdbc" href="https://blog.csdn.net/libing13810124573/article/details/51090189" 
+target="_blank"><SPAN class="desc oneline">使用指南
+ 阅读本指南前，请先阅读快速起步。本文档使用更复杂的场景进一步介绍Sharding-JDBC的分库分表能力。 数据库模式
+ 本文档中提供了两个数据源db0和db1，每个数据源之...</SPAN>			 </A>			 <SPAN class="blog_title_box oneline "><SPAN 
+class="type-show type-show-blog type-show-after">博文</SPAN>											 <A href="https://blog.csdn.net/libing13810124573" 
+target="_blank">来自：	<SPAN class="blog_title"> 好读书，每有会意，便欣然忘食。</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/liuxuekai/article/details/51951689,BlogCommendHotData_1"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/liuxuekai/article/details/51951689,BlogCommendHotData_1"}'>
+<DIV class="content"><A title="office2016永久免费激活码（office2016密钥）" href="https://blog.csdn.net/liuxuekai/article/details/51951689" 
+target="_blank">
+<H4 class="text-truncate oneline">office2016永久免费激活码（office2016密钥）		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">07-19</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 91万+</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="office2016永久免费激活码（office2016密钥）" href="https://blog.csdn.net/liuxuekai/article/details/51951689" 
+target="_blank"><SPAN class="desc oneline">Microsoft 
+Toolkit(Win10激活工具/Office2016激活工具)  V2.6B4 绿色版人气:42008 下载 Microsoft 
+Toolkit(Win10激活工具/...</SPAN>			 </A>			 <SPAN 
+class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/liuxuekai" target="_blank">来自：	<SPAN 
+class="blog_title"> 老K的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/jiangtongcn/article/details/13509633,BlogCommendHotData_2"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/jiangtongcn/article/details/13509633,BlogCommendHotData_2"}'>
+<DIV class="content"><A title="Activex打包于发布完整版---ActiveX打包" href="https://blog.csdn.net/jiangtongcn/article/details/13509633" 
+target="_blank">
+<H4 class="text-truncate oneline">Activex打包于发布完整版---ActiveX打包		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">10-29</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 3834</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="Activex打包于发布完整版---ActiveX打包" href="https://blog.csdn.net/jiangtongcn/article/details/13509633" 
+target="_blank"><SPAN 
+class="desc oneline">前面介绍了数字证书的原理与制作：http://blog.csdn.net/jiangtongcn/article/details/13508365，下面来看一下ActiveX组件的打包。
+ 我现在有一...</SPAN>			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/jiangtongcn" 
+target="_blank">来自：	<SPAN class="blog_title">jiangtongcn的专栏</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/guangshui123/article/details/4676287,BlogCommendHotData_3"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/guangshui123/article/details/4676287,BlogCommendHotData_3"}'>
+<DIV class="content"><A title="C#中Load等常见方法的介绍" href="https://blog.csdn.net/guangshui123/article/details/4676287" 
+target="_blank">
+<H4 class="text-truncate oneline">C#中Load等常见方法的介绍		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">10-15</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 4198</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="C#中Load等常见方法的介绍" href="https://blog.csdn.net/guangshui123/article/details/4676287" 
+target="_blank"><SPAN 
+class="desc oneline">窗体常见方法的说明案例一随机更换主界面背景目的：每次打开窗体时，相应窗体的主界面不同。代码：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+private void Form1_Load(object sender, EventAr...</SPAN>			 </A>			 <SPAN class="blog_title_box oneline "><SPAN 
+class="type-show type-show-blog type-show-after">博文</SPAN>											 <A href="https://blog.csdn.net/guangshui123" 
+target="_blank">来自：	<SPAN class="blog_title">guangshui123的专栏</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/guoxiaojie_415/article/details/21317323,BlogCommendHotData_4"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/guoxiaojie_415/article/details/21317323,BlogCommendHotData_4"}'>
+<DIV class="content"><A title="Matlab对文件夹的层次遍历和深度遍历" href="https://blog.csdn.net/guoxiaojie_415/article/details/21317323" 
+target="_blank">
+<H4 class="text-truncate oneline">Matlab对文件夹的层次遍历和深度遍历		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">03-16</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="Matlab对文件夹的层次遍历和深度遍历" href="https://blog.csdn.net/guoxiaojie_415/article/details/21317323" 
+target="_blank"><SPAN 
+class="desc oneline">最近做一个项目，由于数据分别放在不同的文件夹中，对大量数据文件“打开-&gt;复制-&gt;粘贴”，觉得很费事，于是就写了对基于Matlab的文件夹遍历。文价夹遍历有两种方式，即层次遍历和深度遍历。个人比较倾向用...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/guoxiaojie_415" 
+target="_blank">来自：	<SPAN class="blog_title">GeorgeGuo</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/roguesir/article/details/77104246,BlogCommendHotData_5"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/roguesir/article/details/77104246,BlogCommendHotData_5"}'>
+<DIV class="content"><A title="人脸检测工具face_recognition的安装与应用" href="https://blog.csdn.net/roguesir/article/details/77104246" 
+target="_blank">
+<H4 class="text-truncate oneline">人脸检测工具face_recognition的安装与应用		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">08-11</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 8万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="人脸检测工具face_recognition的安装与应用" href="https://blog.csdn.net/roguesir/article/details/77104246" 
+target="_blank"><SPAN class="desc oneline">人脸检测工具face_recognition的安装与应用</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/roguesir" target="_blank">来自：	<SPAN 
+class="blog_title">roguesir的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_6"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_6"}'>
+<DIV class="content"><A title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)" 
+href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank">
+<H4 class="text-truncate oneline">python图片处理类之~PIL.Image模块(ios android 
+icon图标自动生成处理)		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">08-31</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 10万+</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)" 
+href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank"><SPAN 
+class="desc oneline">1.从pyCharm提示下载PIL包 
+&nbsp;http://www.pythonware.com/products/pil/&nbsp; 2.解压后，进入到目录下 cd 
+/Users/jianan/Dow...</SPAN>			 </A>			 <SPAN 
+class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/themagickeyjianan" 
+target="_blank">来自：	<SPAN class="blog_title"> 
+专注于cocos+unity+服务器全栈</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_7"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_7"}'>
+<DIV class="content"><A title="centos 查看命令源码" href="https://blog.csdn.net/silentpebble/article/details/41279285" 
+target="_blank">
+<H4 class="text-truncate oneline">centos 查看命令源码		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">11-19</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 11万+</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="centos 查看命令源码" href="https://blog.csdn.net/silentpebble/article/details/41279285" 
+target="_blank"><SPAN class="desc oneline"># yum install yum-utils 设置源:
+ [base-src] name=CentOS-5.4 - Base src - baseurl=http://vault.ce...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/silentpebble" 
+target="_blank">来自：	<SPAN class="blog_title">linux/unix</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u011774517/article/details/56014855,BlogCommendHotData_8"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u011774517/article/details/56014855,BlogCommendHotData_8"}'>
+<DIV class="content"><A title="消息转发-什么时候会报unrecognized selector的异常？" href="https://blog.csdn.net/u011774517/article/details/56014855" 
+target="_blank">
+<H4 class="text-truncate oneline">消息转发-什么时候会报unrecognized selector的异常？		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">02-20</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 4974</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="消息转发-什么时候会报unrecognized selector的异常？" href="https://blog.csdn.net/u011774517/article/details/56014855" 
+target="_blank"><SPAN class="desc oneline">简单来说：当调用该对象上某个方法,而该对象上没有实现这个方法的时候， 
+可以通过“消息转发”进行解决。  简单的流程如下，在上一题中也提到过：objc是动态语言，每个方法在运行时会被动态转为消息发送，即...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/u011774517" target="_blank">来自：	<SPAN 
+class="blog_title">onebutterfly</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_9"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_9"}'>
+<DIV class="content"><A title="C语言函数操作大全----(超详细)" href="https://blog.csdn.net/u010258235/article/details/45666851" 
+target="_blank">
+<H4 class="text-truncate oneline">				C语言函数操作大全----(超详细)		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">05-12</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 2万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="C语言函数操作大全----(超详细)" href="https://blog.csdn.net/u010258235/article/details/45666851" 
+target="_blank"><SPAN class="desc oneline">fopen（打开文件） 相关函数 open，fclose 表头文件 
+#include 定义函数 FILE * fopen(const char * path,const char * mode)...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/u010258235" target="_blank">来自：	<SPAN 
+class="blog_title"> 独旅天涯</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_10"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_10"}'>
+<DIV class="content"><A title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用" 
+href="https://blog.csdn.net/hayixia606/article/details/79237220" 
+target="_blank">
+<H4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">02-02</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 17万+</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用" href="https://blog.csdn.net/hayixia606/article/details/79237220" 
+target="_blank"><SPAN class="desc oneline">扫二维码关注，获取更多技术分享  本文承接之前发布的博客《 
+微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/hayixia606" target="_blank">来自：	<SPAN 
+class="blog_title">Marswill</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_11"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_11"}'>
+<DIV class="content"><A title="jquery/js实现一个网页同时调用多个倒计时(最新的)" href="https://blog.csdn.net/wuchengzeng/article/details/50037611" 
+target="_blank">
+<H4 class="text-truncate oneline">				jquery/js实现一个网页同时调用多个倒计时(最新的)		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">11-25</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 51万+</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="jquery/js实现一个网页同时调用多个倒计时(最新的)" href="https://blog.csdn.net/wuchengzeng/article/details/50037611" 
+target="_blank"><SPAN class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的) 
+最近需要网页添加多个倒计时. 查阅网络,基本上都是千遍一律的不好用. 自己按需写了个.希望对大家有用. 有用请赞一个哦! //js ...</SPAN>
+			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/wuchengzeng" 
+target="_blank">来自：	<SPAN class="blog_title">Websites</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_12"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_12"}'>
+<DIV class="content"><A title="强连通分量及缩点tarjan算法解析" href="https://blog.csdn.net/qq574857122/article/details/16361033" 
+target="_blank">
+<H4 class="text-truncate oneline">强连通分量及缩点tarjan算法解析		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">11-16</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 63万+</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="强连通分量及缩点tarjan算法解析" href="https://blog.csdn.net/qq574857122/article/details/16361033" 
+target="_blank"><SPAN class="desc oneline">强连通分量： 简言之 就是找环（每条边只走一次，两两可达）
+ 孤立的一个点也是一个连通分量  &nbsp;使用tarjan算法 在嵌套的多个环中优先得到最大环( 最小环就是每个孤立点） &nbsp;定义： int 
+Ti...</SPAN>			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/qq574857122" 
+target="_blank">来自：	<SPAN class="blog_title"> 九野的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_13"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_13"}'>
+<DIV class="content"><A title="关于SpringBoot bean无法注入的问题（与文件包位置有关）" href="https://blog.csdn.net/gefangshuai/article/details/50328451" 
+target="_blank">
+<H4 class="text-truncate oneline">				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">12-16</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 23万+</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="关于SpringBoot bean无法注入的问题（与文件包位置有关）" href="https://blog.csdn.net/gefangshuai/article/details/50328451" 
+target="_blank"><SPAN class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：
+ 核心Spring框架一个module spring-boot-base service和dao一个module server-core 
+提供系统...</SPAN>			 </A>			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/gefangshuai" 
+target="_blank">来自：	<SPAN class="blog_title"> 开发随笔</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/luyan_abaci/article/details/48014807,BlogCommendHotData_14"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/luyan_abaci/article/details/48014807,BlogCommendHotData_14"}'>
+<DIV class="content"><A title="VS下生成与配置静态库与动态库（一）" href="https://blog.csdn.net/luyan_abaci/article/details/48014807" 
+target="_blank">
+<H4 class="text-truncate oneline">VS下生成与配置静态库与动态库（一）		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">08-26</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 1万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="VS下生成与配置静态库与动态库（一）" href="https://blog.csdn.net/luyan_abaci/article/details/48014807" 
+target="_blank"><SPAN 
+class="desc oneline">此处仅以VS2010为例，详细说明一下如何在VS环境下生成和使用C++的静态库与动态库。Qt下生成和使用静态和动态库后续再讲。
+ 本文仅供初学者参考，如果有问题欢迎大家指正。 &nbsp; &nbsp; &nbsp; &nbsp;首先简单地理...</SPAN>			 </A>
+			 <SPAN class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/luyan_abaci" 
+target="_blank">来自：	<SPAN class="blog_title">luyan的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/fendoubasaonian/article/details/50180025,BlogCommendHotData_15"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/fendoubasaonian/article/details/50180025,BlogCommendHotData_15"}'>
+<DIV class="content"><A title="虚拟机Linux如何使用笔记本电脑的前置摄像头" href="https://blog.csdn.net/fendoubasaonian/article/details/50180025" 
+target="_blank">
+<H4 class="text-truncate oneline">				虚拟机Linux如何使用笔记本电脑的前置摄像头		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">12-04</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 2万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="虚拟机Linux如何使用笔记本电脑的前置摄像头" href="https://blog.csdn.net/fendoubasaonian/article/details/50180025" 
+target="_blank"><SPAN 
+class="desc oneline">一、Windows设置1.点击开始-&gt;运行，在对话框中输入”services.msc”，回车，打开windows服务管理器。2.在服务列表中选中”VMware 
+USB Arbitration Serv...</SPAN>			 </A>			 <SPAN 
+class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/fendoubasaonian" 
+target="_blank">来自：	<SPAN 
+class="blog_title">fendoubasaonian的专栏</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u014306011/article/details/51546236,BlogCommendHotData_16"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u014306011/article/details/51546236,BlogCommendHotData_16"}'>
+<DIV class="content"><A title="Eclipse如何安装WindowBuilder插件及如何使用WB" href="https://blog.csdn.net/u014306011/article/details/51546236" 
+target="_blank">
+<H4 class="text-truncate oneline">Eclipse如何安装WindowBuilder插件及如何使用WB		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">05-31</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 4857</SPAN>				 </P></DIV></A>
+		 
+<P class="content"><A title="Eclipse如何安装WindowBuilder插件及如何使用WB" href="https://blog.csdn.net/u014306011/article/details/51546236" 
+target="_blank"><SPAN 
+class="desc oneline">Eclipse如何安装WindowBuilder插件及如何使用WB</SPAN>			 </A>			 <SPAN 
+class="blog_title_box oneline "><SPAN class="type-show type-show-blog type-show-after">博文</SPAN>
+											 <A href="https://blog.csdn.net/u014306011" target="_blank">来自：	<SPAN 
+class="blog_title"> 天命王子的博客</SPAN></A></SPAN>		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_blog clearfix" data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Tiaaaaa/article/details/58116346,BlogCommendHotData_17"}' 
+data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Tiaaaaa/article/details/58116346,BlogCommendHotData_17"}'>
+<DIV class="content"><A title="R语言逻辑回归、ROC曲线和十折交叉验证" href="https://blog.csdn.net/Tiaaaaa/article/details/58116346" 
+target="_blank">
+<H4 class="text-truncate oneline">R语言逻辑回归、ROC曲线和十折交叉验证		</H4>
+<DIV class="info-box d-flex align-content-center">
+<P class="date-and-readNum oneline"><SPAN class="date hover-show">02-27</SPAN>
+				 <SPAN class="read-num hover-hide">阅读数 					 7万+</SPAN>				 </P></DIV></A>
+		 <P class="content"><A title="R语言逻辑回归、ROC曲线和十折交叉验证" href="https://blog.csdn.net/Tiaaaaa/article/details/58116346" 
+target="_blank"><SPAN 
+class="desc oneline">自己整理编写的逻辑回归模板，作为学习笔记记录分享。数据集用的是14个自变量Xi，一个因变量Y的australian数据集。 
+1. 测试集和训练集3、7分组 australian ...</SPAN>			 </A>			 <SPAN class="blog_title_box oneline "><SPAN 
+class="type-show type-show-blog type-show-after">博文</SPAN>											 <A href="https://blog.csdn.net/Tiaaaaa" 
+target="_blank">来自：	<SPAN class="blog_title">Tiaaaaa的博客</SPAN></A></SPAN>
+		 </P></DIV></DIV>
+<DIV class="recommend-item-box type_hot_word">
+<DIV class="content clearfix">
+<DIV class="word float-left"><SPAN><A href="https://edu.csdn.net/course/play/5599/109604" 
+target="_blank">                        统计学稳健估计opencv函数                    
+</A></SPAN>                                                                      
+           <SPAN><A href="https://edu.csdn.net/combos/o363_l0_t" 
+target="_blank">                        设计制作学习                    </A></SPAN>    
+                                                                             
+<SPAN><A href="https://edu.csdn.net/courses/o5329_s5330_k" target="_blank">      
+                  机器学习教程                    </A></SPAN>                          
+                                                       <SPAN><A href="https://edu.csdn.net/courses/o280_s351_k" 
+target="_blank">Objective-C培训                    </A></SPAN>                     
+                                                            <SPAN><A href="https://edu.csdn.net/combos/o7115_s388_l0_t" 
+target="_blank">                        交互设计视频教程                    </A></SPAN>  
+                                                           </DIV></DIV>
+<DIV class="content clearfix">
+<DIV class="float-left"><SPAN><A href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" 
+target="_blank">mysql关联查询两次本表</A>                     </SPAN>                    
+                     <SPAN><A href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" 
+target="_blank">native底部 react</A>                     </SPAN>                   
+                      <SPAN><A href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" 
+target="_blank">                        extjs glyph 图标</A>                     
+</SPAN>                                         <SPAN><A href="https://www.csdn.net/gather_4a/NtTaAgysMDQtZWR1.html" 
+target="_blank">2015培训大数据</A>                     </SPAN>                        
+                 <SPAN><A href="https://www.csdn.net/gather_4a/MtjaggtsZWR1.html" 
+target="_blank">python和opencv教程</A>                     </SPAN>                  
+                       </DIV></DIV></DIV>
+<DIV class="recommend-loading-box"><IMG src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/feedLoading.gif"> 
+            </DIV>
+<DIV class="recommend-end-box">
+<P class="text-center">没有更多推荐了，<A class="c-blue c-blue-hover c-blue-focus" href="https://blog.csdn.net/">返回首页</A></P></DIV></DIV></main><ASIDE>
+<DIV class="aside-box" id="asideProfile"><!-- <h3 class="aside-title">个人资料</h3> --> 
+    
+<DIV class="profile-intro d-flex">
+<DIV class="avatar-box d-flex justify-content-center flex-column"><A href="https://blog.csdn.net/duwangthefirst"><IMG 
+class="avatar_pic" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/3_duwangthefirst.png"><IMG 
+class="user-years" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/5.png"> 
+                          </A>                     </DIV>
+<DIV class="user-info d-flex justify-content-center flex-column">
+<P class="name csdn-tracking-statistics tracking-click" data-mod="popu_379"><A 
+id="uid" href="https://blog.csdn.net/duwangthefirst" 
+target="_blank">duwangthefirst</A>             </P></DIV>
+<DIV class="opt-box d-flex justify-content-center flex-column"><SPAN class="csdn-tracking-statistics tracking-click" 
+data-mod="popu_379"><A class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</A> 
+            </SPAN>         </DIV></DIV>
+<DIV class="data-info d-flex item-tiling">
+<DL title="13" class="text-center">
+  <DT><A href="https://blog.csdn.net/duwangthefirst?t=1">原创</A></DT>
+  <DD><A href="https://blog.csdn.net/duwangthefirst?t=1"><SPAN 
+  class="count">13</SPAN></A></DD></DL>
+<DL title="19" class="text-center" id="fanBox">
+  <DT>粉丝</DT>
+  <DD><SPAN class="count" id="fan">19</SPAN></DD></DL>
+<DL title="22" class="text-center">
+  <DT>喜欢</DT>
+  <DD><SPAN class="count">22</SPAN></DD></DL>
+<DL title="29" class="text-center">
+  <DT>评论</DT>
+  <DD><SPAN class="count">29</SPAN></DD></DL></DIV>
+<DIV class="grade-box clearfix">
+<DL>
+  <DT>等级：</DT>             
+  <DD><A title="3级,点击查看等级说明" href="https://blog.csdn.net/home/help.html#level" 
+  target="_blank"><svg xmlns="http://www.w3.org/2000/svg" 
+  class="icon icon-level" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-bloglevel-3" />                     </svg>                 
+  </A>             </DD>         </DL>
+<DL>
+  <DT>访问：</DT>             
+  <DD title="66365">6万+            </DD>         </DL>
+<DL>
+  <DT>积分：</DT>             
+  <DD title="636">636            </DD>         </DL>
+<DL title="109224">
+  <DT>排名：</DT>             
+  <DD>10万+</DD>         </DL></DIV>
+<DIV class="badge-box d-flex"><SPAN>勋章：</SPAN>         
+<DIV class="badge d-flex">
+<DIV title="持之以恒" class="icon-badge">
+<DIV class="mouse-box"><IMG alt="" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/chizhiyiheng.svg"> 
+                          
+<DIV class="icon-arrow"></DIV></DIV>
+<DIV class="grade-detail-box">
+<DIV class="pos-box">
+<DIV class="left-box d-flex justify-content-center align-items-center flex-column"><IMG 
+alt="" src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/chizhiyiheng.svg"> 
+                                   
+<P>持之以恒</P></DIV>
+<DIV class="right-box">                                   
+授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！              
+                 </DIV></DIV></DIV></DIV></DIV>
+<SCRIPT>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </SCRIPT>
+     </DIV></DIV>
+<DIV class="csdn-tracking-statistics mb8 box-shadow" style="height: 250px;" 
+data-pid="blog" data-mod="popu_4">
+<DIV class="aside-content text-center" id="cpro_u2734133">
+<DIV id="kp_box_56" data-track-click='{"mod":"kp_popu_56-876","con":",,"}' 
+data-track-view='{"mod":"kp_popu_56-876","con":",,"}' data-pid="56"><!-- 广告位：PC-博客内页左上视窗 --> 
+<SCRIPT>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '6096221',
+        container: s,
+        size: '300,250',
+        display: 'inlay-fix'
+    });
+})();
+</SCRIPT>
+ 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/os.js"></SCRIPT>
+</DIV></DIV></DIV>
+<DIV class="aside-box" id="asideHotArticle">
+<H3 class="aside-title">热门文章</H3>
+<DIV class="aside-content">
+<UL class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+  <LI><A 
+  href="https://blog.csdn.net/duwangthefirst/article/details/79452314">Windows下OpenCV 
+  3.4.0 + Visual Studio 2015开发环境的配置</A>
+  <P class="read">阅读数 <SPAN>19634</SPAN></P></LI>
+  <LI><A 
+  href="https://blog.csdn.net/duwangthefirst/article/details/79971338">opencv之GaussianBlur()函数</A>
+  <P class="read">阅读数 <SPAN>11237</SPAN></P></LI>
+  <LI><A 
+  href="https://blog.csdn.net/duwangthefirst/article/details/79971212">opencv之Canny()函数</A>
+  <P class="read">阅读数 <SPAN>7564</SPAN></P></LI>
+  <LI><A 
+  href="https://blog.csdn.net/duwangthefirst/article/details/80001106">opencv之dilate()函数</A>
+  <P class="read">阅读数 <SPAN>4009</SPAN></P></LI>
+  <LI><A 
+  href="https://blog.csdn.net/duwangthefirst/article/details/79971369">opencv之bilateralFilter()函数</A>
+  <P class="read">阅读数 <SPAN>3143</SPAN></P></LI></UL></DIV></DIV>
+<DIV id="asideFooter">
+<DIV class="aside-box">
+<DIV id="kp_box_57" data-track-click='{"mod":"kp_popu_57-707","con":",,"}' 
+data-track-view='{"mod":"kp_popu_57-707","con":",,"}' data-pid="57">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/f.txt" async=""></SCRIPT>
+ <!-- 博客内页左下视窗-20181130 --> <INS class="adsbygoogle" style="width: 300px; height: 250px; display: inline-block;" 
+data-ad-slot="1894159733" data-ad-client="ca-pub-1076724771190722"></INS> 
+<SCRIPT>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</SCRIPT>
+</DIV></DIV>
+<DIV class="aside-box">
+<DIV class="persion_article"></DIV></DIV></DIV></ASIDE>
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/publib_footer-1.0.3.js" type="text/javascript" data-isfootertrack="false"></SCRIPT>
+ 
+<SCRIPT>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</SCRIPT>
+ </DIV>
+<DIV class="mask-dark"></DIV>
+<DIV class="pulllog-box" style="display: block;">
+<DIV class="pulllog clearfix"><SPAN class="text float-left">
+<DIV id="dmp_ad_69">
+<DIV id="kp_box_69" data-track-click='{"mod":"kp_popu_69-796","con":",,"}' 
+data-track-view='{"mod":"kp_popu_69-796","con":",,"}' data-pid="69">
+<DIV style="padding: 2px 5px 0px; border: 0px solid rgb(241, 61, 61); border-image: none; margin-right: 5px; float: left;"><A 
+style="color: rgb(241, 61, 61); font-size: 15px; font-weight: bold; text-decoration: none;" 
+href="https://edu.csdn.net/topic/python115?utm_source=ditong" 
+target="_blank">Python全栈训练</A> </DIV>
+<DIV style="padding: 2px 5px 0px; border: 0px solid rgb(0, 191, 255); border-image: none; margin-right: 5px; float: left;"><A 
+style="font-size: 15px; font-weight: bold; text-decoration: none;" href="https://edu.csdn.net/topic/ai30?utm_source=ditong" 
+target="_blank">AI工程师年薪！</A> </DIV>
+<DIV style="padding: 2px 5px 0px; border: 0px solid rgb(241, 61, 61); border-image: none; margin-right: 5px; float: left;"><A 
+style="color: rgb(241, 61, 61); font-size: 15px; font-weight: bold; text-decoration: none;" 
+href="https://www.bagevent.com/event/2586643?bag_track=bk" 
+target="_blank">CTA核心技术与应用峰会</A> </DIV>
+<DIV style="padding: 2px 5px 0px; border: 0px solid rgb(0, 191, 255); border-image: none; margin-right: 5px; float: left;"><A 
+style="font-size: 15px; font-weight: bold; text-decoration: none;" href="https://gitbook.cn/gitchat/column/5cc2b3afd575995386d3abc7?utm_source=wzl190429" 
+target="_blank">15天共读深度学习</A> </DIV>
+<DIV style="padding: 2px 5px 0px; border: 0px solid rgb(241, 61, 61); border-image: none; margin-right: 5px; float: left;"><A 
+style="color: rgb(241, 61, 61); font-size: 15px; font-weight: bold; text-decoration: none;" 
+href="https://edu.csdn.net/huiyiCourse/detail/1000?utm_source=ditong" target="_blank">数据分析训练</A> 
+</DIV>
+<DIV style="float: left;">
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/ndr3h.js" type="text/javascript"></SCRIPT>
+ <!-- 长文字链
+<script type="text/javascript" src="//rabc1.iteye.com/common/5klj5.js?kfxbghx=bx"></script>
+--> 
+</DIV></DIV></DIV></SPAN>		 
+<DIV class="pulllog-btn float-right clearfix">
+<DIV class="float-left csdn-tracking-statistics tracking-click" data-mod="popu_557"><A 
+class="pulllog-login">登录</A></DIV>
+<DIV class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" 
+data-mod="popu_558"><A href="https://passport.csdn.net/account/mobileregister" 
+target="_blank">注册</A></DIV><BUTTON class="btn-close"><svg xmlns="http://www.w3.org/2000/svg" 
+class="icon" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+xlink:href="#csdnc-times" />                 </svg>             </BUTTON>
+		 </DIV></DIV></DIV>
+<DIV id="loginWrap" style="display: none;"></DIV>
+<DIV class="tool-box">
+<UL class="meau-list">
+  <LI class="btn-like-box long-width"><BUTTON title="点赞" class=" long-height hover-box btn-like "><svg 
+  xmlns="http://www.w3.org/2000/svg" class="icon active hover-hide" 
+  aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-thumbsup-ok" />				 </svg>				 <svg xmlns="http://www.w3.org/2000/svg" 
+  class="icon no-active hover-hide" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-thumbsup" />				 </svg>				 <SPAN class="hover-show text-box text"><SPAN 
+  class="no-active">点赞</SPAN>					 <SPAN class="active">取消点赞</SPAN>				 </SPAN>
+  				 
+  <P>13</P></BUTTON>		 </LI>
+  <LI><A title="写评论" class="btn-comments long-height hover-box" href="https://blog.csdn.net/duwangthefirst/article/details/79452314#commentBox"><svg 
+  xmlns="http://www.w3.org/2000/svg" class="icon hover-hide" 
+  aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-comments" />				 </svg>				 <SPAN 
+  class="hover-show text">评论</SPAN>				 
+  <P>27				</P></A></LI>
+  <LI class="toc-container-box" id="liTocBox"><BUTTON title="目录" class="btn-toc low-height hover-box"><svg 
+  xmlns="http://www.w3.org/2000/svg" class="icon hover-hide" 
+  aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-contents" />				 </svg>				 <SPAN 
+  class="hover-show text">目录</SPAN>			 </BUTTON>			 
+  <DIV class="toc-container">
+  <DIV class="pos-box">
+  <DIV class="icon-arrow"></DIV>
+  <DIV class="scroll-box">
+  <DIV class="toc-box"></DIV></DIV></DIV>
+  <DIV class="opt-box"><BUTTON title="向上" class="btn-opt prev nomore"><svg 
+  xmlns="http://www.w3.org/2000/svg" class="icon" aria-hidden="true"><use 
+  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#csdnc-chevronup" />
+  						 </svg>					 </BUTTON>					 <BUTTON class="btn-opt next"><svg xmlns="http://www.w3.org/2000/svg" 
+  class="icon" aria-hidden="true"><use 
+  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#csdnc-chevrondown" />
+  						 </svg>					 </BUTTON>				 </DIV></DIV></LI>
+  <LI><BUTTON title="收藏" class="btn-bookmark low-height hover-box"><svg xmlns="http://www.w3.org/2000/svg" 
+  class="icon active hover-hide" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-bookmark-ok" />				 </svg>				 <svg xmlns="http://www.w3.org/2000/svg" 
+  class="icon no-active hover-hide" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-bookmark" />				 </svg>					 <SPAN 
+  class="hover-show text">收藏</SPAN>				 <!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+  			 </BUTTON>		 </LI>
+  <LI class="bdsharebuttonbox">
+  <DIV class="weixin-qr btn-comments low-height hover-box"><A title="手机看" class="bds_weixin clear-share-style" 
+  href="https://blog.csdn.net/duwangthefirst/article/details/79452314#" 
+  data-cmd="weixin"></A>				 <svg xmlns="http://www.w3.org/2000/svg" class="icon hover-hide" 
+  aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-usephone" />				 </svg>				 <SPAN class="hover-show text text3">手机看
+  				 </SPAN>			 </DIV></LI>
+  <LI class="widescreen-hide"><A title="微型四轴设计之通过arduino读取MPU6050原始数据" class="btn-comments hover-box low-height" 
+  href="https://blog.csdn.net/duwangthefirst/article/details/79773041"><svg 
+  xmlns="http://www.w3.org/2000/svg" class="icon hover-hide" 
+  aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-chevronright" />				 </svg>				 <SPAN class="hover-show text text3">下一篇</SPAN>
+  			 </A></LI><!-- 宽屏更多按钮 -->		 
+  <LI class="widescreen-more"><A title="快问" class="btn-comments chat-ask-button low-height hover-box" 
+  href="https://blog.csdn.net/duwangthefirst/article/details/79452314#chatqa"><svg 
+  xmlns="http://www.w3.org/2000/svg" class="icon hover-hide" 
+  aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xlink:href="#csdnc-more" />				 </svg>				 <SPAN 
+  class="hover-show text">更多</SPAN>							 </A>
+  <UL class="widescreen-more-box">
+    <LI class="widescreen-more"><A title="微型四轴设计之通过arduino读取MPU6050原始数据" class="btn-comments hover-box low-height" 
+    href="https://blog.csdn.net/duwangthefirst/article/details/79773041"><svg 
+    xmlns="http://www.w3.org/2000/svg" class="icon hover-hide" 
+    aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xlink:href="#csdnc-chevronright" />						 </svg>						 <SPAN class="hover-show text text3">下一篇</SPAN>
+    					 </A></LI></UL></LI></UL></DIV>
+<SCRIPT>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</SCRIPT>
+ 
+<SCRIPT>
+    var recommendCount = 68;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 16;
+    var articleId = "79452314";
+    var commentscount = 27;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/duwangthefirst/article/details/79452314";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "Windows下OpenCV 3.4.0 + Visual Studio 2015开发环境的配置 - duwangthefirst的博客";
+    var needInsertBaidu = false;
+    // 代码段样式
+    var codeStyle = '';
+	var highlight = ["windows","opencv","3.4.0","visual","studio","2015","\u5f00\u53d1\u73af\u5883","\u914d\u7f6e"];//高亮数组
+
+    var RecommendBlogExpertList = [{"user_name":"DonetRen","nick_name":"\u5c0f\u79be\u6597\u8001\u5e08","avatar":"https:\/\/avatar.csdn.net\/9\/F\/2\/3_donetren.jpg","is_expert":true,"article_count":115,"rank":"8000+"},{"user_name":"xingchenbingbuyu","nick_name":"\u51b0\u4e0d\u8bed","avatar":"https:\/\/avatar.csdn.net\/7\/5\/0\/3_xingchenbingbuyu.jpg","is_expert":true,"article_count":83,"rank":"6000+"},{"user_name":"bendanban","nick_name":"bendanban","avatar":"https:\/\/avatar.csdn.net\/1\/B\/1\/3_bendanban.jpg","is_expert":true,"article_count":317,"rank":"1000+"},{"user_name":"Edwardjaychou","nick_name":"Edwardjaychou","avatar":"https:\/\/avatar.csdn.net\/E\/5\/6\/3_edwardjaychou.jpg","is_expert":false,"article_count":9,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"dreamtheworld1","nick_name":"\u6211\u751f\u6709\u6daf\u613f\u65e0\u5c3d","avatar":"https:\/\/avatar.csdn.net\/7\/9\/8\/3_dreamtheworld1.jpg","is_expert":false,"article_count":11,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"guanzhen3657","nick_name":"\u5b66\u9738\u5bb6\u6709\u4e8b","avatar":"https:\/\/avatar.csdn.net\/8\/D\/8\/3_guanzhen3657.jpg","is_expert":false,"article_count":14,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"wei_shadow","nick_name":"wei_shadow","avatar":"https:\/\/avatar.csdn.net\/4\/D\/C\/3_wei_shadow.jpg","is_expert":false,"article_count":1,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"qqagsd155451","nick_name":"Sunny-cxr","avatar":"https:\/\/avatar.csdn.net\/C\/E\/D\/3_qqagsd155451.jpg","is_expert":false,"article_count":99,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"u013785404","nick_name":"gra_ss","avatar":"https:\/\/avatar.csdn.net\/7\/B\/8\/3_u013785404.jpg","is_expert":false,"article_count":7,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"OliverkingLi","nick_name":"OliverkingLi","avatar":"https:\/\/avatar.csdn.net\/3\/9\/F\/3_oliverkingli.jpg","is_expert":false,"article_count":205,"rank":"\u5343\u91cc\u4e4b\u5916"}];
+	var articleType = 1;
+	var CopyrightContent = '本文为博主原创文章，未经博主允许不得转载。';
+</SCRIPT>
+ 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/sandalstrap.min.js"></SCRIPT>
+ 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/paging.js"></SCRIPT>
+ 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/goTop-v1.0.min.js"></SCRIPT>
+
+<SCRIPT>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</SCRIPT>
+ 
+<DIV style="display: none;"><IMG onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);' 
+src=""> </DIV><LINK href="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/atom-one-light.css" 
+rel="stylesheet">	 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/pc_wap_common-45af74a22e.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/common-0100d9c3da.min.js"></SCRIPT>
+ 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/detail-a8a55c8dd3.min.js"></SCRIPT>
+	 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/skin3-template-fc7383b956.min.js"></SCRIPT>
+     
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/1UNNS59H.js"></SCRIPT>
+ 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/MathJax.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</SCRIPT>
+ 
+<SCRIPT type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Windows下OpenCV%203_4_0%20+%20Visual%20Studio%202015开发环境的配置%20-%20duwangthefirst的博客%20-%20CSDN博客_files/bword.min.js"></SCRIPT>
+ </BODY><!-- 高亮未与 markdown兼容  --></HTML>

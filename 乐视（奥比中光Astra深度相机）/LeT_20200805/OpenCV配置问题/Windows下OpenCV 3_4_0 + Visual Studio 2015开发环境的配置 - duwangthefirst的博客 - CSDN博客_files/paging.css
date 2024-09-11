@@ -1,0 +1,45 @@
+.ui-paging-container {
+	color: rgb(102, 102, 102); font-size: 12px;
+}
+.ui-paging-container ul {
+	text-align: center; overflow: hidden;
+}
+.ui-paging-container li {
+	list-style: none;
+}
+.ui-paging-container ul {
+	list-style: none;
+}
+.ui-paging-container li {
+	padding: 3px 6px; color: rgb(102, 102, 102); margin-left: 5px; display: inline-block;
+}
+.ui-paging-container li.ui-pager {
+	border-radius: 2px; border: 1px solid rgb(221, 221, 221); border-image: none; cursor: pointer;
+}
+.ui-paging-container li.focus {
+	color: rgb(255, 255, 255); background-color: rgb(40, 141, 240);
+}
+.ui-paging-container li.ui-pager:hover {
+	color: rgb(255, 255, 255); background-color: rgb(40, 141, 240);
+}
+.ui-paging-container li.ui-paging-ellipse {
+	border: currentColor; border-image: none;
+}
+.ui-paging-container li.ui-paging-toolbar {
+	padding: 0px;
+}
+.ui-paging-container li.ui-paging-toolbar select {
+	border: 1px solid rgb(221, 221, 221); border-image: none; height: 22px; color: rgb(102, 102, 102);
+}
+.ui-paging-container li.ui-paging-toolbar input {
+	margin: 0px 0px 0px 5px; padding: 0px; border: 1px solid rgb(221, 221, 221); border-image: none; width: 30px; height: 20px; text-align: center; line-height: 20px; vertical-align: top;
+}
+.ui-paging-container li.ui-paging-toolbar a {
+	padding: 0px 3px; border-radius: 2px; border: 1px solid rgb(221, 221, 221); border-image: none; height: 20px; color: rgb(102, 102, 102); line-height: 20px; text-decoration: none; margin-left: 5px; vertical-align: top; display: inline-block; cursor: pointer;
+}
+.ui-paging-container li.ui-pager-disabled {
+	border: currentColor; border-image: none; color: rgb(221, 221, 221); cursor: default; background-color: rgb(246, 246, 246);
+}
+.ui-paging-container li.ui-pager-disabled:hover {
+	border: currentColor; border-image: none; color: rgb(221, 221, 221); cursor: default; background-color: rgb(246, 246, 246);
+}

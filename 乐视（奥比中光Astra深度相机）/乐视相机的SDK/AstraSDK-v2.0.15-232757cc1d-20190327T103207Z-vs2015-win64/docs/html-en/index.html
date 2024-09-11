@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Astra SDK &mdash; The Astra SDK Book ... documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="The Astra SDK Book ... documentation" href="#"/>
+        <link rel="next" title="2 Getting Started" href="gettingstarted.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="#" class="icon icon-home"> The Astra SDK Book
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              ...
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrievingstreamdata.html">Retrieving Stream Data</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">The Astra SDK Book</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>The Astra SDK</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-sdkname-sdk">
+<h1>The Astra SDK<a class="headerlink" href="#the-sdkname-sdk" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the book on the Astra SDK! The Astra SDK&#8217;s exposes to the developer a comprehensive set of functionality to utilize all of the Astra&#8217;s capabilities through a simple yet powerful API.</p>
+<p>This book will be a vital resource to any developer who wants to:</p>
+<ul class="simple">
+<li>Quickly get up to speed with Astra SDK development</li>
+<li>Understand the high-level concepts with the SDK</li>
+<li>Find detailed information on specific SDK functionality or features</li>
+</ul>
+<p>&#8220;The Astra SDK&#8221; begins below with an introduction, followed by these three sections:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrievingstreamdata.html">Retrieving Stream Data</a></li>
+</ul>
+</div>
+<p>Once you&#8217;ve read the introduction, jump over to the <a class="reference internal" href="gettingstarted.html"><em>Getting Started</em></a> section to explore an introductory project.</p>
+</div>
+<div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The design goals for the SDK are straightforward and lofty - to create the world&#8217;s best 3D sensor development experience. To facilitate this, the best ideas from many other modern device and sensor SDKs, along with many original ideas from Orbbec&#8217;s development team, were combined to put emphasis on developer creativity, remove needless complexity, and generally make Astra SDK development a joyful, unintrusive process.</p>
+</div>
+<div class="section" id="low-ceremony-design">
+<h1>Low Ceremony Design<a class="headerlink" href="#low-ceremony-design" title="Permalink to this headline">¶</a></h1>
+<p>The designers of the SDK are also experienced 3D sensor developers themselves, and recognize the features that are most commonly used when developing 3D sensor applications. To this end, the Astra SDK reduces the boilerplate code required to obtain sensor data by exposing high-level stream types in addition to low-level stream types through a consistent, easy-to-understand API. This can be best shown with some example code:</p>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">astra</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+
+<span class="n">astra</span><span class="o">::</span><span class="n">StreamSet</span> <span class="n">streamSet</span><span class="p">;</span> <span class="c1">//By default, a StreamSet will address the Astra</span>
+<span class="n">astra</span><span class="o">::</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">streamSet</span><span class="p">.</span><span class="n">create_reader</span><span class="p">();</span>
+
+<span class="c1">// Low-Level Streams</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">ColorStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="c1">//High-Level Streams</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">HandStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">PointStream</span><span class="o">&gt;</span><span class="p">().</span><span class="n">start</span><span class="p">();</span>
+
+<span class="n">astra</span><span class="o">::</span><span class="n">Frame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">get_latest_frame</span><span class="p">();</span>
+
+<span class="c1">//Low-Level Streams</span>
+<span class="k">const</span> <span class="k">auto</span> <span class="n">depthFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">DepthFrame</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">const</span> <span class="k">auto</span> <span class="n">colorFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">ColorFrame</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="c1">//High-Level Streams</span>
+<span class="k">const</span> <span class="k">auto</span> <span class="n">handFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">HandFrame</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">const</span> <span class="k">auto</span> <span class="n">pointFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">astra</span><span class="o">::</span><span class="n">PointFrame</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="n">astra</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>First, take note where we create our <code class="docutils literal"><span class="pre">StreamSet</span></code> object on line 1. Without any additional configuration, it will default to addressing the Astra sensor. In the lines below, you can see that, regardless of the stream type, the same API calls are made to interact with each stream.</p>
+<p>If you&#8217;re an advanced 3D sensor developer and worried that this SDK is designed for simple applications only, rest assured that the Astra SDK also handles less-common cases, often simply by passing different parameters to object constructors. In short, no matter how complicated your application might be, the Astra SDK can handle it.</p>
+</div>
+<div class="section" id="cross-everything">
+<h1>Cross-Everything<a class="headerlink" href="#cross-everything" title="Permalink to this headline">¶</a></h1>
+<p>The Astra SDK exposes its functionality through a core C API and also provides a modern C++11 API. From this foundation, the SDK is able to support a number of languages and platforms:</p>
+<div class="section" id="currently-supported">
+<h2>Currently Supported<a class="headerlink" href="#currently-supported" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Languages: C, C++11, Java, C#</li>
+<li>Platforms: Windows, OSX, Linux, Android</li>
+<li>Frameworks: Unity</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mobile">
+<h1>Mobile<a class="headerlink" href="#mobile" title="Permalink to this headline">¶</a></h1>
+<p>Mobile devices are becoming more powerful and smaller each passing year, but are comparatively resource contrained to desktop PCs. With this in mind, the Astra SDK has been carefully engineered to minimize CPU and memory overhead to keep mobile devices running smoothly while economizing battery usage.</p>
+</div>
+<div class="section" id="extensibility">
+<h1>Extensibility<a class="headerlink" href="#extensibility" title="Permalink to this headline">¶</a></h1>
+<p>Perhaps the most powerful feature of the Astra SDK is its plugin layer. Plugins afford advanced developers a method to extend the SDK&#8217;s functionality with the same consistency and level of support as the rest of the platform. In fact, all of the &#8220;stock&#8221; stream types included with the SDK are actually supported through plugins themselves.</p>
+<p>Plugins aren&#8217;t limited to adding additional stream type support, though. Imagine adding support to address a network of sensors through the same consistent API as a single sensor. The possibilities are truly innumerable, and will allow exciting first and third party additions as the SDK matures.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gettingstarted.html" class="btn btn-neutral float-right" title="2 Getting Started" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright &copy; 2015 Orbbec.
+
+    </p>
+  </div>
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'...',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

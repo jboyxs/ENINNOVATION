@@ -1,0 +1,4 @@
+﻿  main.cpp
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../cpp-api/DepthReaderEventCPP/main.cpp(64): warning C4244: “初始化”: 从“float”转换到“std::size_t”，可能丢失数据
+  DepthReaderEventCPP.vcxproj -> D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\bin/Debug/DepthReaderEventCPP.exe
+  DepthReaderEventCPP.vcxproj -> D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\bin/Debug/DepthReaderEventCPP.pdb (Full PDB)

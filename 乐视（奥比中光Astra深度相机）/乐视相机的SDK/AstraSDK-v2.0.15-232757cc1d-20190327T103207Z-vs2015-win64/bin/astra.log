@@ -1,0 +1,11 @@
+2019-07-25 20:31:26,774 ERROR [astra] Body Tracking Error: 0x50002ce3 Orbbec Body Tracking trial expired. Please contact Orbbec support.
+2019-07-25 20:31:26,808 ERROR [astra] Body Tracking Error: 0x50002f09 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-07-25 20:31:26,844 ERROR [astra] Body Tracking Error: 0x60003143 Orbbec Body Tracking trial expired. Please contact Orbbec support.
+2020-04-09 21:42:06,132 ERROR [astra] Body Tracking Error: 0x50001153 Orbbec Body Tracking trial expired. Please contact Orbbec support.
+2020-04-09 21:42:06,138 ERROR [astra] Body Tracking Error: 0x500011b9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2020-04-09 21:42:06,155 ERROR [astra] Body Tracking Error: 0x600012b3 Orbbec Body Tracking trial expired. Please contact Orbbec support.
+2020-04-09 21:42:12,331 ERROR [astra] Body Tracking Error: 0x500010f3 Orbbec Body Tracking trial expired. Please contact Orbbec support.
+2020-04-09 21:42:12,337 ERROR [astra] Body Tracking Error: 0x50001149 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2020-04-09 21:42:12,586 ERROR [astra] Body Tracking Error: 0x600020e3 Orbbec Body Tracking trial expired. Please contact Orbbec support.
+2020-04-09 21:43:03,423 ERROR [orbbec.ni.WmfColorStream] WMF device has no compatible stream profiles.
+2020-04-09 21:43:03,432 ERROR [orbbec.ni.device_streamset] could not open uvc-based color stream

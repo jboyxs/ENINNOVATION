@@ -1,0 +1,13 @@
+﻿  main.cpp
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(83): warning C4244: “初始化”: 从“__int64”转换到“float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(83): warning C4244: “初始化”: 从“__int64”转换到“const float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(264): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(264): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(267): warning C4244: “参数”: 从“const int”转换到“float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(274): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(274): warning C4244: “初始化”: 从“float”转换到“const int”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(280): warning C4244: “参数”: 从“const int”转换到“float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(285): warning C4244: “参数”: 从“const int”转换到“float”，可能丢失数据
+D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\../sfml/SimpleStreamViewer-SFML/main.cpp(532): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+  SimpleStreamViewer-SFML.vcxproj -> D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\bin/Debug/SimpleStreamViewer-SFML.exe
+  SimpleStreamViewer-SFML.vcxproj -> D:\Desktop\工创II\乐视（奥比中光Astra深度相机）\乐视相机的SDK\AstraSDK-v2.0.15-232757cc1d-20190327T103207Z-vs2015-win64\samples\vs2015\bin/Debug/SimpleStreamViewer-SFML.pdb (Full PDB)

@@ -1,0 +1,108 @@
+.hljs {
+	background: rgb(250, 250, 250); padding: 0.5em; color: rgb(56, 58, 66); display: block; -ms-overflow-x: auto;
+}
+.hljs-comment {
+	color: rgb(160, 161, 167); font-style: italic;
+}
+.hljs-quote {
+	color: rgb(160, 161, 167); font-style: italic;
+}
+.hljs-doctag {
+	color: rgb(166, 38, 164);
+}
+.hljs-keyword {
+	color: rgb(166, 38, 164);
+}
+.hljs-formula {
+	color: rgb(166, 38, 164);
+}
+.hljs-section {
+	color: rgb(228, 86, 73);
+}
+.hljs-name {
+	color: rgb(228, 86, 73);
+}
+.hljs-selector-tag {
+	color: rgb(228, 86, 73);
+}
+.hljs-deletion {
+	color: rgb(228, 86, 73);
+}
+.hljs-subst {
+	color: rgb(228, 86, 73);
+}
+.hljs-literal {
+	color: rgb(1, 132, 187);
+}
+.hljs-string {
+	color: rgb(80, 161, 79);
+}
+.hljs-regexp {
+	color: rgb(80, 161, 79);
+}
+.hljs-addition {
+	color: rgb(80, 161, 79);
+}
+.hljs-attribute {
+	color: rgb(80, 161, 79);
+}
+.hljs-meta-string {
+	color: rgb(80, 161, 79);
+}
+.hljs-built_in {
+	color: rgb(193, 132, 1);
+}
+.hljs-class .hljs-title {
+	color: rgb(193, 132, 1);
+}
+.hljs-attr {
+	color: rgb(152, 104, 1);
+}
+.hljs-variable {
+	color: rgb(152, 104, 1);
+}
+.hljs-template-variable {
+	color: rgb(152, 104, 1);
+}
+.hljs-type {
+	color: rgb(152, 104, 1);
+}
+.hljs-selector-class {
+	color: rgb(152, 104, 1);
+}
+.hljs-selector-attr {
+	color: rgb(152, 104, 1);
+}
+.hljs-selector-pseudo {
+	color: rgb(152, 104, 1);
+}
+.hljs-number {
+	color: rgb(152, 104, 1);
+}
+.hljs-symbol {
+	color: rgb(64, 120, 242);
+}
+.hljs-bullet {
+	color: rgb(64, 120, 242);
+}
+.hljs-link {
+	color: rgb(64, 120, 242);
+}
+.hljs-meta {
+	color: rgb(64, 120, 242);
+}
+.hljs-selector-id {
+	color: rgb(64, 120, 242);
+}
+.hljs-title {
+	color: rgb(64, 120, 242);
+}
+.hljs-emphasis {
+	font-style: italic;
+}
+.hljs-strong {
+	font-weight: bold;
+}
+.hljs-link {
+	text-decoration: underline;
+}
