@@ -9,5 +9,5 @@
 ### 解决的问题
 1. 如何运行样例
    - 帮助文档：D:\ENINOVATION\乐视（奥比中光Astra深度相机）\乐视相机的SDK\Doc_SDK_AstraSDK-v2.1.0-9bced77c41.chw
-   - 可是感觉梁老板给的SDK有点问题，所以从官网上找到了新的SDK：https://www.orbbec.com/developers/astra-sdk/，这样就不用配置路径（应该是。。。。）就可以打开sample运行样例了。
+   - 可是感觉梁老板给的SDK有点问题，所以从官网上找到了新的SDK：https://www.orbbec.com/developers/astra-sdk/, 这样就不用配置路径（应该是。。。。）就可以打开sample运行样例了。
 2. 
