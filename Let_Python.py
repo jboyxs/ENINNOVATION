@@ -54,8 +54,15 @@ if __name__ == "__main__":
         # 将深度图转换为8位灰度图（标准化处理以便于边缘检测）
         dpt_normalized = cv2.normalize(dpt, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
 
+        # 选择滤波器进行处理
+        # 1. 高斯滤波 (Gaussian Blur)
+        dpt_filtered = cv2.GaussianBlur(dpt_normalized, (5, 5), 0)
+        
+        # 2. 双边滤波 (Bilateral Filter) —— 更强的边缘保留
+        # dpt_filtered = cv2.bilateralFilter(dpt_normalized, 9, 75, 75)
+
         # 使用Canny边缘检测
-        edges = cv2.Canny(dpt_normalized, 50, 150)
+        edges = cv2.Canny(dpt_filtered, 50, 150)
 
         # 使用形态学操作来填充边缘
         kernel = np.ones((5, 5), np.uint8)
@@ -110,7 +117,7 @@ if __name__ == "__main__":
                         print(f"Ball detected at: ({center[0]}, {center[1]}) with depth: {depth_at_center} mm")
 
         # 显示结果
-        cv2.imshow('depth', dpt_normalized)
+        cv2.imshow('depth', dpt_filtered)  # 显示滤波后的深度图
         cv2.imshow('color', color_frame)
 
         # 按 'q' 键退出
