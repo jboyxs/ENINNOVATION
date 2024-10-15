@@ -2,6 +2,7 @@ from openni import openni2
 from openni import _openni2 as c_api
 import numpy as np
 import cv2
+import time  # 导入时间模块
 
 depth_width = 640
 depth_height = 480
@@ -33,6 +34,9 @@ if __name__ == "__main__":
     # 创建窗口
     cv2.namedWindow('depth')
     cv2.setMouseCallback('depth', mousecallback)
+
+    last_time = None  # 记录上一次检测到小球的时间
+    last_position = None  # 记录上一次检测到小球的坐标
 
     while True:
         # 从深度数据流中读取一帧数据
@@ -90,7 +94,19 @@ if __name__ == "__main__":
                         cv2.rectangle(color_frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                         cv2.circle(color_frame, center, 5, (0, 0, 255), -1)  # 绘制中心点
 
-                        # 打印小球的中心坐标
+                        # 获取当前时间
+                        current_time = time.time()
+
+                        # 如果上次检测到小球的时间不为空，则计算时间差
+                        if last_time is not None:
+                            time_diff = current_time - last_time
+                            print(f"Time since last detection: {time_diff:.4f} seconds")
+                        
+                        # 更新上一次检测到小球的时间和位置
+                        last_time = current_time
+                        last_position = center
+
+                        # 打印小球的中心坐标和深度
                         print(f"Ball detected at: ({center[0]}, {center[1]}) with depth: {depth_at_center} mm")
 
         # 显示结果
