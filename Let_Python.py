@@ -55,7 +55,7 @@ if __name__ == "__main__":
         dpt_normalized = cv2.normalize(dpt, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
 
         # 1. 应用高斯滤波 (Gaussian Blur)
-        dpt_filtered = cv2.GaussianBlur(dpt_normalized, (5, 5), 2)  # 5x5的内核，标准差为2
+        dpt_filtered = cv2.GaussianBlur(dpt_normalized, (3, 3), 2)  # 5x5的内核，标准差为2
 
         # 2. 应用双边滤波 (Bilateral Filter)
         dpt_filtered = cv2.bilateralFilter(dpt_filtered, 9, 75, 75)  # 内核为9，空间距离为75，颜色距离为75
@@ -64,7 +64,7 @@ if __name__ == "__main__":
         edges = cv2.Canny(dpt_filtered, 50, 150)  # 低阈值为50，高阈值为150
 
         # 使用形态学操作来填充边缘
-        kernel = np.ones((5, 5), np.uint8)  # 增大内核为 5x5
+        kernel = np.ones((7, 7), np.uint8)  # 增大内核为 5x5
         edges_dilated = cv2.dilate(edges, kernel, iterations=2)  # 扩大迭代次数为2
 
         # 找到轮廓
