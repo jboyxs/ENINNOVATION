@@ -25,7 +25,7 @@ if __name__ == "__main__":
     print(depth_stream.get_video_mode())
 
     # 设置深度数据流的视频模式
-    depth_stream.set_video_mode(c_api.OniVideoMode(pixelFormat=c_api.OniPixelFormat.ONI_PIXEL_FORMAT_DEPTH_1_MM, resolutionX=depth_width, resolutionY=depth_height, fps=30))
+    depth_stream.set_video_mode(c_api.OniVideoMode(pixelFormat=c_api.OniPixelFormat.ONI_PIXEL_FORMAT_DEPTH_1_MM, resolutionX=depth_width, resolutionY=depth_height, fps=60))
     depth_stream.start()
 
     # 打开视频捕获设备，使用第二个摄像头（如有多个）
