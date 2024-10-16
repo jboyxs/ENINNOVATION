@@ -8,7 +8,7 @@ depth_width = 640
 depth_height = 480
 
 # 设置深度阈值，以筛选小球
-DEPTH_THRESHOLD = 300  # 设定一个深度阈值，单位为毫米
+DEPTH_THRESHOLD = 1  # 设定一个深度阈值，单位为毫米
 
 def mousecallback(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDBLCLK:
@@ -54,22 +54,18 @@ if __name__ == "__main__":
         # 将深度图转换为8位灰度图（标准化处理以便于边缘检测）
         dpt_normalized = cv2.normalize(dpt, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
 
-        # 滤波部分已被注释
-        # 1. 高斯滤波 (Gaussian Blur)
-        # dpt_filtered = cv2.GaussianBlur(dpt_normalized, (3, 3), 1)  # 内核尺寸为 3x3，标准差为 1
+        # 1. 应用高斯滤波 (Gaussian Blur)
+        dpt_filtered = cv2.GaussianBlur(dpt_normalized, (5, 5), 2)  # 5x5的内核，标准差为2
 
-        # 2. 双边滤波 (Bilateral Filter)
-        # dpt_filtered = cv2.bilateralFilter(dpt_normalized, 5, 50, 50)  # 内核为5，空间距离为50，颜色距离为50
-
-        # 因为滤波部分被注释掉，直接使用归一化后的深度图
-        dpt_filtered = dpt_normalized
+        # 2. 应用双边滤波 (Bilateral Filter)
+        dpt_filtered = cv2.bilateralFilter(dpt_filtered, 9, 75, 75)  # 内核为9，空间距离为75，颜色距离为75
 
         # Canny边缘检测
-        edges = cv2.Canny(dpt_filtered, 30, 100)  # 低阈值为30，高阈值为100
+        edges = cv2.Canny(dpt_filtered, 50, 150)  # 低阈值为50，高阈值为150
 
         # 使用形态学操作来填充边缘
-        kernel = np.ones((3, 3), np.uint8)  # 内核为 3x3
-        edges_dilated = cv2.dilate(edges, kernel, iterations=1)
+        kernel = np.ones((5, 5), np.uint8)  # 增大内核为 5x5
+        edges_dilated = cv2.dilate(edges, kernel, iterations=2)  # 扩大迭代次数为2
 
         # 找到轮廓
         contours, _ = cv2.findContours(edges_dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
