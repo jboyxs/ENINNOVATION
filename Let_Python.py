@@ -2,7 +2,7 @@ from openni import openni2
 from openni import _openni2 as c_api
 import numpy as np
 import cv2
-import time  # 导入时间模块
+import time
 
 depth_width = 640
 depth_height = 480
@@ -54,18 +54,21 @@ if __name__ == "__main__":
         # 将深度图转换为8位灰度图（标准化处理以便于边缘检测）
         dpt_normalized = cv2.normalize(dpt, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
 
-        # 选择滤波器进行处理
+        # 滤波部分已被注释
         # 1. 高斯滤波 (Gaussian Blur)
-        dpt_filtered = cv2.GaussianBlur(dpt_normalized, (5, 5), 0)
-        
-        # 2. 双边滤波 (Bilateral Filter) —— 更强的边缘保留
-        # dpt_filtered = cv2.bilateralFilter(dpt_normalized, 9, 75, 75)
+        # dpt_filtered = cv2.GaussianBlur(dpt_normalized, (3, 3), 1)  # 内核尺寸为 3x3，标准差为 1
 
-        # 使用Canny边缘检测
-        edges = cv2.Canny(dpt_filtered, 50, 150)
+        # 2. 双边滤波 (Bilateral Filter)
+        # dpt_filtered = cv2.bilateralFilter(dpt_normalized, 5, 50, 50)  # 内核为5，空间距离为50，颜色距离为50
+
+        # 因为滤波部分被注释掉，直接使用归一化后的深度图
+        dpt_filtered = dpt_normalized
+
+        # Canny边缘检测
+        edges = cv2.Canny(dpt_filtered, 30, 100)  # 低阈值为30，高阈值为100
 
         # 使用形态学操作来填充边缘
-        kernel = np.ones((5, 5), np.uint8)
+        kernel = np.ones((3, 3), np.uint8)  # 内核为 3x3
         edges_dilated = cv2.dilate(edges, kernel, iterations=1)
 
         # 找到轮廓
@@ -77,7 +80,7 @@ if __name__ == "__main__":
         for cnt in contours:
             # 计算轮廓的面积并过滤小面积和大面积的轮廓
             area = cv2.contourArea(cnt)
-            if 100 < area < 1000:  # 根据需要调整面积阈值
+            if 150 < area < 900:  # 优化面积阈值，适应具体情况
                 # 计算小球的边界框和中心点
                 (x, y, w, h) = cv2.boundingRect(cnt)
                 center = (x + w // 2, y + h // 2)
@@ -87,27 +90,33 @@ if __name__ == "__main__":
 
                 # 筛选出符合深度阈值的小球
                 if depth_at_center < DEPTH_THRESHOLD:
-                    # 计算圆度
+                    # 计算圆度，使用更高的圆度阈值，确保物体为圆形
                     perimeter = cv2.arcLength(cnt, True)
                     circularity = 4 * np.pi * (area / (perimeter ** 2)) if perimeter > 0 else 0
 
-                    # 进一步筛选圆度
-                    if circularity > 0.7:  # 根据需要调整圆度阈值
-                        # 在深度图上绘制边界框
-                        cv2.rectangle(dpt_normalized, (x, y), (x + w, y + h), (255, 0, 0), 2)
-                        cv2.circle(dpt_normalized, center, 5, (0, 255, 0), -1)  # 绘制中心点
+                    if circularity > 0.8:  # 调整圆度阈值
+                        # 在深度图上绘制更明显的边框
+                        color = (0, 0, 255)  # 红色边框
+                        thickness = 2  # 边框厚度
+                        cv2.rectangle(dpt_filtered, (x, y), (x + w, y + h), color, thickness)
+                        cv2.circle(dpt_filtered, center, 5, (0, 255, 0), -1)  # 绘制中心点
 
-                        # 在彩色图上绘制边界框
+                        # 在彩色图上绘制边框
                         cv2.rectangle(color_frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                         cv2.circle(color_frame, center, 5, (0, 0, 255), -1)  # 绘制中心点
 
                         # 获取当前时间
                         current_time = time.time()
 
-                        # 如果上次检测到小球的时间不为空，则计算时间差
+                        # 如果上次检测到小球的时间不为空，则计算时间差并输出
                         if last_time is not None:
                             time_diff = current_time - last_time
                             print(f"Time since last detection: {time_diff:.4f} seconds")
+                        
+                            # 打印两个位置之间的时间差和坐标
+                            if last_position is not None:
+                                print(f"Previous Ball Position: {last_position}, Current Ball Position: {center}")
+                                print(f"Time between detections: {time_diff:.4f} seconds\n")
                         
                         # 更新上一次检测到小球的时间和位置
                         last_time = current_time
@@ -117,7 +126,7 @@ if __name__ == "__main__":
                         print(f"Ball detected at: ({center[0]}, {center[1]}) with depth: {depth_at_center} mm")
 
         # 显示结果
-        cv2.imshow('depth', dpt_filtered)  # 显示滤波后的深度图
+        cv2.imshow('depth', dpt_filtered)  # 显示滤波后的深度图和明显的边框
         cv2.imshow('color', color_frame)
 
         # 按 'q' 键退出
