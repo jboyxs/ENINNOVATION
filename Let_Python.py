@@ -3,6 +3,7 @@ from openni import _openni2 as c_api
 import numpy as np
 import cv2
 import time
+import matplotlib.pyplot as plt
 
 depth_width = 640
 depth_height = 480
@@ -38,7 +39,12 @@ if __name__ == "__main__":
     last_time = None  # 记录上一次检测到小球的时间
     last_position = None  # 记录上一次检测到小球的坐标
 
+    frame_times = []  # 存储每帧的时间戳
+    frame_rates = []  # 存储每帧的帧率
+
     while True:
+        start_time = time.time()  # 记录帧开始时间
+
         # 从深度数据流中读取一帧数据
         frame = depth_stream.read_frame()
 
@@ -55,17 +61,17 @@ if __name__ == "__main__":
         dpt_normalized = cv2.normalize(dpt, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
 
         # 1. 应用高斯滤波 (Gaussian Blur)
-        dpt_filtered = cv2.GaussianBlur(dpt_normalized, (3, 3), 2)  # 5x5的内核，标准差为2
+        dpt_filtered = cv2.GaussianBlur(dpt_normalized, (3, 3), 2)
 
         # 2. 应用双边滤波 (Bilateral Filter)
-        dpt_filtered = cv2.bilateralFilter(dpt_filtered, 9, 75, 75)  # 内核为9，空间距离为75，颜色距离为75
+        dpt_filtered = cv2.bilateralFilter(dpt_filtered, 9, 75, 75)
 
         # Canny边缘检测
-        edges = cv2.Canny(dpt_filtered, 50, 150)  # 低阈值为50，高阈值为150
+        edges = cv2.Canny(dpt_filtered, 50, 150)
 
         # 使用形态学操作来填充边缘
-        kernel = np.ones((7, 7), np.uint8)  # 增大内核为 5x5
-        edges_dilated = cv2.dilate(edges, kernel, iterations=2)  # 扩大迭代次数为2
+        kernel = np.ones((7, 7), np.uint8)
+        edges_dilated = cv2.dilate(edges, kernel, iterations=2)
 
         # 找到轮廓
         contours, _ = cv2.findContours(edges_dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -76,59 +82,68 @@ if __name__ == "__main__":
         for cnt in contours:
             # 计算轮廓的面积并过滤小面积和大面积的轮廓
             area = cv2.contourArea(cnt)
-            if 150 < area < 900:  # 优化面积阈值，适应具体情况
+            if 150 < area < 900:
                 # 计算小球的边界框和中心点
                 (x, y, w, h) = cv2.boundingRect(cnt)
                 center = (x + w // 2, y + h // 2)
 
                 # 计算轮廓中心的深度值
-                depth_at_center = dpt[y + h // 2, x + w // 2]  # 获取中心点的深度值
+                depth_at_center = dpt[y + h // 2, x + w // 2]
 
                 # 筛选出符合深度阈值的小球
                 if depth_at_center < DEPTH_THRESHOLD:
-                    # 计算圆度，使用更高的圆度阈值，确保物体为圆形
                     perimeter = cv2.arcLength(cnt, True)
                     circularity = 4 * np.pi * (area / (perimeter ** 2)) if perimeter > 0 else 0
 
-                    if circularity > 0.8:  # 调整圆度阈值
-                        # 在深度图上绘制更明显的边框
-                        color = (0, 0, 255)  # 红色边框
-                        thickness = 2  # 边框厚度
+                    if circularity > 0.8:
+                        color = (0, 0, 255)
+                        thickness = 2
                         cv2.rectangle(dpt_filtered, (x, y), (x + w, y + h), color, thickness)
-                        cv2.circle(dpt_filtered, center, 5, (0, 255, 0), -1)  # 绘制中心点
+                        cv2.circle(dpt_filtered, center, 5, (0, 255, 0), -1)
 
-                        # 在彩色图上绘制边框
                         cv2.rectangle(color_frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-                        cv2.circle(color_frame, center, 5, (0, 0, 255), -1)  # 绘制中心点
+                        cv2.circle(color_frame, center, 5, (0, 0, 255), -1)
 
-                        # 获取当前时间
                         current_time = time.time()
 
-                        # 如果上次检测到小球的时间不为空，则计算时间差并输出
                         if last_time is not None:
                             time_diff = current_time - last_time
                             print(f"Time since last detection: {time_diff:.4f} seconds")
-                        
-                            # 打印两个位置之间的时间差和坐标
                             if last_position is not None:
                                 print(f"Previous Ball Position: {last_position}, Current Ball Position: {center}")
                                 print(f"Time between detections: {time_diff:.4f} seconds\n")
-                        
-                        # 更新上一次检测到小球的时间和位置
                         last_time = current_time
                         last_position = center
 
-                        # 打印小球的中心坐标和深度
                         print(f"Ball detected at: ({center[0]}, {center[1]}) with depth: {depth_at_center} mm")
 
         # 显示结果
-        cv2.imshow('depth', dpt_filtered)  # 显示滤波后的深度图和明显的边框
+        cv2.imshow('depth', dpt_filtered)
         cv2.imshow('color', color_frame)
+
+        # 记录处理完这一帧的时间
+        end_time = time.time()
+        frame_time = end_time - start_time  # 计算每帧处理的时间
+        frame_rate = 1.0 / frame_time  # 计算帧率
+        frame_times.append(end_time)  # 记录时间戳
+        frame_rates.append(frame_rate)  # 记录帧率
+
+        print(f"Current frame rate: {frame_rate:.2f} FPS")
 
         # 按 'q' 键退出
         key = cv2.waitKey(1)
         if int(key) == ord('q'):
             break
+
+    # 绘制帧率随时间变化的图
+    plt.figure(figsize=(10, 5))
+    plt.plot(frame_times, frame_rates, label="Frame Rate (FPS)", color='b')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Frame Rate (FPS)')
+    plt.title('Frame Rate Over Time')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
     cap.release()
     cv2.destroyAllWindows()
