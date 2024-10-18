@@ -9,7 +9,7 @@ depth_width = 640
 depth_height = 480
 
 # 设置深度阈值，以筛选小球
-DEPTH_THRESHOLD = 1  # 设定一个深度阈值，单位为毫米
+DEPTH_THRESHOLD = 1000  # 深度阈值，单位为毫米
 
 def mousecallback(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDBLCLK:
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     depth_stream.set_video_mode(c_api.OniVideoMode(pixelFormat=c_api.OniPixelFormat.ONI_PIXEL_FORMAT_DEPTH_1_MM, resolutionX=depth_width, resolutionY=depth_height, fps=60))
     depth_stream.start()
 
-    # 打开视频捕获设备，使用第二个摄像头（如有多个）
+    # 打开视频捕获设备，使用第一个摄像头
     cap = cv2.VideoCapture(0)
     
     # 创建窗口
@@ -41,6 +41,11 @@ if __name__ == "__main__":
 
     frame_times = []  # 存储每帧的时间戳
     frame_rates = []  # 存储每帧的帧率
+
+    # 追踪器初始化
+    tracker = None
+    ball_bbox = None  # 记录小球的边界框
+    tracking = False  # 是否在追踪状态
 
     while True:
         start_time = time.time()  # 记录帧开始时间
@@ -76,46 +81,64 @@ if __name__ == "__main__":
         # 找到轮廓
         contours, _ = cv2.findContours(edges_dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-        # 在深度图和彩色图上绘制检测到的小球
+        # 从摄像头读取彩色图像
         ret, color_frame = cap.read()
 
-        for cnt in contours:
-            # 计算轮廓的面积并过滤小面积和大面积的轮廓
-            area = cv2.contourArea(cnt)
-            if 150 < area < 900:
-                # 计算小球的边界框和中心点
-                (x, y, w, h) = cv2.boundingRect(cnt)
-                center = (x + w // 2, y + h // 2)
+        if tracking and tracker is not None:
+            # 如果追踪状态处于激活，则更新追踪器位置
+            success, ball_bbox = tracker.update(color_frame)
+            if success:
+                # 追踪成功，绘制追踪的边界框
+                p1 = (int(ball_bbox[0]), int(ball_bbox[1]))
+                p2 = (int(ball_bbox[0] + ball_bbox[2]), int(ball_bbox[1] + ball_bbox[3]))
+                cv2.rectangle(color_frame, p1, p2, (255, 0, 0), 2, 1)
+                cv2.circle(color_frame, (p1[0] + ball_bbox[2] // 2, p1[1] + ball_bbox[3] // 2), 5, (0, 0, 255), -1)
+            else:
+                # 追踪失败，重置追踪器
+                tracking = False
+                tracker = None
 
-                # 计算轮廓中心的深度值
-                depth_at_center = dpt[y + h // 2, x + w // 2]
+        if not tracking:
+            # 如果没有激活追踪器，进行小球检测
+            for cnt in contours:
+                # 计算轮廓的面积并过滤小面积和大面积的轮廓
+                area = cv2.contourArea(cnt)
+                if 150 < area < 900:
+                    # 计算小球的边界框和中心点
+                    (x, y, w, h) = cv2.boundingRect(cnt)
+                    center = (x + w // 2, y + h // 2)
 
-                # 筛选出符合深度阈值的小球
-                if depth_at_center < DEPTH_THRESHOLD:
-                    perimeter = cv2.arcLength(cnt, True)
-                    circularity = 4 * np.pi * (area / (perimeter ** 2)) if perimeter > 0 else 0
+                    # 计算轮廓中心的深度值
+                    depth_at_center = dpt[y + h // 2, x + w // 2]
 
-                    if circularity > 0.8:
-                        color = (0, 0, 255)
-                        thickness = 2
-                        cv2.rectangle(dpt_filtered, (x, y), (x + w, y + h), color, thickness)
-                        cv2.circle(dpt_filtered, center, 5, (0, 255, 0), -1)
+                    # 筛选出符合深度阈值的小球
+                    if depth_at_center < DEPTH_THRESHOLD:
+                        perimeter = cv2.arcLength(cnt, True)
+                        circularity = 4 * np.pi * (area / (perimeter ** 2)) if perimeter > 0 else 0
 
-                        cv2.rectangle(color_frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-                        cv2.circle(color_frame, center, 5, (0, 0, 255), -1)
+                        if circularity > 0.8:
+                            # 初始化追踪器
+                            ball_bbox = (x, y, w, h)
+                            tracker = cv2.TrackerKCF_create()  # 创建KCF追踪器
+                            tracker.init(color_frame, ball_bbox)
+                            tracking = True
 
-                        current_time = time.time()
+                            # 绘制检测到的小球
+                            cv2.rectangle(color_frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                            cv2.circle(color_frame, center, 5, (0, 0, 255), -1)
 
-                        if last_time is not None:
-                            time_diff = current_time - last_time
-                            print(f"Time since last detection: {time_diff:.4f} seconds")
-                            if last_position is not None:
-                                print(f"Previous Ball Position: {last_position}, Current Ball Position: {center}")
-                                print(f"Time between detections: {time_diff:.4f} seconds\n")
-                        last_time = current_time
-                        last_position = center
+                            current_time = time.time()
 
-                        print(f"Ball detected at: ({center[0]}, {center[1]}) with depth: {depth_at_center} mm")
+                            if last_time is not None:
+                                time_diff = current_time - last_time
+                                print(f"Time since last detection: {time_diff:.4f} seconds")
+                                if last_position is not None:
+                                    print(f"Previous Ball Position: {last_position}, Current Ball Position: {center}")
+                                    print(f"Time between detections: {time_diff:.4f} seconds\n")
+                            last_time = current_time
+                            last_position = center
+
+                            print(f"Ball detected at: ({center[0]}, {center[1]}) with depth: {depth_at_center} mm")
 
         # 显示结果
         cv2.imshow('depth', dpt_filtered)
