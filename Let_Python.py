@@ -66,10 +66,10 @@ if __name__ == "__main__":
         dpt_normalized = cv2.normalize(dpt, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
 
         # 1. 应用高斯滤波 (Gaussian Blur)
-        dpt_filtered = cv2.GaussianBlur(dpt_normalized, (3, 3), 2)
+        dpt_filtered = cv2.GaussianBlur(dpt_normalized, (3, 3), 1)
 
         # 2. 应用双边滤波 (Bilateral Filter)
-        dpt_filtered = cv2.bilateralFilter(dpt_filtered, 9, 75, 75)
+        dpt_filtered = cv2.bilateralFilter(dpt_filtered, 5,50, 50)
 
         # Canny边缘检测
         edges = cv2.Canny(dpt_filtered, 50, 150)
