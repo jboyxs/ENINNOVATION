@@ -3,7 +3,7 @@ import time
 
 def calculate_inverse_kinematics(PITCH, ROLL):
     # 加载 DLL 文件
-    pRSS6RBT_Inverse = CDLL("resolve\\RSS6RBT_InverseDLL.dll")
+    pRSS6RBT_Inverse = CDLL(r"d:\en\project\resolve\RSS6RBT_InverseDLL.dll")
     
     # 打开文件
     with open('./test1.txt', 'a') as File:
