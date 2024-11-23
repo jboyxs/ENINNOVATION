@@ -1,33 +1,44 @@
+import os
+import psutil
 import numpy as np
 import cv2
 import time
 import threading
 import queue
-from lock_17.pidchanged_two import PID as pid
+from lock_17.pidchanged_three import PID  # 更新后的 PID 类
 from lock_17 import link as link
 from lock_17 import guide as gu
 from resolve import gongchuang2 as re
 
 # 设置队列大小
 FRAME_QUEUE_SIZE = 10
-PROCESS_QUEUE_SIZE = 10
+DISPLAY_QUEUE_SIZE = 10
 
 # 初始化队列
 frame_queue = queue.Queue(maxsize=FRAME_QUEUE_SIZE)
-process_queue = queue.Queue(maxsize=PROCESS_QUEUE_SIZE)
+display_queue = queue.Queue(maxsize=DISPLAY_QUEUE_SIZE)
 
-# 初始化摄像头
-cap = cv2.VideoCapture(0)
-if not cap.isOpened():
-    print("无法打开摄像头")
-    exit()
-
-# 创建显示窗口
-cv2.namedWindow('color')
-cv2.namedWindow('edges')
+# 定义共享变量和锁
+latest_position = None
+position_lock = threading.Lock()
 
 # 定义停止信号
 stop_event = threading.Event()
+
+def set_thread_priority(thread, priority):
+    """
+    设置进程的优先级（注意：Python不支持单独设置线程优先级）。
+    这里设置整个进程的优先级。
+    
+    :param thread: 线程对象（未使用，因为无法单独设置线程优先级）
+    :param priority: 优先级常量，参考psutil文档
+    """
+    p = psutil.Process(os.getpid())
+    try:
+        p.nice(priority)
+        print(f"进程优先级已设置为 {priority}")
+    except AttributeError:
+        print("设置线程优先级失败，该平台可能不支持。")
 
 def detect_ball(roi, last_time, last_position, lower_blue, upper_blue):
     """
@@ -97,9 +108,7 @@ def frame_capture():
     stop_event.set()
 
 def frame_processing():
-    """处理视频帧并放入处理队列"""
-    # 预定义结构元素和颜色范围
-    # kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+    """处理视频帧并更新最新的位置"""
     lower_blue = np.array([16, 82, 142])
     upper_blue = np.array([161, 255, 255])
 
@@ -112,40 +121,82 @@ def frame_processing():
         except queue.Empty:
             continue
 
-        roi = frame  # 此处可根据需要修改感兴趣区域
+        roi = frame  # 可根据需要修改感兴趣区域
 
         # 调用检测函数
-        updated_time, updated_position, mask = detect_ball(roi, last_time, last_position,  lower_blue, upper_blue)
+        updated_time, updated_position, mask = detect_ball(roi, last_time, last_position, lower_blue, upper_blue)
 
         # 更新状态
         last_time = updated_time
         last_position = updated_position
 
         try:
-            process_queue.put((frame, updated_time, updated_position, mask), timeout=1)
+            display_queue.put((frame, mask), timeout=1)
         except queue.Full:
-            print("处理队列已满，丢弃处理结果")
-            continue
+            print("显示队列已满，丢弃处理结果")
+            pass
+
+        # 更新共享变量
+        if updated_position is not None:
+            with position_lock:
+                global latest_position
+                latest_position = updated_position
 
 def data_communication():
-    """处理PID控制和数据发送"""
-    setpoint_xo = 302
-    setpoint_yo = 281
-    setpoint_x = setpoint_xo
-    setpoint_y = setpoint_yo
-    pid_x = pid(0.014, 0.0019, 0.9, setpoint_x)
-    pid_y = pid(0.014, 0.0019, 0.9, setpoint_y)
+    """处理PID控制和数据发送，基于共享变量"""
+    # 定义目标点列表
+    list_of_targets = [
+        # (307, 303),  # 第一个目标点
+        (317,293),
+        (322,288),
+        (327,283),
+        (332,278),
+        (337,273),
+        (342,268),
+        (347,263),
+        (352,258),
+        (357,253),
+        (362,248),
+        (367,243),
+        (372,238),
+        (377,233),
+        (382,228),
+        (387,223),
+        (392,218),
+        (397,213),
+        (402,208),
+        (407,203),
+        (412,198),
+        (417,193),
+        (422,188),
+        (427,183),
+        (432,178),
+        (437,173),
+        (442,168),
+        (447,163),
+        # (457,157),
+        # (454, 157),  # 第二个目标点
+        # (146, 143),  # 第三个目标点
+        # 添加更多目标点
+    ]
+    current_target_index = 0  # 当前目标点索引
+
+    # 设置初始目标点
+    setpoint_x, setpoint_y = list_of_targets[current_target_index]
+    pid_x = PID(0.004, 0.000, 1, setpoint_x)
+    pid_y = PID(0.004, 0.000, 1, setpoint_y)
+
     port = "COM6"
     ser = link.connect_to_stm32(port, 384000)
 
-    while not stop_event.is_set():
-        try:
-            _, last_time, last_position, _ = process_queue.get(timeout=1)
-        except queue.Empty:
-            continue
+    distance_threshold = 5   # 定义一个距离阈值，当小球距离目标点小于此值时认为到达
 
-        if last_position is not None:
-            center_x, center_y = last_position
+    while not stop_event.is_set():
+        with position_lock:
+            current_position = latest_position
+
+        if current_position is not None:
+            center_x, center_y = current_position
             # 更新 PID 控制
             angle_x = pid_x.update(center_x)
             angle_y = pid_y.update(center_y)
@@ -155,17 +206,33 @@ def data_communication():
                 angle__6 = [int(angle) for angle in angle__6]
                 # 发送数据
                 link.send_data(ser, angle__6)
+
+                # 检查是否到达当前目标点
+                target_x, target_y = list_of_targets[current_target_index]
+                distance = np.sqrt((center_x - target_x) ** 2 + (center_y - target_y) ** 2)
+                if distance < distance_threshold:
+                    print(f"已到达目标点: ({target_x}, {target_y})")
+                    # 更新到下一个目标点
+                    current_target_index += 1
+                    if current_target_index >= len(list_of_targets):
+                        current_target_index = 0  # 如果到达最后一个目标点，重新开始循环
+                        print("所有目标点已完成，重新开始路径规划。")
+                    # 更新PID控制器的目标点
+                    setpoint_x, setpoint_y = list_of_targets[current_target_index]
+                    pid_x.set_point(setpoint_x)
+                    pid_y.set_point(setpoint_y)
+                    print(f"下一个目标点: ({setpoint_x}, {setpoint_y})")
         else:
             print("未检测到小球，跳过当前帧处理。")
-            # 如果需要发送全零数据，可以在这里启用
-            # zero_data = [0, 0, 0, 0, 0, 0]
-            # link.send_data(ser, zero_data)
+        
+        # 为了避免过度占用CPU，设置适当的睡眠时间
+        time.sleep(0.01)  # 10ms，可根据需要调整
 
 def display_frames():
     """显示处理后的帧"""
     while not stop_event.is_set():
         try:
-            frame, _, _, mask = process_queue.get(timeout=1)
+            frame, mask = display_queue.get(timeout=1)
         except queue.Empty:
             continue
 
@@ -179,6 +246,18 @@ def display_frames():
 
 def main():
     """主函数，启动所有线程"""
+    global cap
+
+    # 初始化摄像头
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        print("无法打开摄像头")
+        exit()
+
+    # 创建显示窗口
+    cv2.namedWindow('color')
+    cv2.namedWindow('edges')
+
     # 启动捕获线程
     capture_thread = threading.Thread(target=frame_capture, daemon=True)
     capture_thread.start()
@@ -190,6 +269,9 @@ def main():
     # 启动通信线程
     communication_thread = threading.Thread(target=data_communication, daemon=True)
     communication_thread.start()
+
+    # 设置进程优先级（无法单独设置线程优先级）
+    set_thread_priority(communication_thread, psutil.HIGH_PRIORITY_CLASS)
 
     # 启动显示线程（主线程）
     display_frames()
