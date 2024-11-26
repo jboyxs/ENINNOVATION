@@ -176,8 +176,8 @@ def data_communication():
 
     # 设置初始目标点
     setpoint_x, setpoint_y = list_of_targets[current_target_index]
-    pid_x = PID(0.01, 0.0014, 1.1, setpoint_x)
-    pid_y = PID(0.01, 0.0017, 1.1, setpoint_y)
+    pid_x = PID(0.01, 0.0016, 1.1, setpoint_x)
+    pid_y = PID(0.01, 0.0019, 1.1, setpoint_y)
 
     port = "COM6"
     ser = link.connect_to_stm32(port, 384000)
