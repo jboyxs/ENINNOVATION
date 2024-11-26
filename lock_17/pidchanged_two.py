@@ -1,7 +1,7 @@
 import time
 
 class PID:
-    def __init__(self, Kp, Ki, Kd, setpoint, integral_window=5):
+    def __init__(self, Kp, Ki, Kd, setpoint, integral_window=7):
         self.Kp = Kp
         self.Ki = Ki
         self.Kd = Kd

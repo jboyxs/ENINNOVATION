@@ -80,8 +80,8 @@ if __name__ == "__main__":
     last_time = None
     last_position = None
     # pid_init
-    setpoint_xo=302
-    setpoint_yo=281
+    setpoint_xo=320
+    setpoint_yo=288
     setpoint_x=setpoint_xo
     setpoint_y=setpoint_yo
     pid_x = pid(0.014, 0.0019, 0.9, setpoint_x)
